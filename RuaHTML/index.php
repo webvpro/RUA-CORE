@@ -22,7 +22,7 @@
  * as this file.
  *
  */
-	$system_path = "../ListMagnetSys";
+	$system_path = "../RuaSys";
 
 /*
  *---------------------------------------------------------------
@@ -38,7 +38,7 @@
  * NO TRAILING SLASH!
  *
  */
-	$application_folder = "../ListMagnetApp";
+	$application_folder = "../RuaApp";
 
 /*
  * --------------------------------------------------------------------
