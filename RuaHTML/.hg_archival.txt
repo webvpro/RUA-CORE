@@ -1,0 +1,5 @@
+repo: 69ca77b6f12c30234505f90fabdd9fb4be6a369c
+node: 0b88a4ed53039412e47bb375c8b2fc5eb6faa8ef
+branch: default
+latesttag: v1.7.1
+latesttagdistance: 388

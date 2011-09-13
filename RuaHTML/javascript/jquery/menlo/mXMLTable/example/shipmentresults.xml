@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LmsMessage>
+    <Language>
+        en
+    </Language>
+    <LmsCarrierLoadSearchResponse>
+        <Success>
+            true
+        </Success>
+        <Pagination>
+            <RecordCount>
+                3
+            </RecordCount>
+            <RecordsPerPage>
+                50
+            </RecordsPerPage>
+            <CurrentPage>
+                1
+            </CurrentPage>
+        </Pagination>
+        <Shipments>
+            <Shipment>
+            	<ClientOrder>
+            		12333
+            	</ClientOrder>
+				<ClientId>
+            		123456
+            	</ClientId>
+				<ClientName>
+            		THe Client
+            	</ClientName>
+                <Pro>
+                    44444
+                </Pro>
+                <Load>
+                    400142937
+                </Load>
+                <ShipmentId>
+                    S00185919
+                </ShipmentId>
+                <BOL>
+                    L410400142937
+                </BOL>
+                <ClientSic>
+                    TOW
+                </ClientSic>
+                <LastStatus>
+                    <Status>
+                        Actual
+                    </Status>
+                    <StatusCode>
+                        ?
+                    </StatusCode>
+                    <StatusDate>
+                        12/01/2008 22:35:01 CT
+                    </StatusDate>
+                    <LocationName>
+                        Dow Chemical
+                    </LocationName>
+                    <City>
+                        La Port
+                    </City>
+                    <State>
+                        TX
+                    </State>
+                    <PostalCode>
+                        77572
+                    </PostalCode>
+                </LastStatus>
+                <Pickup>
+                    <PlannedDateTime>
+                        12/08/2008 12:00 CT
+                    </PlannedDateTime>
+                    <ActualDateTime>
+                    </ActualDateTime>
+                    <LocationName>
+                        3533 N. 27TH STREET
+                    </LocationName>
+                    <City>
+                        MILWAUKEE
+                    </City>
+                    <State>
+                        WI
+                    </State>
+                    <PostalCode>
+                        53201
+                    </PostalCode>
+                </Pickup>
+                <Delivery>
+                    <PlannedDateTime>
+                        12/08/2008 12:00 ET
+                    </PlannedDateTime>
+                    <ActualDateTime>
+                    </ActualDateTime>
+                    <LocationName>
+                        12337 COLLECTIONS CENTER DR.
+                    </LocationName>
+                    <City>
+                        CHICAGO
+                    </City>
+                    <State>
+                        IL
+                    </State>
+                    <PostalCode>
+                        60693
+                    </PostalCode>
+                </Delivery>
+            </Shipment>
+            <Shipment>
+            	<ClientOrder>
+            		12333
+            	</ClientOrder>
+				<ClientId>
+            		123456
+            	</ClientId>
+				<ClientName>
+            		THe Client
+            	</ClientName>
+                <Pro>
+                    44444
+                </Pro>
+                <Load>
+                    400142937
+                </Load>
+                <ShipmentId>
+                    S00185920
+                </ShipmentId>
+                <BOL>
+                    L410400142937
+                </BOL>
+                <ClientSic>
+                    TOW
+                </ClientSic>
+                <LastStatus>
+                    <Status>
+                        Actual
+                    </Status>
+                    <StatusCode>
+                        ?
+                    </StatusCode>
+                    <StatusDate>
+                        12/01/2008 22:35:01 CT
+                    </StatusDate>
+                    <LocationName>
+                        Dow Chemical
+                    </LocationName>
+                    <City>
+                        La Port
+                    </City>
+                    <State>
+                        TX
+                    </State>
+                    <PostalCode>
+                        77572
+                    </PostalCode>
+                </LastStatus>
+                <Pickup>
+                    <PlannedDateTime>
+                        12/08/2008 12:00 CT
+                    </PlannedDateTime>
+                    <ActualDateTime>
+                    </ActualDateTime>
+                    <LocationName>
+                        3533 N. 27TH STREET
+                    </LocationName>
+                    <City>
+                        MILWAUKEE
+                    </City>
+                    <State>
+                        WI
+                    </State>
+                    <PostalCode>
+                        53201
+                    </PostalCode>
+                </Pickup>
+                <Delivery>
+                    <PlannedDateTime>
+                        12/08/2008 12:00 ET
+                    </PlannedDateTime>
+                    <ActualDateTime>
+                        02/17/2009
+                        09:49 PT
+                    </ActualDateTime>
+                    <LocationName>
+                        12337 COLLECTIONS CENTER DR.
+                    </LocationName>
+                    <City>
+                        CHICAGO
+                    </City>
+                    <State>
+                        IL
+                    </State>
+                    <PostalCode>
+                        60693
+                    </PostalCode>
+                </Delivery>
+            </Shipment>
+            <Shipment>
+            	<ClientOrder>
+            		12333
+            	</ClientOrder>
+				<ClientId>
+            		123456
+            	</ClientId>
+				<ClientName>
+            		THe Client
+            	</ClientName>
+                <Pro>
+                    44444
+                </Pro>
+                <Load>
+                    400142937
+                </Load>
+                <ShipmentId>
+                    S00185921
+                </ShipmentId>
+                <BOL>
+                    L410400142937
+                </BOL>
+                <ClientSic>
+                    TOW
+                </ClientSic>
+                <LastStatus>
+                    <Status>
+                        Actual
+                    </Status>
+                    <StatusCode>
+                        ?
+                    </StatusCode>
+                    <StatusDate>
+                        12
+                        /01/2008 22:35:01 CT
+                    </StatusDate>
+                    <LocationName>
+                        Dow Chemical
+                    </LocationName>
+                    <City>
+                        La Port
+                    </City>
+                    <State>
+                        TX
+                    </State>
+                    <PostalCode>
+                        77572
+                    </PostalCode>
+                </LastStatus>
+                <Pickup>
+                    <PlannedDateTime>
+                        12/08/2008 12:00 CT
+                    </PlannedDateTime>
+                    <ActualDateTime>
+                    </ActualDateTime>
+                    <LocationName>
+                        3533 N. 27TH STREET
+                    </LocationName>
+                    <City>
+                        MILWAUKEE
+                    </City>
+                    <State>
+                        WI
+                    </State>
+                    <PostalCode>
+                        53201
+                    </PostalCode>
+                </Pickup>
+                <Delivery>
+                    <PlannedDateTime>
+                        12/08/2008 12:00
+                        CT
+                    </PlannedDateTime>
+                    <ActualDateTime>
+                        02/17/2009 09:49 PT
+                    </ActualDateTime>
+                    <LocationName>
+                        12337 COLLECTIONS
+                        CENTER DR.
+                    </LocationName>
+                    <City>
+                        CHICAGO
+                    </City>
+                    <State>
+                        IL
+                    </State>
+                    <PostalCode>
+                        60693
+                    </PostalCode>
+                </Delivery
+                >
+            </Shipment>
+        </Shipments>
+    </LmsCarrierLoadSearchResponse>
+</LmsMessage>

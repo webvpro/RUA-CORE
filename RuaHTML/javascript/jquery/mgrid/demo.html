@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>mGrid demo</title>
+		<link rel="stylesheet" type="text/css" media="screen" href="css/mgrid.css" />
+	<!--scripts-->
+
+		<script type="text/javascript" src="/javascript/jquery/jquery-1.3.1.min.js"></script>
+		<script type="text/javascript" src="mgrid.js"></script>
+		
+	<style type="text/css" media="screen">
+	body {
+		font-family: Verdana, Arial, "Comic Sans MS", sans-serif; 
+		font-size: 11px; 
+		margin: 0px;
+		padding: 10px; 
+	}
+	
+</style>
+<script type="text/javascript">
+	$(document).ready(
+		function() {
+			$("table#scroll1.scroll").grid({height: 150, width: [150,150,150,150]});			
+		}
+	); 
+</script>
+
+</head>
+<body>
+
+
+
+<table id="scroll1" class="scroll" cellpadding="0" cellspacing="0">
+<thead>
+<tr class="stacticHeader">
+<th>Col 1</th>
+<th>Col 2</th>
+<th>Col 3</th>
+<th>Col 4</th>
+</tr>
+</thead>
+
+<tbody>
+<tr><td>static col 1</td><td>static col 2</td><td>static col 3</td><td>static col 4</td></tr>
+<tr><td>static col 1</td><td>static col 2</td><td>static col 3</td><td>static col 4</td></tr>
+<tr><td>static col 1</td><td>static col 2</td><td>static col 3</td><td>static col 4</td></tr>
+<tr><td>static col 1</td><td>static col 2</td><td>static col 3</td><td>static col 4</td></tr>
+
+<tr><td>static col 1</td><td>static col 2</td><td>static col 3</td><td>static col 4</td></tr>
+<tr><td>static col 1</td><td>static col 2</td><td>static col 3</td><td>static col 4</td></tr>
+<tr><td>static col 1</td><td>static col 2</td><td>static col 3</td><td>static col 4</td></tr>
+<tr><td>static col 1</td><td>static col 2</td><td>static col 3</td><td>static col 4</td></tr>
+
+<tr><td>static col 1</td><td>static col 2</td><td>static col 3</td><td>static col 4</td></tr>
+<tr><td>static col 1</td><td>static col 2</td><td>static col 3</td><td>static col 4</td></tr>
+<tr><td>static col 1</td><td>static col 2</td><td>static col 3</td><td>static col 4</td></tr>
+<tr><td>static col 1</td><td>static col 2</td><td>static col 3</td><td>static col 4</td></tr>
+
+<tr><td>static col 1</td><td>static col 2</td><td>static col 3</td><td>static col 4</td></tr>
+<tr><td>static col 1</td><td>static col 2</td><td>static col 3</td><td>static col 4</td></tr>
+<tr><td>static col 1</td><td>static col 2</td><td>static col 3</td><td>static col 4</td></tr>
+</tbody>
+</table>
+
+
+<br><br>
+<a href="grid.js">grid plugin source</a><br>
+<a href="dyndata.php">dyndata.php sample xml data</a>
+</body>
+</html>
+

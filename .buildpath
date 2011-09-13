@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<buildpath>
+	<buildpathentry kind="src" path="ListMagnetApp/config"/>
+	<buildpathentry kind="src" path="ListMagnetApp/controllers"/>
+	<buildpathentry kind="src" path="ListMagnetApp/core/controllers"/>
+	<buildpathentry kind="src" path="ListMagnetApp/core/errors"/>
+	<buildpathentry kind="src" path="ListMagnetApp/core/views"/>
+	<buildpathentry kind="src" path="ListMagnetApp/errors"/>
+	<buildpathentry kind="src" path="ListMagnetApp/libraries"/>
+	<buildpathentry kind="src" path="ListMagnetApp/models"/>
+	<buildpathentry kind="src" path="ListMagnetApp/views"/>
+	<buildpathentry kind="src" path="ListMagnetHTML"/>
+	<buildpathentry kind="src" path="ListMagnetSys/core"/>
+	<buildpathentry kind="src" path="ListMagnetSys/database"/>
+	<buildpathentry kind="src" path="ListMagnetSys/helpers"/>
+	<buildpathentry kind="src" path="ListMagnetSys/language/english"/>
+	<buildpathentry kind="src" path="ListMagnetSys/libraries"/>
+	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
+</buildpath>
