@@ -25,12 +25,12 @@ class Home extends CI_Controller {
 		
     $data['current_page']="/home";
 	$this->load->view('include/header_main',$data);
-    $this->load->view('include/main_nav',$data);
-	$this->load->view('include/footer_main',$data);
+    $this->load->view('home', $data);
+	//$this->load->view('include/footer_main',$data);
 	}
 	
 } 
 
-/* End of file welcome.php */
-/* Location: ./system/application/controllers/welcome.php */
+/* End of file home.php */
+/* Location: ./system/application/controllers/home.php */
 ?>

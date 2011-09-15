@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Welcome to CodeIgniter</title>
+<title>Welcome to Myfb.ci</title>
 
 <style type="text/css">
 
