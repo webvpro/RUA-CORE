@@ -14,11 +14,12 @@
 				<li><a href="#article1" class="drop">Categories</a><div class="dropdown_5columns">  
        						 Drop down Content  
         			<div></li>
-				<li><a href="#article1" class="drop">Galleries</a><div class="dropdown_5columns">  
+				<li><a href="#article1" class="drop">Featured</a><div class="dropdown_5columns">  
        						 Drop down Content  
         			<div></li>
 				<li><a href="#article2">Sweet Boxes</a></li>
 				<li><a href="#article3">Sell My Art</a></li>
+				<li><a href="#article3">Sign In</a></li>
 
 			</ul>
 
