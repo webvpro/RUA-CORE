@@ -26,4 +26,6 @@ $config['gfc_consumer_key']="*:09000285409227200618";
 $config['gfc_consumer_secret']="H0M6e1wpi1c=";
 $config['gfc_api_id']="ABQIAAAAV_LK7M1N87XgxmdmEA8pABTKsxG0M_Q60K6_NLPMZogKGBcI5BQ44iuwXq1Eup7r6dhjg1gbeFW8Lg";
 $config['gfcAPIKey']="ABQIAAAAV_LK7M1N87XgxmdmEA8pABTKsxG0M_Q60K6_NLPMZogKGBcI5BQ44iuwXq1Eup7r6dhjg1gbeFW8Lg";
+
+$config['youtubeKey']="AI39si6X-fx2AZXVPuW8GJ9G17inFnDEihT4N9ifZSHJ8PoaW7FMEXxHxKsqE_r2rMKY6F7f1-gRoyis7wVl0WLDCNlKWYn3iw";
  ?>

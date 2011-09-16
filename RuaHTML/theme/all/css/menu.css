@@ -42,9 +42,9 @@
 	
 	/* Rounded corners */
 	
-	-moz-border-radius: 5px 5px 0px 0px;
-	-webkit-border-radius: 5px 5px 0px 0px;
-	border-radius: 5px 5px 0px 0px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	border-radius: 5px 5px 5px 5px;
 }
 
 #menu li a {
@@ -60,13 +60,14 @@
 #menu li:hover a {
 	color:#161616;
 	/*text-shadow: 1px 1px 1px #ffffff;*/
+	
 }
 #menu li .drop {
 	padding-right:21px;
-	background:url("/images/drop.png") no-repeat right 8px;
+	background:url("/theme/all/images/drop.png") no-repeat right 8px;
 }
 #menu li:hover .drop {
-	background:url("/images/drop.png") no-repeat right 7px;
+	background:url("/theme/all/images/drop.png") no-repeat right 7px;
 }
 
 .dropdown_1column, 
@@ -75,6 +76,7 @@
 .dropdown_4columns,
 .dropdown_5columns {
 	margin:4px auto;
+	margin-top:-2px;
 	float:left;
 	position:absolute;
 	left:-999em; /* Hides the drop down */
@@ -82,7 +84,7 @@
 	padding:10px 5px 10px 5px;
 	border:1px solid #777777;
 	border-top:none;
-	
+	color:#000000;
 	/* Gradient background */
 	background:#F4F4F4;
 	background: -moz-linear-gradient(top, #EEEEEE, #BBBBBB);
@@ -143,12 +145,12 @@
 	top:auto;
 }
 
-#menu p, #menu h2, #menu h3, #menu ul li {
+#menu h2, #menu h3, #menu ul li {
 	font-family:Arial, Helvetica, sans-serif;
 	line-height:21px;
 	font-size:12px;
 	text-align:left;
-	text-shadow: 1px 1px 1px #FFFFFF;
+	/*text-shadow: 1px 1px 1px #000;*/
 }
 #menu h2 {
 	font-size:21px;
@@ -156,18 +158,19 @@
 	letter-spacing:-1px;
 	margin:7px 0 14px 0;
 	padding-bottom:14px;
-	border-bottom:1px solid #666666;
+	border-bottom:1px solid #000;
 }
 #menu h3 {
 	font-size:14px;
 	margin:7px 0 14px 0;
 	padding-bottom:7px;
-	border-bottom:1px solid #888888;
+	border-bottom:1px solid #000;
 }
+/*
 #menu p {
 	line-height:18px;
 	margin:0 0 10px 0;
-}
+}*/
 
 #menu li:hover div a {
 	font-size:12px;
@@ -224,7 +227,7 @@
 	font-size:12px;
 	line-height:24px;
 	position:relative;
-	text-shadow: 1px 1px 1px #ffffff;
+	/*text-shadow: 1px 1px 1px #ffffff;*/
 	padding:0;
 	margin:0;
 	float:none;
