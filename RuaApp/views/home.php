@@ -4,7 +4,7 @@
 
 	<header> <!-- Defining the header section of the page with the appropriate tag -->
 
-		<h1>ReUsesArt Logo</h1>
+		<h1>ReUseArt Logo</h1>
 
 		<h3>and a fancy slogan</h3>
 
@@ -17,7 +17,7 @@
 				<li><a href="#article1" class="drop">Featured</a><div class="dropdown_5columns">  
        						 Drop down Content  
         			<div></li>
-				<li><a href="#article2">Sweet Boxes</a></li>
+				<li><a href="#article2">Popular</a></li>
 				<li><a href="#article3">Sell My Art</a></li>
 				<li><a href="#article3">Sign In</a></li>
 
@@ -33,7 +33,7 @@
 <!-- Article 1 end -->
 <div class="line"></div>
                 <article id="article1">
-                    <h2>Sweet Categories</h2>
+                    <h2>Categories</h2>
                     
                     <div class="line"></div>
                     
