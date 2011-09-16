@@ -125,7 +125,7 @@ article .line{
 footer .line{
 	margin:2em 0;
 }
-
+/*
 nav{
 	background:url(/theme/all/images/gradient_light.jpg) repeat-x 50% 50% #f8f8f8;
 	padding:0 5px;
@@ -139,7 +139,7 @@ nav{
 	-webkit-box-shadow:0 1px 1px #333333;
 	box-shadow:0 1px 1px #333333;
 }
-
+*/
 /* The clearfix hack to clear the floats: */
 
 .clear:after{
@@ -151,9 +151,10 @@ nav{
 }
 
 /* The navigation styling: */
-
+/*
 nav ul li{
 	display:inline;
+	position:relative;
 }
 
 nav ul li a,
@@ -167,43 +168,29 @@ nav ul li a:visited{
 	padding:7px 10px 4px;
 	text-shadow:0 1px 1px white;
 	text-transform:uppercase;
+	display:block;
+	
 }
 
 nav ul li a:hover{
-	text-decoration:none;
+	text-decoration:underline;
 	background-color:#f0f0f0;
 }
-
+nav ul li a.drop:hover{
+	text-decoration:none;
+	background-color:#f0f0f0;
+	display:block;
+}*/
 nav, article, nav ul li a,figure{
 	/* Applying CSS3 rounded corners: */
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;
 	border-radius:10px;
+	display:block;
 }
 
-.dropdown_1column,
-.dropdown_2columns,
-.dropdown_3columns,
-.dropdown_4columns,
-.dropdown_5columns {
-	margin:4px auto;
-	position:absolute;
-	left:-999em; /* Hides the drop down */
-	text-align:left;
-	padding:10px 5px 10px 5px;
-	border:1px solid #777777;
-	border-top:none;
 
-	/* Gradient background */
-	background:#F4F4F4;
-	background: -moz-linear-gradient(top, #EEEEEE, #BBBBBB);
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#EEEEEE), to(#BBBBBB));
 
-	/* Rounded Corners */
-	-moz-border-radius: 0px 5px 5px 5px;
-	-webkit-border-radius: 0px 5px 5px 5px;
-	border-radius: 0px 5px 5px 5px;
-}
 
 /* Article styles: */
 
