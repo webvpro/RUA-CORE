@@ -121,7 +121,12 @@
 		    </li><!-- End 4 columns Item -->
 				<li><a href="#article2">Popular</a></li>
 				<li><a href="#article3">Sell My Art</a></li>
-				<li><a href="#article3">Sign In</a></li>
+				<li class="menu_right"><a href="#" class="drop">Sign In</a>
+    				<div class="dropdown_1column align_right" style="text-align:center;">
+		               <button id="login-btn">Login</button>
+		            </div>
+		        </div>
+		        </li>
 
 			</ul>
 
@@ -187,8 +192,15 @@
 	<!-- JavaScript Includes -->
 
 	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script src="/javascript/jquery/jquery-ui/jquery-ui-1.8.16.custom.min.js"></script>
 	<script src="/javascript/jquery/scrollTo/jquery.scrollTo-1.4.2.min.js"></script>
 	<script src="/javascript/script.js"></script>
+	<script>
+	$(function() {
+		$("button#login-btn").button();
+		
+	});
+	</script>
 
 	</body>
 
