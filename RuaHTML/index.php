@@ -1,6 +1,5 @@
 <?php
-require_once 'System.php';
-var_dump(class_exists('System', false));
+
 /*
  *---------------------------------------------------------------
  * PHP ERROR REPORTING LEVEL
