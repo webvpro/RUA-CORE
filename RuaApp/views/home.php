@@ -120,7 +120,7 @@
 		    
 		    </li><!-- End 4 columns Item -->
 				<li><a href="#article2">Popular</a></li>
-				<li><a href="#article3">Sell My Art</a></li>
+				<li><a id="sell-my-art" href="#">Sell My Art</a></li>
 				<li class="menu_right"><a href="#" class="drop">Sign In</a>
     				<div class="dropdown_1column align_right" style="text-align:center;">
 		               <button id="login-btn">Login</button>
@@ -188,7 +188,47 @@
 		</footer>
 
 	</section> <!-- Closing the #page section -->
+<div id="create-item-form" title="Sell My Art" style="">
+	<p class="validateTips">All form fields are required.</p>
 
+	<form id="new-item-form">
+		<fieldset>
+			<legend>Item details</legend>
+			<ul>
+				<li>
+					<label for="item-name">Item Name:</label>
+					<input id="item-name" name="item_name" type="text" placeholder="Name of the item you are selling" required>
+				</li>
+				<li>
+					<label for="item-description">Description:</label>
+					<textarea id="item-description" name="item_description"></textarea>
+				</li>
+				<li>
+					<label for="item-description">ReUse %:</label>
+					<input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;" />
+					<p><div id="slider-range-min" style=""></div></p>
+				</li>
+				<li>
+					<label for="item-price">Price:</label>
+					<input id="item-name" name="item_price" type="text" placeholder="0.00" required>
+				</li>
+			</ul>
+	</fieldset>
+	<fieldset>
+			<legend>Item Photos</legend>
+			<ul>
+				<li>
+					<label for="item-name">Photo 1:</label>
+					<input id="item-name" name="item_name" type="text" placeholder="Name of the item you are selling" required>
+					<label for="item-name">Photo 2:</label>
+					<input id="item-name" name="item_name" type="text" placeholder="Name of the item you are selling" required>
+					<label for="item-name">Photo 3:</label>
+					<input id="item-name" name="item_name" type="text" placeholder="Name of the item you are selling" required>
+				</li>
+			</ul>
+	</fieldset>
+	</form>
+</div>
 	<!-- JavaScript Includes -->
 
 	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
@@ -196,8 +236,49 @@
 	<script src="/javascript/jquery/scrollTo/jquery.scrollTo-1.4.2.min.js"></script>
 	<script src="/javascript/script.js"></script>
 	<script>
+	
+	
+	
 	$(function() {
+		$( "#create-item-form" ).dialog({
+			autoOpen: false,
+			width: 450,
+			modal: true,
+			buttons: {
+				"Sell": function() {
+					},
+				Cancel: function() {
+					$( this ).dialog( "close" );
+					
+				}
+			},
+			open: function() {
+            	$buttonPane = $(this).parent().find('.ui-dialog-buttonset');
+            	$buttonPane.find('button:first').addClass('ui-priority-primary');
+            	$buttonPane.find('button:last').addClass('ui-priority-secondary');    
+            	$( "#slider-range-min" ).slider({
+					range: "min",
+					value: 0,
+					min: 0,
+					max: 100,
+					slide: function( event, ui ) {
+						$( "#amount" ).val(ui.value );
+					}
+				});
+				$( "#amount" ).val($( "#slider-range-min" ).slider( "value" ) );                    
+		                   
+        	},
+			close: function() {
+				//allFields.val( "" ).removeClass( "ui-state-error" );
+			}
+		});
+		
+		
 		$("button#login-btn").button();
+		$("a#sell-my-art").click(function(){
+			$('#create-item-form').dialog("open")
+			//alert('xx')
+		});
 		
 	});
 	</script>
