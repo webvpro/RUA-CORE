@@ -1,6 +1,6 @@
 <?php
 
-class Home extends CI_Controller {
+class Sellart extends CI_Controller {
 		
 		function __construct()
 		{
@@ -23,10 +23,11 @@ class Home extends CI_Controller {
     //vars configs 
    
 		
-    $data['current_page']="/home";
+    $data['current_page']="/sellart";
 	$this->load->view('include/header_main',$data);
 	$this->load->view('include/main_nav',$data);
-    $this->load->view('home', $data);
+    $this->load->view('sellArtView', $data);
+	//$this->load->view('include/footer_js',$data);
 	$this->load->view('include/footer_main',$data);
 	}
 	
