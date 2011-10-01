@@ -96,10 +96,10 @@
 </div>
 	<!-- JavaScript Includes -->
 	
-	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-	<script src="/javascript/jquery/jquery-ui/jquery-ui-1.8.16.custom.min.js"></script>
-	<script src="/javascript/jquery/scrollTo/jquery.scrollTo-1.4.2.min.js"></script>
-	<script type='text/javascript' src='/javascript/webforms2-0.5.4/webforms2-p.js'></script>
+	
+<!-- Insert the navbar element somewhere in the HTML page -->
+
+
 	
 	
 	<script src="/javascript/script.js"></script>

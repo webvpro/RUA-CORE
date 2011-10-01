@@ -1,6 +1,9 @@
-<!-- navigation starts here -->
+<body>
+<ul id="left-nav-slide-in">
+	 <li class="home"><a href="" title="Home"></a></li>
+     <li class="about"><a href="" title="About"></a></li>
 	
-
+</ul>
 	<section id="page"> <!-- Defining the #page section with the section tag -->
 
 	<header> <!-- Defining the header section of the page with the appropriate tag -->

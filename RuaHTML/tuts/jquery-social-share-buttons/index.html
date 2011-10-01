@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="all" />
+<meta name="description" content="jQuery Demo for Social Media Share Buttons plugin - Facebook like, tweet button + count, google +1, google buzz, LinkedIn button, digg button & stumbledupon button" />
+<title>jQuery Social Share Buttons Plugin v 1.1</title>
+<script type="text/javascript" src="js/jquery.1.4.2.js"></script>
+<script type="text/javascript" src="js/jquery.easing.js"></script>
+<script type="text/javascript" src="js/jquery.social.share.1.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function($){
+	
+	$('#social-share').dcSocialShare();
+	$('#social-share-2').dcSocialShare({
+		location: 'top',
+						align: 'right',
+						offsetLocation: 20,
+						offsetAlign: 50,
+						width: 70,
+						speedContent: 600,
+						speedFloat: 1600,
+						buttons: 'twitter,facebook,buzz'
+	});
+	$('#social-share-3').dcSocialShare({
+		location: 'top',
+						align: 'right',
+						offsetLocation: 330,
+						offsetAlign: 50,
+						width: 70,
+						speedContent: 600,
+						speedFloat: 1600,
+						loadOpen:false,
+						buttons: 'linkedin,digg,stumbleupon'
+	});
+});
+</script>
+<style>
+body,html,div,blockquote,img,label,p,h1,h2,h3,h4,h5,h6,pre,ul,ol,li,dl,dt,dd,form,a,fieldset,input,th,td{border:0;outline:none;margin:0;padding:0;}
+ul{list-style:none;}
+
+body {font: normal 13px Arial, sans-serif; height: 100%;}
+h2 {font: normal 26px Arial, sans-serif; padding: 20px 0; margin: 0 0 30px 0;}
+.wrap {width: 960px; margin: 0 auto;}
+.demo-container {width: 260px; margin: 50px auto;}
+.demo-container h4 {font-size: 14px; margin: 0 0 5px 0;}
+.clear {clear: both;}
+.test {background: #990000;}
+p {margin-bottom: 1em;}
+
+/* Floater */
+.dc-social-float .tab {
+cursor: pointer;
+height: 38px;
+margin-left: -1px;
+}
+.dc-social-float .dc-social-float-content {
+background: #fff;
+border: 1px solid #bbb;
+padding: 5px 5px 0 5px;
+text-align: center;
+}
+.dc-social-float .dc-social-float-content {
+border-radius: 5px; -webkit-border-radius: 5px;
+}
+.dcssb-btn {margin-bottom: 5px;}
+</style>
+
+</head>
+<body>
+<div class="wrap" style="height: 2000px;">
+<h2>jQuery Social Share Buttons v 1.1 - <a href="http://www.designchemical.com/lab/jquery-plugin-social-share-buttons/getting-started/">Visit Plugin Site</a></h2>
+
+
+</div>
+<div id="social-share"></div>
+<div id="social-share-2"></div>
+<div id="social-share-3"></div>
+</body>
+</html>
