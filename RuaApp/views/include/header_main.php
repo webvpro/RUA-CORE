@@ -11,6 +11,8 @@
 	<link rel="stylesheet" type="text/css" href="/theme/all/css/styles.css" />
 	<link rel="stylesheet" type="text/css" href="/theme/all/css/menu.css" />
 	<link rel="stylesheet" type="text/css" href="/theme/all/css/forms.css" />
+	<?php echo $css; ?>
+
 	<!-- Internet Explorer HTML5 enabling script: -->
 
 	<!--[if IE]>
@@ -28,22 +30,8 @@
 	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
 	<script type='text/javascript' src='/javascript/webforms2-0.5.4/webforms2-p.js'></script>
-	
-<script type="text/javascript">
-  $(function() {
-    $('#left-nav-slide-in a').stop().animate({'marginLeft':'-325px'},1000);
+	<?php echo $src; ?>
 
-                $('ul#left-nav-slide-in > li').hover(
-                    function () {
-                        $('a',$(this)).stop().animate({'marginLeft':'-2px'},200);
-                    },
-                    function () {
-                        $('a',$(this)).stop().animate({'marginLeft':'-325px'},200);
-                    }
-                );
-                
-  });
-</script>
 
 </head>
 

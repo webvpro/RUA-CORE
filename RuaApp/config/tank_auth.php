@@ -8,7 +8,7 @@
 |--------------------------------------------------------------------------
 */
 $config['website_name'] = 'myfb.ci.com';
-$config['webmaster_email'] = 'mlstanley@gmail.com';
+$config['webmaster_email'] = 'webversatile@gmail.com';
 
 /*
 |--------------------------------------------------------------------------
@@ -109,14 +109,14 @@ $config['forgot_password_expire'] = 60*15;
 | 'captcha_case_sensitive' = Captcha case sensitive or not.
 |--------------------------------------------------------------------------
 */
-$config['captcha_path'] = 'captcha/';
-$config['captcha_fonts_path'] = 'captcha/fonts/5.ttf';
+$config['captcha_path'] = '/captcha/';
+$config['captcha_fonts_path'] = '/captcha/fonts/5.ttf';
 $config['captcha_width'] = 200;
 $config['captcha_height'] = 50;
 $config['captcha_font_size'] = 14;
 $config['captcha_grid'] = FALSE;
 $config['captcha_expire'] = 180;
-$config['captcha_case_sensitive'] = TRUE;
+$config['captcha_case_sensitive'] = FALSE;
 
 /*
 |--------------------------------------------------------------------------
@@ -126,9 +126,9 @@ $config['captcha_case_sensitive'] = TRUE;
 | You can get reCAPTCHA keys by registering at http://recaptcha.net
 |--------------------------------------------------------------------------
 */
-$config['use_recaptcha'] = FALSE;
-$config['recaptcha_public_key'] = '';
-$config['recaptcha_private_key'] = '';
+$config['use_recaptcha'] = TRUE;
+$config['recaptcha_public_key'] = '6LcEt8gSAAAAAOAHeiPz1a2PBjcsmjnTAVvBdfe1';
+$config['recaptcha_private_key'] = '6LcEt8gSAAAAAPtlwbqDkyEYpC4ReFvSmIv8SaXc';
 
 /*
 |--------------------------------------------------------------------------

@@ -24,6 +24,8 @@ class Home extends CI_Controller {
    
 		
     $data['current_page']="/home";
+	$data['css']="";
+	$data['src']="";
 	$this->load->view('include/header_main',$data);
 	$this->load->view('include/main_nav',$data);
     $this->load->view('home', $data);
