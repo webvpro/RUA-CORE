@@ -3,15 +3,10 @@
 	class tweet {
 		
 		private $_oauth = NULL;
-		public $user = FALSE;
-		public $user_id = NULL;
+		
 		function __construct()
 		{
-			$this->_obj =& get_instance();
-			$this->_obj->load->library('session');
 			$this->_oauth = new tweetOauth();
-			$this->user_id=$this->logged_in();
-			$this->_manage_session();
 		}
 		
 		function __call($method, $args)
@@ -22,35 +17,6 @@
 			}
 			
 			return call_user_func_array(array($this->_oauth, $method), $args);
-		}
-		private function _manage_session(){
-			$user = $this->_obj->session->userdata('app_session');
-			if ( $user === FALSE && $this->user_id !== FALSE )
-			{
-				
-				$userObj = $this->call('get', 'account/verify_credentials');
-        
-		        $user=  array(
-		           		'user'    => $userObj->screen_name,
-            			'user_id' => $userObj->id,
-           				'pic' => $userObj->profile_image_url,
-		            	'auth_type' => 'Twitter',
-		            	'logged_in' => TRUE,
-		            	'member_id' => NULL
-		          );
-				$this->_obj->session->set_userdata('app_session', $user);
-			}
-			elseif ( $user !== FALSE && $this->user_id === FALSE )
-			{
-				// Need to destroy session
-				$this->_obj->session->sess_destroy();
-			}
-
-			if ( $user !== FALSE )
-			{
-				$this->user = $user;
-			}
-			
 		}
 		
 		function logged_in()
@@ -87,12 +53,8 @@
 		{
 			return $this->_oauth->setAccessTokens($tokens);
 		}
-    
-    
 	}
 	
-  
-  
 	class tweetException extends Exception {
 		
 		function __construct($string)
@@ -229,15 +191,14 @@
 			do
 			{
 				$response = curl_multi_exec($this->_mch, $running_curl);
-				
 				if ( $running !== NULL && $running_curl != $running )
 				{
 					$this->_setResponse($key);
 					
 					if ( isset($this->_responses[$key]) )
 					{
-						$response = new tweetResponseOauth( (object) $this->_responses[$key] );
 						
+						$response = new tweetResponseOauth( (object) $this->_responses[$key] );
 						if ( $response->__resp->code !== 200 )
 						{
 							throw new tweetException($response->__resp->code.' | Request Failed: '.$response->__resp->data->request.' - '.$response->__resp->data->error);
@@ -315,9 +276,9 @@
 		
 		private $_obj;
 		private $_tokens = array();
-		private $_authorizationUrl 	= 'http://twitter.com/oauth/authorize';
-		private $_requestTokenUrl 	= 'http://twitter.com/oauth/request_token';
-		private $_accessTokenUrl 	= 'http://twitter.com/oauth/access_token';
+		private $_authorizationUrl 	= 'http://api.twitter.com/oauth/authorize';
+		private $_requestTokenUrl 	= 'http://api.twitter.com/oauth/request_token';
+		private $_accessTokenUrl 	= 'http://api.twitter.com/oauth/access_token';
 		private $_signatureMethod 	= 'HMAC-SHA1';
 		private $_version 			= '1.0';
 		private $_apiUrl 			= 'http://api.twitter.com';
@@ -331,10 +292,10 @@
 			parent::__construct();
 			
 			$this->_obj =& get_instance();
-			$this->_obj->load->config('tweet');
-			$this->_obj->load->library('session');
+			//$this->_obj->load->config('tweet'); // this is now in config file for easy access
+			//$this->_obj->load->library('session'); // we already loaded this for tank auth!
 			$this->_obj->load->library('unit_test');
-			$this->_obj->load->helper('url');
+			//$this->_obj->load->helper('url'); // this is also loaded already!
 			
 			$this->_tokens =	array(
 									'consumer_key' 		=> $this->_obj->config->item('tweet_consumer_key'),

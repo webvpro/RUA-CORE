@@ -27,34 +27,11 @@
 	<![endif]-->
 	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
-	<script src="/javascript/jquery/scrollTo/jquery.scrollTo-1.4.2.min.js"></script>
 	<script type='text/javascript' src='/javascript/webforms2-0.5.4/webforms2-p.js'></script>
 	
-	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/googleapis/0.0.4/googleapis.min.js"></script>
-	<script type="text/javascript" src="//ajax.googleapis.com/jsapi"></script>
-
-<script type="text/javascript">
-  google.load("identitytoolkit", "1.0", {packages: ["ac"]});
-</script>
 <script type="text/javascript">
   $(function() {
-    window.google.identitytoolkit.setConfig({
-        developerKey: "AIzaSyDdQBtdNy78XmLQQJhjWoZktesK95C3_sM",
-        companyName: "ReUsedArt.com",
-        callbackUrl: "/signin",
-        realm: "",
-        userStatusUrl: "/welcome",
-        loginUrl: "/login",
-        signupUrl: "/signup",
-        homeUrl: "/home",
-        logoutUrl: "/signin",
-        language: "en",
-        idps: ["Gmail", "Yahoo", "Hotmail"],
-        tryFederatedFirst: true,
-        useCachedUserStatus: false
-    });
-    $("#navbar").accountChooser();
-     $('#left-nav-slide-in a').stop().animate({'marginLeft':'-325px'},1000);
+    $('#left-nav-slide-in a').stop().animate({'marginLeft':'-325px'},1000);
 
                 $('ul#left-nav-slide-in > li').hover(
                     function () {

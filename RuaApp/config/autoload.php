@@ -48,11 +48,11 @@ $autoload['packages'] = array(APPPATH.'third_party');
 | or in your application/libraries folder.
 |
 | Prototype:
-|
-|	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
+	$autoload['libraries'] = array('database', 'session', 'xmlrpc','tank_auth','tweet','lightopenid','facebook');
 
-$autoload['libraries'] = array('database','session','tweet','facebook_connect','gfc_connect');
+
+//$autoload['libraries'] = array('tank_auth', 'session', 'database', 'tweet', 'facebook', 'lightopenid');
 //$autoload['libraries'] = array('session','tweet','facebook_connect','gfc_connect');
 
 /*
@@ -109,7 +109,7 @@ $autoload['language'] = array();
 |
 */
 //$autoload['model'] = array();
-$autoload['model'] = array('Member_auth');
+//$autoload['model'] = array('Member_auth');
 
 
 /* End of file autoload.php */

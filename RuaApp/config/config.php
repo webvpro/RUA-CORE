@@ -357,4 +357,61 @@ $config['proxy_ips'] = '';
 
 
 /* End of file config.php */
+/* Location: ./application/config/config.php *//*
+|--------------------------------------------------------------------------
+| Facebook App ID
+|
+| If you want to integrate with Facebook Connect authentication, put your
+| Facebook App ID below.
+|--------------------------------------------------------------------------
+*/
+$config['facebook_app_id'] = '101671396215';
+$config['facebook_app_key'] = '101671396215';
+$config['facebook_app_secret'] = '614633d02e23d3ab967c9b79b595745d';
+/*
+ $config['facebook_api_key']="54392d1e20540325f9f7b8c0bbe77954";
+$config['facebook_app_id']='132624378108';
+$config['facebook_secret']='be89e16d459f3c2c2e4453729d5c47b8';
+$config['facebook_connect_key']="132624378108";
+$config['fb_appid']='132624378108';
+$config['fb_secret']='be89e16d459f3c2c2e4453729d5c47b8';
+$config['fbcAPIKey']="54392d1e20540325f9f7b8c0bbe77954"; 
+ */
+  
+/*
+|--------------------------------------------------------------------------
+| Twitter App ID
+|
+| If you want to integrate with Twitter oAuth authentication, put your
+| Twitter app details below.
+|--------------------------------------------------------------------------
+*/
+$config['tweet_consumer_key'] = 'kPVRihpCEgsO7ZP2Q3qxwQ';
+$config['tweet_consumer_secret'] = 'Vq2UUgOxVy9f391amFedeUlupZue7vSOawBUX8csxsk';
+/*
+ * $config['twitter_api_key']="kPVRihpCEgsO7ZP2Q3qxwQ";
+$config['twitter_consumerkey'] = "kPVRihpCEgsO7ZP2Q3qxwQ";
+$config['twitter_consumersecretkey'] = "Vq2UUgOxVy9f391amFedeUlupZue7vSOawBUX8csxsk";
+$config['twitter_callbackurl'] = "http://listmagnet.webversatile.com/twitterjoin";
+ */
+/*
+|--------------------------------------------------------------------------
+| Google Friend Connect App ID
+|
+| If you want to integrate with Twitter oAuth authentication, put your
+| Twitter app details below.
+|--------------------------------------------------------------------------
+*/
+$config['google_app_id'] = 'ABQIAAAAV_LK7M1N87XgxmdmEA8pABTKsxG0M_Q60K6_NLPMZogKGBcI5BQ44iuwXq1Eup7r6dhjg1gbeFW8Lg';
+
+/* 
+ * $config['gfc_site_id']="03957822547346579401";
+$config['gfc_consumer_key']="*:09000285409227200618";
+$config['gfc_consumer_secret']="H0M6e1wpi1c=";
+$config['gfc_api_id']="ABQIAAAAV_LK7M1N87XgxmdmEA8pABTKsxG0M_Q60K6_NLPMZogKGBcI5BQ44iuwXq1Eup7r6dhjg1gbeFW8Lg";
+$config['gfcAPIKey']="ABQIAAAAV_LK7M1N87XgxmdmEA8pABTKsxG0M_Q60K6_NLPMZogKGBcI5BQ44iuwXq1Eup7r6dhjg1gbeFW8Lg";
+
+$config['youtubeKey']="AI39si6X-fx2AZXVPuW8GJ9G17inFnDEihT4N9ifZSHJ8PoaW7FMEXxHxKsqE_r2rMKY6F7f1-gRoyis7wVl0WLDCNlKWYn3iw";
+ * 
+ * End of file config.php */
 /* Location: ./application/config/config.php */

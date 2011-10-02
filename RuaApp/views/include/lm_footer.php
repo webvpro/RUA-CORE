@@ -20,13 +20,7 @@
 
 <!-- footer ends-->
 </div>
-<!-- js code start hosted
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
 
-js code start local-->
-<script src="<?=$this->config->item(); ?>"></script>
-<script src="/javascript/jquery-ui/js/jquery-ui.1.8.6.min.js"></script>
 
 
 <!-- js code end -->

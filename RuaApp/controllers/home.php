@@ -11,14 +11,14 @@ class Home extends CI_Controller {
 	{
 	  // config
 	$this->config->load('JavaScriptPaths');
-   	$this->config->load('APIKeys');
+   	//$this->config->load('APIKeys');
 	$this->load->helper('url');
 	  //libs
-    $this->load->library('gfc_connect');
-    $this->load->library('twitter');
-    $this->load->library('facebook_connect');
+    //$this->load->library('gfc_connect');
+    //$this->load->library('twitter');
+    //$this->load->library('facebook_connect');
     //models
-   $this->load->model('Member_auth');  
+   //$this->load->model('Member_auth');  
      
     //vars configs 
    
