@@ -274,12 +274,12 @@ ul#left-nav-slide-in {
     z-index:9999;
 }
 ul#left-nav-slide-in li {
-    width: 500px;
+    width: 200px;
 }
 ul#left-nav-slide-in li a {
     display: block;
     margin-left: -2px;
-    width: 500px;
+    width: 200px;
     height: 70px;    
     background-color:#CFCFCF;
     background-repeat:no-repeat;

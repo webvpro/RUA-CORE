@@ -34,7 +34,7 @@ $captcha = array(
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" >
 	<head>
-		<title>XTA2 - CI Tank Auth Authentication with 3rd party plugins.</title>
+		<title>Authentication with 3rd party plugins.</title>
 		<!-- google friend connect -->
 		<script type="text/javascript" src="http://www.google.com/jsapi"></script>
 		<script type="text/javascript">google.load('friendconnect', '0.8');</script>
@@ -110,13 +110,6 @@ $captcha = array(
 	</head>
 	
 	<body>
-		<table><tr>
-			<td><h4><?php echo anchor('/', 'XTA2 DEMO'); ?></h4></td>
-			<td><h4><?php echo anchor('welcome/about', 'About + Discuss'); ?></h4></td>
-			<td><h4><?php echo anchor('welcome/readme', 'Installation guide'); ?></h4></td>
-		</tr></table>
-			
-		<h1>XTA2 Demo - Extended Tank_Auth with Facebook, Twitter and OpenID (Google, Yahoo etc)</h1>
 		<?php echo form_open($this->uri->uri_string()); ?>
 		<table>
 			<tr>

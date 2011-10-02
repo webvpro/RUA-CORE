@@ -9,14 +9,14 @@ $(document).ready(function(){
 		e.preventDefault();
 	});
 	
-	$('#left-nav-slide-in a').stop().animate({'marginLeft':'-325px'},1000);
+	$('#left-nav-slide-in a').stop().animate({'marginLeft':'-125px'},1000);
 
                 $('ul#left-nav-slide-in > li').hover(
                     function () {
                         $('a',$(this)).stop().animate({'marginLeft':'-2px'},200);
                     },
                     function () {
-                        $('a',$(this)).stop().animate({'marginLeft':'-325px'},200);
+                        $('a',$(this)).stop().animate({'marginLeft':'-125px'},200);
                     }
                 );
                 
