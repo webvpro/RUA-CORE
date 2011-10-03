@@ -125,12 +125,13 @@
 		    </li><!-- End 4 columns Item -->
 				<li><a href="#article2">Popular</a></li>
 				<li><a id="sell-my-art" href="/sellart/">Sell My Art</a></li>
-				<li class="menu_right"><a href="#" class="drop">Sign In</a>
-    				<div class="dropdown_1column align_right" style="text-align:center;">
-		               <button id="login-btn">Login</button>
-		            </div>
-		        </div>
-		        </li>
+				<li class="menu_right">
+					<?php if($is_logged_in){
+					 echo '<a href="/auth/logout">Sign Out</a>';
+					 } else {
+					 	echo '<a href="/auth/login/">Sign In</a>';
+					 }?>
+				</li>
 
 			</ul>
 

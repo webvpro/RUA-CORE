@@ -11,17 +11,14 @@ class Home extends CI_Controller {
 	{
 	  // config
 	$this->config->load('JavaScriptPaths');
-   	//$this->config->load('APIKeys');
-	$this->load->helper('url');
-	  //libs
-    //$this->load->library('gfc_connect');
-    //$this->load->library('twitter');
-    //$this->load->library('facebook_connect');
-    //models
-   //$this->load->model('Member_auth');  
-     
-    //vars configs 
-   
+   	$this->load->helper('url');
+	
+	
+	//vars configs 
+   $data['is_logged_in']=FALSE;
+		if ($this->tank_auth->is_logged_in()) {
+			$data['is_logged_in']=TRUE;
+		}	
 		
     $data['current_page']="/home";
 	$data['css']="";
