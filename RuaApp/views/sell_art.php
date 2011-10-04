@@ -1,12 +1,7 @@
 
-<!-- Article 1 start -->
-
-
-
-<!-- Article 1 end -->
 <div class="line"></div>
                 <article id="article1">
-                    <h2>Sell Art</h2>
+                    <h2>Sell Art for <?=$username?></h2>
                     
                     <div class="line"></div>
                     
@@ -14,50 +9,39 @@
 	<p class="validateTips">All form fields are required.</p>
 
 	
-		<?php 
-		// $attr=array('id' => 'new-item-form');
-		 
-		 echo form_open_multipart('sellart/additem',array('id' => 'new-item-form')); 
-		 
+		 <?php
+		 echo validation_errors();
+		 echo form_open('sellart/createitem',array('id' => 'new-item-form')); 
 		 ?>
 		<fieldset>
 			<legend>Item details</legend>
 			<ul>
 				<li>
 					<label for="item-name">Item Name:</label>
-					<input id="item-name" name="item_name" type="text" placeholder="Name of the item you are selling" required>
+					<input id="item-name" name="item_name" type="text" placeholder="Name of the item you are selling" value="<?=set_value('item_name')?>" maxlength="50" required>
 				</li>
 				<li>
 					<label for="item-description">Description:</label>
-					<textarea id="item-description" name="item_description"></textarea>
+					<textarea id="item-description" name="item_description" placeholder="Describe the item you are selling"><?=set_value('item_description')?></textarea>
 				</li>
 				<li>
-					<label for="item-description">ReUse %:</label>
-					<input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;" />
+					<label for="item-resued-percent">ReUse %:</label>
+					<input type="text" id="item-resue-percent" name="item_reuse_percent" style="" placeholder="99.99" maxlength="5" value="<?=set_value('reused_percent')?>" required/>
 					<p><div id="slider-range-min" style=""></div></p>
 				</li>
 				<li>
 					<label for="item-price">Price:</label>
-					<input id="item-name" name="item_price" type="text" placeholder="0.00" required>
+					<input id="item-name" name="item_price" type="text" placeholder="9999.99" maxlength="7" value="<?=set_value('reused_percent')?>"  required>
 				</li>
 			</ul>
 	</fieldset>
-	<fieldset>
-			<legend>Item Photos</legend>
-			<p>
-			
-			<?php
-				echo form_upload(array('name'=>'Filedata','id'=>'uploadifyit'));
-			   ?>
-			<a href="javascript:$('#uploadifyit').uploadifyUpload();">Upload File(s)</a>
-			</p>
-	</fieldset>
-	<input type="submit" />
-	<?php form_close(); ?>
-	<div id="fileinfotarget">
-	</div>
+	
+	
+	
+	</form>
+	<input id="submit-art-button" type="submit" value="Sell Art" />
 </div>
-                </article>
+</article>
                
 		<footer> <!-- Marking the footer section -->
 
@@ -74,39 +58,5 @@
 
 	<script src="/javascript/script.js"></script>
 	
-	<script type="text/javascript" language="javascript">
-			$(document).ready(function()
-			{
-				$("#uploadifyit").uploadify({
-							uploader: '/javascript/jquery/uploadify/uploadify.swf',
-							script: '/javascript/jquery/uploadify/uploadify.php',
-							cancelImg: '/javascript/jquery/uploadify/cancel.png',
-							folder: '/images/uploads/art/',
-							scriptAccess: 'always',
-							multi: true,
-							'onError' : function(a, b, c, d){
-								if(d.status=404)
-									alert('Could not find upload script');
-								else if(d.type === "HTTP")
-									alert('error'+d.type+": "+d.info);
-								else if(d.type === "File Size")
-									alert(c.name+' '+d.type+' Limit: '+Math.round(d.sizeLimit/1024)+'KB');
-								else
-									alert('error'+d.type+": "+d.text);
-							},
-							'onComplete' : function(event,queueID,fileObj,response,data){
-									$.post('<?php echo site_url('sellart/additem'); ?>',{filearray: response},function(info){ $("#fileinfotarget").append(info);});
-							},
-							'onAllComplete' : function(event,data){
-								
-							}
-					
-					
-					
-				});
-			});
-	
-</script>
-
 
 	

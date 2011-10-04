@@ -53,46 +53,7 @@
 		</footer>
 
 	</section> <!-- Closing the #page section -->
-<div id="create-item-form" title="Sell My Art" style="">
-	<p class="validateTips">All form fields are required.</p>
 
-	<form id="new-item-form">
-		<fieldset>
-			<legend>Item details</legend>
-			<ul>
-				<li>
-					<label for="item-name">Item Name:</label>
-					<input id="item-name" name="item_name" type="text" placeholder="Name of the item you are selling" required>
-				</li>
-				<li>
-					<label for="item-description">Description:</label>
-					<textarea id="item-description" name="item_description"></textarea>
-				</li>
-				<li>
-					<label for="item-description">ReUse %:</label>
-					<input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;" />
-					<p><div id="slider-range-min" style=""></div></p>
-				</li>
-				<li>
-					<label for="item-price">Price:</label>
-					<input id="item-name" name="item_price" type="text" placeholder="0.00" required>
-				</li>
-			</ul>
-	</fieldset>
-	<fieldset>
-			<legend>Item Photos</legend>
-			<ul>
-				<li>
-					<label for="item-name">Photo 1:</label>
-					<input id="item-name" name="item_name" type="text" placeholder="Name of the item you are selling" required>
-					<label for="item-name">Photo 2:</label>
-					<input id="item-name" name="item_name" type="text" placeholder="Name of the item you are selling" required>
-					<label for="item-name">Photo 3:</label>
-					<input id="item-name" name="item_name" type="text" placeholder="Name of the item you are selling" required>
-				</li>
-			</ul>
-	</fieldset>
-	</form>
 </div>
 	<!-- JavaScript Includes -->
 	

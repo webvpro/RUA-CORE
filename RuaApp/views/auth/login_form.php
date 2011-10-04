@@ -31,85 +31,14 @@ $captcha = array(
 	'maxlength'	=> 8,
 );
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" >
-	<head>
-		<title>Authentication with 3rd party plugins.</title>
-		<!-- google friend connect -->
-		<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-		<script type="text/javascript">google.load('friendconnect', '0.8');</script>
-		<script type="text/javascript">
-			google.friendconnect.container.setParentUrl('/' /* location of rpc_relay.html and canvas.html */);
-			google.friendconnect.container.initOpenSocialApi({
-			  site: '<?php echo $this->config->item('google_app_id'); ?>',
-			  onload: function(securityToken) { initAllData(); }
-			});
-		
-			// main initialization function for google friend connect
-			function initAllData() 
-			{
-				var req = opensocial.newDataRequest();
-			  	req.add(req.newFetchPersonRequest("OWNER"), "owner_data");
-			  	req.add(req.newFetchPersonRequest("VIEWER"), "viewer_data");
-			  	var idspec = new opensocial.IdSpec({
-			      	'userId' : 'OWNER',
-			      	'groupId' : 'FRIENDS'
-			  	});
-			  	req.add(req.newFetchPeopleRequest(idspec), 'site_friends');
-			  	req.send(onData);
-			};
-			
-			// main function for handling user data
-			function onData(data) 
-			{
-			  	// getting the site data, we don't need this for now
-			  	//if (!data.get("owner_data").hadError()) 
-			  	//{
-			    //	var owner_data = data.get("owner_data").getData();
-			    //	document.getElementById("site-name").innerHTML = owner_data.getDisplayName();
-			    	//alert('user is logging in');
-			  	//}
-			
-			  	var viewer_info = document.getElementById("viewer-info");
-			  	if (data.get("viewer_data").hadError()) 
-			  	{
-			    	google.friendconnect.renderSignInButton({ 'id': 'gfc-button', 'text':'Click here to join', 'style': 'long' });
-			    	document.getElementById('gfc-button').style.display = 'block';
-			    	viewer_info.innerHTML = '';
-			    	//alert('there has been an error here');
-			  	} 
-			  	else 
-			  	{
-			    	document.getElementById('gfc-button').style.display = 'none';
-			    	var viewer = data.get("viewer_data").getData();
-			    	//viewer_info.innerHTML = "Hello, " + viewer.getDisplayName() + " " +
-			        //						"<a href='#' onclick='google.friendconnect.requestSettings()'>Settings</a> | " +
-					//				        "<a href='#' onclick='google.friendconnect.requestInvite()'>Invite</a> | " +
-					//				        "<a href='#' onclick='google.friendconnect.requestSignOut()'>Sign out</a>";
-					//alert('user has been loaded');
-					//alert(viewer.getDisplayName());
-					//alert(viewer.getId());
-					
-					// let's redirect the user to our login_google action in auth_other controller
-					window.location = "<?php echo site_url('auth_other/gfc_signin/'); ?>" + "/" + viewer.getId();
-			  	}
-			
-				// for displaying friends, but we don't need this for now
-			  	//if (!data.get("site_friends").hadError()) 
-			  	//{
-			    //	var site_friends = data.get("site_friends").getData();
-			    //	var list = document.getElementById("friends-list");
-			    //	list.innerHTML = "";
-			    //	site_friends.each(function(friend) 
-			    //	{
-			    // 		list.innerHTML += "<li>" + friend.getDisplayName() + "</li>";
-			    //	});
-			  	//}
-			};
-		</script>
-	</head>
-	
-	<body>
+<div class="line"></div>
+                <article id="article1">
+                    <h2>Sell Art</h2>
+                    
+                    <div class="line"></div>
+                    
+                    <div id="create-item-form" title="Sell My Art" style="">
+
 		<?php echo form_open($this->uri->uri_string()); ?>
 		<table>
 			<tr>
@@ -203,20 +132,7 @@ $captcha = array(
 		<p id="viewer-info"></p>
 		
 		<div id="fb-root"></div>
-		<script src="http://connect.facebook.net/en_US/all.js"></script>
-		<script type="text/javascript">
-		  	FB.init({appId: "<?php echo $this->config->item('facebook_app_id'); ?>", status: true, cookie: true, xfbml: true});
-		  	FB.Event.subscribe('auth.sessionChange', function(response) {
-		    	if (response.session) 
-		    	{
-		      		// A user has logged in, and a new cookie has been saved
-					//window.location.reload(true);
-		    	} 
-		    	else 
-		    	{
-		      		// The user has logged out, and the cookie has been cleared
-		    	}
-		  	});
-		</script>
-	</body>
-</html>
+		</div>
+		</article>
+		<?php echo $fb_script; ?>
+		

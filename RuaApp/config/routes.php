@@ -37,7 +37,7 @@
 | in the URL cannot be matched to a valid route.
 |
 */
-
+$route['editart/:num'] = "editart";
 $route['default_controller'] = "home";
 $route['404_override'] = '';
 //$route['ajax'] = "ajax";

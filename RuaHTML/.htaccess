@@ -1,3 +1,7 @@
+php_flag file_uploads On 
+php_value upload_max_filesize 50M
+php_value post_max_size 50M
+
 RewriteEngine on
 RewriteCond $1 !^(index\.php|images|captcha|theme|css|user_guide|javascript|wordpress|stats|cavas\.html|index\.htm|\.html|xd_receiver\.htm|rpc_relay\.html|robots\.txt|favicon\.ico)
 RewriteRule ^(.*)$ /index.php/$1 [L]

@@ -125,7 +125,7 @@
 					margin-right: 5px;
 					}
 						
-			form#new-item-form button {
+			/*form#new-item-form button {
 				background: #384313;
 				border: none;
 				-moz-border-radius: 20px;
@@ -145,4 +145,4 @@
 				form#new-item-form button:hover {
 					background: #1e2506;
 					cursor: pointer;
-					}
+				} */

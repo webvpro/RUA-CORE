@@ -11,15 +11,17 @@ $(document).ready(function(){
 	
 	$('#left-nav-slide-in li').stop().animate({'marginLeft':'-100px'},1000);
 
-                $('ul#left-nav-slide-in > a').hover(
-                    function () {
-                        $('a',$(this)).stop().animate({'marginLeft':'-2px'},200);
-                    },
-                    function () {
-                        $('a',$(this)).stop().animate({'marginLeft':'-100px'},200);
-                    }
-                );
+    $('ul#left-nav-slide-in > a').hover(
+        function () {
+            $('a',$(this)).stop().animate({'marginLeft':'-2px'},200);
+        },
+        function () {
+            $('a',$(this)).stop().animate({'marginLeft':'-100px'},200);
+        }
+    );
                 
-  
+  $('#submit-art-button').button().click(function(e){
+  	$('#new-item-form').submit();
+  });
 
 });
