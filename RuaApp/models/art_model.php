@@ -27,6 +27,11 @@
      		  	return $query->result();  
                  
            } 
+	  function get_my_item($id,$member_id) {  
+               $query = $this->db->get_where('rua_art_items',array('id' => $id,'artist_id'=>$member_id));  
+     		  	return $query->result();  
+                 
+           } 
          
    }  
 

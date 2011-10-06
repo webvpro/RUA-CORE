@@ -17,7 +17,7 @@
 		<?php 
 		// $attr=array('id' => 'new-item-form');
 		 echo validation_errors();
-		 echo form_open_multipart('sellart/createitem',array('id' => 'new-item-form')); 
+		 echo form_open_multipart('editart/update',array('id' => 'new-item-form')); 
 		 
 		 ?>
 		<fieldset>
@@ -25,20 +25,20 @@
 			<ul>
 				<li>
 					<label for="item-name">Item Name:</label>
-					<input id="item-name" name="item_name" type="text" placeholder="Name of the item you are selling" required>
+					<input id="item-name" name="item_name" type="text" placeholder="Name of the item you are selling" value="<?=$_REQUEST['item_name']?>" maxlength="50" required>
 				</li>
 				<li>
 					<label for="item-description">Description:</label>
-					<textarea id="item-description" name="item_description"></textarea>
+					<textarea id="item-description" name="item_description" placeholder="Describe the item you are selling"><?=$_REQUEST['item_description']?></textarea>
 				</li>
 				<li>
-					<label for="item-description">ReUse %:</label>
-					<input type="text" id="amount" name="reused_percent" style="border:0; color:#f6931f; font-weight:bold;" />
+					<label for="item-resued-percent">ReUse %:</label>
+					<input type="text" id="item-resue-percent" name="item_reuse_percent" style="" placeholder="99.99" maxlength="5" value="<?=$_REQUEST['item_reuse_percent']?>" required/>
 					<p><div id="slider-range-min" style=""></div></p>
 				</li>
 				<li>
 					<label for="item-price">Price:</label>
-					<input id="item-name" name="item_price" type="text" placeholder="0.00" required>
+					<input id="item-name" name="item_price" type="text" placeholder="9999.99" maxlength="7" value="<?=$_REQUEST['item_price']?>"  required>
 				</li>
 			</ul>
 	</fieldset>
@@ -91,7 +91,7 @@
 							scriptAccess: 'always',
 							method:'post',
 							queueSizeLimit : 5,
-							scriptData: {'member_id':'<?=$this->tank_auth->get_user_id()?>','image_id':'art'},
+							scriptData: {'member_id':'<?=$this->tank_auth->get_user_id()?>','art_id':'<?=$_REQUEST['item_id']?>'},
 							multi: true,
 							'onError' : function(a, b, c, d){
 								if(d.status=404)
