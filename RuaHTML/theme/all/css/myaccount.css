@@ -112,7 +112,7 @@ form.account-form {
 				cursor: pointer;
 				}
 				
-			form.account-form input:not([type=radio]):not([type=submit]:not([type=button]),
+			form.account-form input:not([type=radio]):not([type=button]),
 			form.account-form textarea {
 				background: #ffffff;
 				border: none;
