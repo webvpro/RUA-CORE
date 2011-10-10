@@ -72,7 +72,7 @@ class Uploadimg extends CI_Controller {
 				    'type' => $upload_data['file_type'],
 				    'size' => $upload_data['file_size'],
 				    'url' => '/images/uploaded/'.$_REQUEST['img_type'].'/'.$upload_data['file_name'],
-				    'thumbnail_url' => '/images/uploaded/'.$_REQUEST['img_type'].'/'.$upload_data['file_name']
+				    'thumbnail_url' => '/images/uploaded/'.$_REQUEST['img_type'].'/'.$upload_data['file_name'].'?'.gettimeofday(true)
 				)));
 			}
 			
