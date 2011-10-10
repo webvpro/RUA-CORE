@@ -25,6 +25,7 @@ class user_model extends CI_Model
 	{
 		$this->db->where('user_id', $user_id);
 		$this->db->update('user_profiles', $data); 
+		
 	}
 
 	// return the user given the id

@@ -32,6 +32,11 @@
      		  	return $query->result();  
                  
            } 
+	  function get_member_art($id) {  
+               $query = $this->db->get_where('rua_art_items',array('artist_id' => $id));  
+     		  	return $query->result();  
+                 
+           } 
          
    }  
 

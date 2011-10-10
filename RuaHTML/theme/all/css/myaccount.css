@@ -1,0 +1,137 @@
+
+.ui-button-text {
+   font-size: 11px !important;
+} 
+
+img#my-profile-pic{
+	margin-left:auto;
+	margin-right:auto; 
+}
+
+form.account-form {
+		background: #9cbc2c;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-khtml-border-radius: 5px;
+		border-radius: 5px;
+		counter-reset: fieldsets;
+		padding: 20px;
+		
+		
+	}
+		
+	form.account-form fieldset {
+		border: none;
+		border-style:none;
+		margin-bottom: 10px;
+	}
+	
+	form.account-form fieldset fieldset.inner {
+		border-style: solid;
+		border-width: 2px;
+		margin-bottom: 10px;
+		
+	}
+	
+	form.account-form legend {
+		color: #384313;
+		font-size: 16px;
+		font-weight: bold;
+		padding-bottom: 10px;
+		text-shadow: 0 1px 1px #c0d576;
+	}
+	
+	form.account-form fieldset fieldset.inner legend {
+		font-size: 10px;
+		font-weight: bold;
+		padding-bottom: 10px;
+		
+	}
+	
+		form.account-form fieldset:last-of-type {
+			margin-bottom: 0;
+			}
+			
+			form.account-form legend {
+				color: #384313;
+				font-size: 16px;
+				font-weight: bold;
+				padding-bottom: 10px;
+				text-shadow: 0 1px 1px #c0d576;
+				}
+				
+				/*form.account-form > fieldset > legend:before {
+					content: "Step " counter(fieldsets) ": ";
+					counter-increment: fieldsets;
+				}*/
+				
+				form.account-form fieldset fieldset legend {
+					color: #111111;
+					font-size: 13px;
+					font-weight: normal;
+					padding-bottom: 0;
+					}
+			
+			form.account-form ul li {
+				background: #b9cf6a;
+				background: rgba(255,255,255,.3);
+				border-color: #e3ebc3;
+				border-color: rgba(255,255,255,.6);
+				border-style: solid;
+				border-width: 2px;
+				-moz-border-radius: 5px;
+				-webkit-border-radius: 5px;
+				-khtml-border-radius: 5px;
+				border-radius: 5px;
+				line-height: 30px;
+				list-style: none;
+				padding: 5px 10px;
+				margin-bottom: 2px;
+				}
+							
+				form.account-form ul ul li {
+					background: none;
+					border: none;
+					float: left;
+					}
+			
+			form.account-form label {
+				float: left;
+				font-size: 13px;
+				width: 110px;
+				}
+				
+			form.account-form fieldset fieldset label {
+				background:none no-repeat left 50%;
+				line-height: 20px;
+				padding: 0 0 0 30px;
+				width: auto;
+				}
+					
+			form.account-form fieldset fieldset label:hover {
+				cursor: pointer;
+				}
+				
+			form.account-form input:not([type=radio]):not([type=submit]:not([type=button]),
+			form.account-form textarea {
+				background: #ffffff;
+				border: none;
+				-moz-border-radius: 3px;
+				-webkit-border-radius: 3px;
+				-khtml-border-radius: 3px;
+				border-radius: 3px;
+				font: italic 13px Georgia, "Times New Roman", Times, serif;
+				outline: none;
+				padding: 5px;
+				width: 200px;
+				}
+					
+				form.account-form input:not([type=submit]):focus,
+				form.account-form textarea:focus {
+					background: #eaeaea;
+					}
+					
+				form.account-form input[type=radio] {
+					float: left;
+					margin-right: 5px;
+					}

@@ -1,0 +1,20 @@
+		
+	ul#my-art-list{
+		list-style: none;
+		width:210px;
+		
+	}
+	li.my-list-item{
+		background: #b9cf6a;
+				background: rgba(255,255,255,.3);
+				border-color: #e3ebc3;
+				border-color: rgba(255,255,255,.6);
+				border-style: solid;
+				border-width: 2px;
+				-moz-border-radius: 5px;
+				-webkit-border-radius: 5px;
+				-khtml-border-radius: 5px;
+				border-radius: 5px;
+		padding: 4px;
+		margin: 5px;
+	}

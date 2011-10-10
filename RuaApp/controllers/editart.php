@@ -25,7 +25,10 @@ class Editart extends CI_Controller {
 		if ($this->tank_auth->is_logged_in()) {
 		$data['member_id']=$this->tank_auth->get_user_id();
 		$data['art']= $this->Art_model->get_my_item($this->art_id,$data['member_id']);	
-		
+		if(is_null($data['art'])){
+			redirect('/myaccount');
+			
+		}
 		$_REQUEST['item_id']=$data['art'][0]->id;
 		$_REQUEST['item_name']=$data['art'][0]->name;
 		$_REQUEST['item_description']=$data['art'][0]->description;

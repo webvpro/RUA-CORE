@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>XTA2 - CI Tank Auth Authentication with 3rd party plugins.</title>	
+		<title></title>	
 	</head>
 	
 	<body>

@@ -124,10 +124,12 @@
 		    
 		    </li><!-- End 4 columns Item -->
 				<li><a href="#article2">Popular</a></li>
-				<li><a id="sell-my-art" href="/sellart/">Sell My Art</a></li>
+				<?php if($is_logged_in){
+					echo'<li><a id="my-art" href="/myart/">My Art</a></li>';
+				}?>
 				<li class="menu_right">
 					<?php if($is_logged_in){
-					 echo '<a href="/auth/logout">Sign Out</a>';
+					 echo '<a href="/myaccount">My Account</a>';
 					 } else {
 					 	echo '<a href="/auth/login/">Sign In</a>';
 					 }?>
