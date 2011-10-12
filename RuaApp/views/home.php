@@ -5,28 +5,21 @@
 <!-- Article 1 end -->
 <div class="line"></div>
                 <article id="article1">
-                    <h2>Categories</h2>
+                    <h2>Artists</h2>
                     
                     <div class="line"></div>
                     
                     <div class="articleBody clear">
-                    		<div class="blocks">
-							<img src="/theme/all/images/thumb1.jpg" alt="thumb" />
-							<p>	Lorem ipsum dolor sit amet, uer uer Duis autem vel eum iriure Duis autemvel eum iriure dolor. ipsum dolor sit amet, consectetuer Duis autem vel Lorem ipsum Lorem ipsum dolor sit amet, uer uer Duis autem vel eum iriure Duis autemvel eum iriure dolor. ipsum dolor sit amet, consectetuer </p><p><a href="#" class="more">more...</a></p>
-							</div>
-							<div class="blocks">
-							<img src="/theme/all/images/thumb2.jpg" alt="thumb" />
-							<p>	Lorem ipsum dolor sit amet, uer uer Duis autem vel eum iriure Duis autemvel eum iriure dolor. ipsum dolor sit amet, consectetuer Duis autem vel Lorem ipsum Lorem ipsum dolor sit amet, uer uer Duis autem vel eum iriure Duis autemvel eum iriure dolor. ipsum dolor sit amet, consectetuer </p><p><a href="#" class="more">more...</a></p>
-							</div>
-							<div class="blocks">
-							<img src="/theme/all/images/thumb3.jpg" alt="thumb" />
-							<p>	Lorem ipsum dolor sit amet, uer uer Duis autem vel eum iriure Duis autemvel eum iriure dolor. ipsum dolor sit amet, consectetuer Duis autem vel Lorem ipsum Lorem ipsum dolor sit amet, uer uer Duis autem vel eum iriure Duis autemvel eum iriure dolor. ipsum dolor sit amet, consectetuer </p><p><a href="#" class="more">more...</a></p>
-							</div>
-							<div class="blocks" style="margin-right:0px;">
-							<img src="/theme/all/images/thumb4.jpg" alt="thumb" />
-							<p>	Lorem ipsum dolor sit amet, uer uer Duis autem vel eum iriure Duis autemvel eum iriure dolor. ipsum dolor sit amet, consectetuer Duis autem vel Lorem ipsum Lorem ipsum dolor sit amet, uer uer Duis autem vel eum iriure Duis autemvel eum iriure dolor. ipsum dolor sit amet, consectetuer </p><p><a href="#" class="more">more...</a></p>
-							</div>
-						</div>
+                    	<?
+                    	//var_dump($this->user_model->get_sellers());
+                    	 foreach ($this->user_model->get_sellers() as $row) {
+							 echo '<div class="blocks">
+							<img src="/images/uploaded/profile/profile_'.$row->user_id.'.jpg" alt="thumb" height="125" width="150" />
+							<p>'.$row->first_name.' '.$row->last_name.'</p>
+							</div>';
+						 }
+                    	?>
+                    	</div>
                 </article>
                 <article id="article2">
                     <h2>Sweet Poppin Boxes</h2>

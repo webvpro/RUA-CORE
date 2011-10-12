@@ -8,7 +8,7 @@
 |--------------------------------------------------------------------------
 */
 $config['website_name'] = 'myfb.ci.com';
-$config['webmaster_email'] = 'webversatile@gmail.com';
+$config['webmaster_email'] = 'mlstanley@gmail.com';
 
 /*
 |--------------------------------------------------------------------------

@@ -31,9 +31,21 @@ class user_model extends CI_Model
 	// return the user given the id
 	function get_user($user_id)
 	{
-		$query = $this->db->query("SELECT users.*, user_profiles.* FROM users, user_profiles WHERE " .
-								  "users.id='$user_id' AND user_profiles.user_id='$user_id'");
+		$this->db->select("u.*, up.*,countries.country");
+		$this->db->from("users AS u");
+		$this->db->join("user_profiles AS up", "u.id=up.user_id","right");
+		$this->db->join("countries","up.country_code=countries.code", "left");
+		$this->db->where(array('u.id'=>$user_id));
+		$query = $this->db->get();
 		return $query->result();
+		
+	}
+	function get_sellers()
+	{
+		$params['is_seller']=1;
+		$query = $this->db->get_where('user_profiles', $params);
+		return $query->result();
+		
 	}
 }
 ?>

@@ -29,8 +29,9 @@ class Myaccount extends CI_Controller {
 			if($data['is_logged_in']){
 				
 				$user_record=$this->user_model->get_user($this->tank_auth->get_user_id()); 
-				//var_dump($user_record);
+				
 				$data['user']= (object) $user_record[0];
+				
 				$data['countries']= new ArrayObject;
 				foreach($this->country_model->get_countries() as $row)
 				{
@@ -38,10 +39,9 @@ class Myaccount extends CI_Controller {
 				}  
 				$data['current_page']="/myaccount";
 				$data['css']='<link rel="stylesheet" type="text/css" href="/theme/all/css/myaccount.css"/><link rel="stylesheet" href="/javascript/jquery/blueimp-file-upload/jquery.fileupload-ui.css">';
-				$data['src']='<script src="//ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+				$data['src']='<script src="/javascript/jquery/jqueryform/jquery.form-2.86.js"></script>
 				<script src="/javascript/jquery/blueimp-file-upload/jquery.iframe-transport.js"></script>
 				<script src="/javascript/jquery/blueimp-file-upload/jquery.fileupload.js"></script>
-				<script src="/javascript/jquery/blueimp-file-upload/jquery.fileupload-ui.js"></script>
 				<script type="text/javascript" language="javascript" src="/javascript/apps/myaccount.js"></script>';
 				$data['footer_src']="";
 				$this->load->view('include/header_main',$data);
@@ -59,16 +59,19 @@ class Myaccount extends CI_Controller {
 			$data['is_logged_in']=TRUE;
 		}	
     	if($data['is_logged_in']){
-	  	 	$data['current_page']="/myaccount";
-			$data['css']="";
-			$data['src']="";
-			$data['footer_src']="";
-			$this->load->view('include/header_main',$data);
-			$this->load->view('include/main_nav',$data);
-	   		//$this->load->view('home', $data);
-			$this->load->view('include/footer_main',$data);
+	  	 	$update =array('first_name'=>$this->input->post('first_name',TRUE)
+	  	 					,'last_name'=>$this->input->post('last_name',TRUE)
+	  	 					,'address_1'=>$this->input->post('address_1',TRUE)
+							,'address_2'=>$this->input->post('address_2',TRUE)
+							,'city'=>$this->input->post('city',TRUE)
+							,'state'=>$this->input->post('state_province',TRUE)
+							,'country_code'=>$this->input->post('country_code',TRUE)
+							,'postal_code'=>$this->input->post('postal_code',TRUE)
+							,'bio'=>$this->input->post('bio_text',TRUE));
+			$update_user=$this->user_model->update_user_profile($this->tank_auth->get_user_id(),$update); 
+			echo json_encode($update);
   	 	} else {
-			redirect('');
+			echo 'no login';
 		}
     }
 }

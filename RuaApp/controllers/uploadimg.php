@@ -40,7 +40,13 @@ class Uploadimg extends CI_Controller {
 		$config['file_name'] = $encripted_pic_name; //set file name
 		$this->load->library('upload', $config);
 		
-			header('Content-type: application/json');
+			header('Vary: Accept');
+			if (isset($_SERVER['HTTP_ACCEPT']) &&
+			    (strpos($_SERVER['HTTP_ACCEPT'], 'application/json') !== false)) {
+			    header('Content-type: application/json');
+			} else {
+			    header('Content-type: text/plain');
+			}
 			if ( ! $this->upload->do_upload())
 			{
 				$error = array('error' => $this->upload->display_errors());

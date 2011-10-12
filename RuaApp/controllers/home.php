@@ -12,7 +12,7 @@ class Home extends CI_Controller {
 	  // config
 	$this->config->load('JavaScriptPaths');
    	$this->load->helper('url');
-	
+	$this->load->model('user_model');
 	
 	//vars configs 
    $data['is_logged_in']=FALSE;

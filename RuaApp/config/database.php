@@ -44,7 +44,7 @@ $active_record = TRUE;
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
 $db['default']['password'] = 'jnrrw3xe7g';
-$db['default']['database'] = 'webv_joyent_us_dev';
+$db['default']['database'] = 'ruaDB';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
@@ -57,6 +57,7 @@ $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 */
+
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
 $db['default']['password'] = 'root';
@@ -72,8 +73,8 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = FALSE;
 $db['default']['stricton'] = FALSE;
+ 
 //$db['default']["port"]="8889";
-
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */
