@@ -12,29 +12,35 @@ $("div#upload-dialog").dialog({ autoOpen: false, width:'600',close: function(eve
 }});
 
 
-$('#my-profile-pic').error(function() {
+     $('#my-profile-pic').error(function() {
 		 $('#my-profile-pic').attr('src','/images/no-profile-pic.jpg')
 	});
-    // Initialize the jQuery File Upload widget:
-    
-    $('#fileupload').fileupload({maxNumberOfFiles:'1'}).bind('fileuploaddone', function (e, data) {
-    	
-    	 $.each(data.files, function (index, file) {
-       		 var currentTime = new Date();
-       		 
-       		 $('#my-profile-pic').attr('src',picURL+currentTime.getHours()+currentTime.getMinutes()+currentTime.getSeconds());
-       		 
-    		});
-    	});
-
-
- 
-    $('#fileupload .files a:not([target^=_blank])').live('click', function (e) {
-        e.preventDefault();
-        $('<iframe style="display:none;"></iframe>')
-            .prop('src', this.href)
-            .appendTo('body');
+    // Initialize the jQuery File Upload :
+    $('#uploadForm').ajaxForm({iframe:true,
+        beforeSubmit: function(a,f,o) {
+            o.dataType = 'json';
+            $('#uploadOutput').html('Submitting...');
+        },
+        success: function(data) {
+            var $out = $('#uploadOutput');
+            $out.html('Form success handler received: <strong>' + typeof data + '</strong>');
+            if (typeof data == 'object' && data.nodeType)
+                data = elementToString(data.documentElement, true);
+            else if (typeof data == 'object')
+            
+                data = objToString(data);
+            $out.append('<div><pre>'+ data +'</pre></div>');
+        }
     });
+    
+    //hepler
+    function objToString(o) {
+        var s = '{\n';
+        for (var p in o)
+            s += '    "' + p + '": "' + o[p] + '"\n';
+        return s + '}';
+    }
+    
     //form ajax
      $('#change-account-form').ajaxForm({ 
         success: function(data){

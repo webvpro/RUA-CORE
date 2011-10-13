@@ -77,22 +77,20 @@
 <div id="upload-dialog">
 	<div id="fileupload">
 		<?php
-		echo form_open_multipart('uploadimg',array('id' => 'account-pic-form','class' => '','style' => '')); 
+		//echo form_open_multipart('uploadimg',array('id' => 'account-pic-form','class' => '','style' => '')); 
 		 ?>
 		
-					<div class="fileupload-buttonbar">
-		                <label class="fileinput-button">
-		                    <span>Add file...</span>
-		                    <input type="hidden" name="img_type" value="profile" />
-		                    <input type="file" name="userfile" multiple>
-		                </label>
-		                <button type="submit" class="start">Start upload</button>
-		               </div>
-		            <div class="fileupload-content">
-				        <table class="files"></table>
-				        <div class="fileupload-progressbar"></div>
-				    </div>
-				
-		 </form>
+					<form id="uploadForm" enctype="multipart/form-data" method="POST" action="uploadimg">
+						<input type="hidden" value="100000" name="MAX_FILE_SIZE" />
+						<input type="hidden" name="img_type" value="profile" />
+						File:
+						<input type="file" name="userfile" />
+						
+						<input type="submit" value="Submit" />
+						</form>
+						<p>
+						<label>Output:</label>
+						</p>
+						<div id="uploadOutput"></div>
 		</div> 
 </div>
