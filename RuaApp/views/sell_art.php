@@ -31,8 +31,32 @@
 				</li>
 				<li>
 					<label for="item-price">Price:</label>
-					<input id="item-name" name="item_price" type="text" placeholder="9999.99" maxlength="7" value="<?=set_value('reused_percent')?>"  required>
+					<input id="item-name" name="item_price" type="text" placeholder="9999.99" maxlength="7" value="<?=set_value('reused_percent')?>"  />
 				</li>
+				<li>
+					<label for="item-price">Quanity:</label>
+					<input id="item-quanity" name="quanity" type="text" placeholder="100" maxlength="4" value="<?=set_value('quanity')?>"  />
+				</li>
+				<li>
+					<label for="item-price">Category:</label>
+					<?php
+						$opts = 'id="categories"';
+						echo form_dropdown('categories', $categories, '',$opts);
+					?>
+				</li>
+				<li>
+					<label for="primary-material">Primary Materials:</label>
+					<input id="primary-material" name="primary_material" type="text" placeholder="Copper, Wire" maxlength="200" value="<?=set_value('primary_material')?>"  />
+				</li>
+				<li>
+					<label for="secondary-material">Secondary Materials:</label>
+					<input id="secondary-material" name="secondary_material" type="text" placeholder="Paper" maxlength="200" value="<?=set_value('secondary_material')?>" />
+				</li>
+				<li>
+					<label for="other-material">Other Materials:</label>
+					<input id="other-material" name="other_material" type="text" placeholder="Glue" maxlength="200" value="<?=set_value('other_material')?>" />
+				</li>
+				
 			</ul>
 	</fieldset>
 	

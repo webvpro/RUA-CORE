@@ -29,7 +29,8 @@ class Myart extends CI_Controller {
 		$data['is_logged_in']=TRUE;
 	    $data['current_page']="/home";
 		$data['css']='<link rel="stylesheet" type="text/css" href="/theme/all/css/myart.css"/>';
-	    $data['src']='';
+	    $data['src']='<script src="/javascript/jquery/jqueryform/jquery.form-2.86.js"></script>
+				<script type="text/javascript" language="javascript" src="/javascript/apps/myart.js"></script>';
 		$this->load->view('include/header_main',$data);
 		$this->load->view('include/main_nav',$data);
 	    $this->load->view('my_art', $data);

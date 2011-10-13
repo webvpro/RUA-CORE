@@ -12,11 +12,7 @@ class Myaccount extends CI_Controller {
 			$this->load->model('user_model');
 			$this->load->model('country_model');
 			//vars configs 
-   			
-		
-    		
-		
-	}
+   	}
 	
 	
 	function index()
@@ -40,8 +36,6 @@ class Myaccount extends CI_Controller {
 				$data['current_page']="/myaccount";
 				$data['css']='<link rel="stylesheet" type="text/css" href="/theme/all/css/myaccount.css"/><link rel="stylesheet" href="/javascript/jquery/blueimp-file-upload/jquery.fileupload-ui.css">';
 				$data['src']='<script src="/javascript/jquery/jqueryform/jquery.form-2.86.js"></script>
-				<script src="/javascript/jquery/blueimp-file-upload/jquery.iframe-transport.js"></script>
-				<script src="/javascript/jquery/blueimp-file-upload/jquery.fileupload.js"></script>
 				<script type="text/javascript" language="javascript" src="/javascript/apps/myaccount.js"></script>';
 				$data['footer_src']="";
 				$this->load->view('include/header_main',$data);

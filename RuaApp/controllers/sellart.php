@@ -17,12 +17,17 @@ class Sellart extends CI_Controller {
 	  // config
 	    $data['is_logged_in']=FALSE;
 		$data['username']=$this->tank_auth->get_username();
+		$data['categories']= new ArrayObject;
+			foreach($this->Art_model->get_art_categories() as $row)
+				{
+				  $data['categories'][$row->id] = $row->category;
+				}  
 		if ($this->tank_auth->is_logged_in()) {	
 		
 		 $data['is_logged_in']=TRUE;
 	     $data['current_page']="/home";
-		 $data['css']='<link rel="stylesheet" type="text/css" src="/javascript/jquery/uploadify/uploadify.css"/>';
-	     $data['src']='<script type="text/javascript" language="javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script><script type="text/javascript" language="javascript" src="/javascript/jquery/alphanumeric/jquery.alphanumeric.pack.js"></script>
+		  $data['css']='';
+		 $data['src']='<script type="text/javascript" language="javascript" src="/javascript/jquery/alphanumeric/jquery.alphanumeric.pack.js"></script>
 	    				<script>
 	    				$(document).ready(function(){
 	    					$("#item-name").alphanumeric({allow:"._-"});

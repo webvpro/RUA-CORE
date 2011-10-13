@@ -1,3 +1,6 @@
 *.class
 *.pyc
 *.pyo
+RuaHTML/images
+RuaHTML/tuts
+RuaHTML/user_guide
