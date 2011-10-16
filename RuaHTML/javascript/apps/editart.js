@@ -5,8 +5,7 @@
 $(function(){
 	$("#item-name").alphanumeric({allow:"._-"});
 	$("#item-description").alphanumeric({allow:".,  -_"});
-	$("#item-resued-percent").numeric({allow:"."});
-	$("#item-price").numeric({allow:"."});
+	$("#item-price .dim-input").numeric({allow:"."});
 	$(".taginput").alpha({nocaps:true});
 
 				
@@ -64,7 +63,7 @@ $(function(){
 			$val1= $('ul.ui-autocomplete > li:eq(0)');
 			$val2=$('ul.ui-autocomplete > li:eq(1)');
 			
-			if($val1.text() == $val2.text()){
+			if($val1.text() == $val2.text() && $val2.length >0){
 				$val1.remove();
 			}
 		}
@@ -104,7 +103,7 @@ $(function(){
 				$copy =$(this).clone();
 				$a= $copy.find('a');
 				$a.remove();
-				$rvals.push('{'+$copy.text()+'}');
+				$rvals.push($copy.text());
 			} else {
 				$rvals.push($(this).attr('id'));
 			}
@@ -123,7 +122,7 @@ $(function(){
 	$('#submit-art-button').button().click(function(e){
   	prepareForm();
   	
-  	//$('#new-item-form').submit();
+  	$('#new-item-form').submit();
   	
   	})
 			

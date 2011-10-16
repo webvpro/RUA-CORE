@@ -14,7 +14,7 @@ class Sellart extends CI_Controller {
 			
 	}
 	
-	function index()
+	public function index()
 	{
 	  // config
 	    $data['is_logged_in']=FALSE;
@@ -44,7 +44,7 @@ class Sellart extends CI_Controller {
 		}
 	}
 	
-	function createitem()
+	public function createitem()
 	{
 		$data['is_logged_in']=FALSE;
 		
@@ -58,36 +58,101 @@ class Sellart extends CI_Controller {
 			if ($this->form_validation->run() == FALSE)
 			{
 			$data['is_logged_in']=TRUE;
+			
 			$this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, no-transform, max-age=0, post-check=0, pre-check=0"); 
 			$this->output->set_header("Pragma: no-cache");
 	     	$data['current_page']="/home";
 		 	$data['css']='<link rel="stylesheet" type="text/css" src="/theme/all/css/editart.css"/>';
-	     	$data['src']='</script><script type="text/javascript" language="javascript" src="/javascript/jquery/alphanumeric/jquery.alphanumeric.pack.js"></script>
-	    				<script>
-	    					$("#item-name").alphanumeric({allow:"._-"});
-	    					$("#item-description").alphanumeric({allow:".,  -_"});
-							$("#item-resue-percent").numeric({allow:"."});
-							$("#item-price").numeric({allow:"."});
-	    				</script>';
+	     	$data['src']='<script type="text/javascript" language="javascript" src="/javascript/jquery/alphanumeric/jquery.alphanumeric.pack.js"></script>';
 			$this->load->view('include/header_main',$data);
 			$this->load->view('include/main_nav',$data);
 	    	$this->load->view('sell_art', $data);
 			$this->load->view('include/footer_main',$data);
+			 
 			} else {
+				$add=array('artist_id'=>$data['member_id']
+						   ,'name'=>$this->input->post('item_name',TRUE)
+						   ,'description'=>$this->input->post('item_description',TRUE)
+						   ,'reuse_percentage'=>$this->input->post('item_reuse_percent',TRUE)
+						   ,'price'=>$this->input->post('item_price',TRUE)
+						   ,'height'=>$this->input->post('item_height',TRUE)
+						   ,'width'=>$this->input->post('item_width',TRUE)
+						   ,'depth'=>$this->input->post('item_depth',TRUE)
+						   ,'dim_uom'=>$this->input->post('dim_uom',TRUE)
+						   ,'weight'=>$this->input->post('item_weight',TRUE)
+						   ,'weight_uom'=>$this->input->post('weight_uom',TRUE)
+				 );
+	
+				$art_id= $this->Art_model->add_art($add);
+				$tagParam= array(array('art_id'=>$art_id,'type'=>'primary','val'=>$this->input->post('primary_material_ids',TRUE))
+							 	 ,array('art_id'=>$art_id,'type'=>'secondary','val'=>$this->input->post('secondary_material_ids',TRUE))
+								 ,array('art_id'=>$art_id,'val'=>$this->input->post('secondary_material_ids',TRUE)));
+				$this->_perpareTags($tagParam);	
+				redirect('/editart/'.$art_id, 'refresh'); 
 				
-				$rs= $this->Art_model->add_art(array('artist_id' => $data['member_id'],
-														'name'=>$_REQUEST['item_name'],
-														'description'=>$_REQUEST['item_description'],
-														'reuse_percentage'=>$_REQUEST['item_reuse_percent'],
-														'price'=>$_REQUEST['item_price'] ));
-				
-														
-				redirect('/editart/'.$rs, 'refresh');
-			}
+			}// eof no error
 		}else{
 			redirect('/auth/login');
-		}
+		}// eof if login
+	}// eof add
+	private function _perpareTags($param)
+	{
+		
+		foreach ($param as $key) {
+			//var_dump($key['type']);
+			$valAry= explode(",", $key['val']);
+			
+			for($i = 0; $i < count($valAry); $i++){
+				if(! is_numeric($valAry[$i]) && ! isset($key['type']))
+				{
+					$id=$this->material_model->make_tag(array('material'=>$valAry[$i]));
+					$tag=array('art_id'=>$key['art_id'],'material_id'=>$id);
+				}
+				elseif(! is_numeric($valAry[$i]))
+				{
+					$id=$this->material_model->make_tag(array('material'=>$valAry[$i]));
+					$tag=array('art_id'=>$key['art_id'],'material_id'=>$id,'is_'.$key['type']=>1);
+				}
+				elseif(is_numeric($valAry[$i]) && ! isset($key['type']))
+				{
+					$tag=array('art_id'=>$key['art_id'],'material_id'=>$valAry[$i]);
+				}
+				elseif(is_numeric($valAry[$i]))
+				{
+					$tag=array('art_id'=>$key['art_id'],'material_id'=>$valAry[$i],'is_'.$key['type']=>1);
+				}
+				$this->material_model->tag_it($tag);
+			}
+			
+		} 
+		/*
+		 * 
+		$valAry= explode(",", $val);
+		
+		$i=null;
+		
+		for($i = 0; $i < count($valAry); $i++){
+			if(! is_numeric($valAry[$i]) && is_null($type))
+			{
+				$id=$this->material_model->make_tag(array('material'=>$valAry[$i]));
+				$tag=array('art_id'=>$art_id,'material_id'=>$id);
+			}
+			elseif(! is_numeric($valAry[$i]))
+			{
+				$id=$this->material_model->make_tag(array('material'=>$valAry[$i]));
+				$tag=array('art_id'=>$art_id,'material_id'=>$id,'is_'.$type=>1);
+			}
+			elseif(is_numeric($valAry[$i]) && is_null($type))
+			{
+				$tag=array('art_id'=>$art_id,'material_id'=>$valAry[$i]);
+			}
+			elseif(is_numeric($valAry[$i]))
+			{
+				$tag=array('art_id'=>$art_id,'material_id'=>$valAry[$i],'is_'.$type=>1);
+			}
+			$this->material_model->tag_it($tag);
+		}*/
+		return;
 	}
-	
 } 
 

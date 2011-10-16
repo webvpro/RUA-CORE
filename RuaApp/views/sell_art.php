@@ -19,12 +19,12 @@
 			<legend>Item details</legend>
 			<ul>
 				<li>
-					<label for="item-name">Item Name:</label>
-					<input id="item-name" name="item_name" type="text" placeholder="Name of the item you are selling" value="<?=set_value('item_name')?>" maxlength="50" />
+					<label for="item-name">Name:</label>
+					<input id="item-name" name="item_name" type="text" placeholder="" value="<?=set_value('item_name')?>" maxlength="50" />
 				</li>
 				<li>
 					<label for="item-description">Description:</label>
-					<textarea id="item-description" name="item_description" placeholder="Describe the item you are selling"><?=set_value('item_description')?></textarea>
+					<textarea id="item-description" name="item_description" placeholder="(Describe the item you are selling)" cols="50" rows="5"><?=set_value('item_description')?></textarea>
 				</li>
 				<li>
 					<label for="item-resued-percent">ReUse %:</label>
@@ -45,16 +45,16 @@
 				</li>
 				<li>
 					<label for="item-dim-h">Size (Height-Width-Depth):</label>
-					<input id="item-dim-h" name="item_height" type="text" maxlength="4" size="3" value="<?=set_value('item_height')?>" style="width: 50px; margin:0.2em; display: inline-block;" />
-					<input id="item-dim-w" name="item_width" type="text" maxlength="4" size="3" value="<?=set_value('item_height')?>"  style="width: 50px; margin:0.2em; display: inline-block;" />
-					<input id="item-dim-d" name="item_depth" type="text" maxlength="4" size="3" value="<?=set_value('item_height')?>"  style="width: 50px; margin:0.2em; display: inline-block;" />
+					<input id="item-dim-h" class="dim-input" name="item_height" type="text" maxlength="4" size="3" value="<?=set_value('item_height')?>" style="width: 50px; margin:0.2em; display: inline-block;" />
+					<input id="item-dim-w" class="dim-input" name="item_width" type="text" maxlength="4" size="3" value="<?=set_value('item_height')?>"  style="width: 50px; margin:0.2em; display: inline-block;" />
+					<input id="item-dim-d" class="dim-input" name="item_depth" type="text" maxlength="4" size="3" value="<?=set_value('item_height')?>"  style="width: 50px; margin:0.2em; display: inline-block;" />
 					<?php
 					echo form_dropdown('dim_uom',array('inch'=>'inch','ft'=>'ft','cm'=>'cm','m'=>'m') , 'inch','id="dim-uom" style="width: 50px; margin:0.2em;display: inline-block;"');
 					?>
 				</li>
 				<li>
 					<label for="item-weight">Weight:</label>
-					<input id="item-weight" name="item_weight" type="text" placeholder="" maxlength="7" value="<?=set_value('reused_percent')?>" style="width: 100px; margin:0.2em; display: inline-block;"  />
+					<input id="item-weight" class="dim-input" name="item_weight" type="text" placeholder="" maxlength="7" value="<?=set_value('reused_percent')?>" style="width: 100px; margin:0.2em; display: inline-block;"  />
 					<?php
 					echo form_dropdown('weight_uom',array('oz'=>'oz','lbs'=>'lbs','gram'=>'gram','kilo'=>'kilo') , 'oz','id="dim-uom" style="width: 50px; margin:0.2em;display: inline-block;"');
 					?>
@@ -69,22 +69,22 @@
 				<li>
 					<label for="item-primary-material">Primary Materials:</label>
 					<div id="primary-material" class="tagWrap ui-helper-clearfix">
-					<input id="hidden-primary-material" name="primary_material_ids" type="hidden" value="" />
-					<input id="item-primary-material" class="taginput" name="item_primary_material" type="text" placeholder="" maxlength="200" value="<?=set_value('primary_material')?>"  />
+					<input id="hidden-primary-material" name="primary_material_ids" type="hidden" value="<?=set_value('primary_material_ids')?>" />
+					<input id="item-primary-material" class="taginput" name="item_primary_material" type="text" placeholder="" maxlength="200" value=""  />
 					</div>
 				</li>
 				<li>
 					<label for="item-secondary-material">Secondary Materials:</label>
 					<div id="secondary-material" class="tagWrap ui-helper-clearfix">
-					<input id="hidden-sencondary-material" name="secondary_material_ids" type="hidden" value="" />
-					<input id="item-secondary-material" class="taginput" name="item_secondary_material" type="text" placeholder="" maxlength="200" value="<?=set_value('secondary_material')?>" />
+					<input id="hidden-secondary-material" name="secondary_material_ids" type="hidden" value="<?=set_value('secondary_material_ids')?>" />
+					<input id="item-secondary-material" class="taginput" name="item_secondary_material" type="text" placeholder="" maxlength="200" value="" />
 					</div>
 				</li>
 				<li>
 					<label for="item-other-material">Other Materials:</label>
 					<div id="other-material" class="tagWrap ui-helper-clearfix">
-						<input id="hidden-other-material" name="other_material_ids" type="hidden" value="" />
-					<input id="item-other-material" class="taginput" name="item_other_material" type="text" placeholder="" maxlength="200" value="<?=set_value('other_material')?>" />
+						<input id="hidden-other-material" name="other_material_ids" type="hidden" value="<?=set_value('other_material_ids')?>" />
+					<input id="item-other-material" class="taginput" name="item_other_material" type="text" placeholder="" maxlength="200" value="" />
 					</div>
 				</li>
 				
