@@ -10,6 +10,8 @@ class Sellart extends CI_Controller {
 			$this->load->library('security');
 			$this->lang->load('tank_auth');
 			$this->load->model('Art_model');
+			$this->load->model('material_model');
+			
 	}
 	
 	function index()
@@ -23,20 +25,17 @@ class Sellart extends CI_Controller {
 				  $data['categories'][$row->id] = $row->category;
 				}  
 		if ($this->tank_auth->is_logged_in()) {	
+		 $data['materials']=$this->material_model->get_materials();
 		
 		 $data['is_logged_in']=TRUE;
+		 $this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, no-transform, max-age=0, post-check=0, pre-check=0"); 
+			$this->output->set_header("Pragma: no-cache");
 	     $data['current_page']="/home";
-		  $data['css']='';
-		 $data['src']='<script type="text/javascript" language="javascript" src="/javascript/jquery/alphanumeric/jquery.alphanumeric.pack.js"></script>
-	    				<script>
-	    				$(document).ready(function(){
-	    					$("#item-name").alphanumeric({allow:"._-"});
-	    					$("#item-description").alphanumeric({allow:".,  -_"});
-							$("#item-resued-percent").numeric({allow:"."});
-							$("#item-price").numeric({allow:"."});
-						});
-	    				</script>';
+		  $data['css']='<link href="/theme/all/css/rua_form.css" type="text/css" rel="stylesheet"></link><link href="/theme/all/css/editart.css" type="text/css" rel="stylesheet"></link>';
+		 $data['src']='<script type="text/javascript" language="javascript" src="/javascript/jquery/alphanumeric/jquery.alphanumeric.pack.js"></script>';
+		
 		$this->load->view('include/header_main',$data);
+		echo "<flushhack />";
 		$this->load->view('include/main_nav',$data);
 	    $this->load->view('sell_art', $data);
 		$this->load->view('include/footer_main',$data);
@@ -59,9 +58,11 @@ class Sellart extends CI_Controller {
 			if ($this->form_validation->run() == FALSE)
 			{
 			$data['is_logged_in']=TRUE;
+			$this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, no-transform, max-age=0, post-check=0, pre-check=0"); 
+			$this->output->set_header("Pragma: no-cache");
 	     	$data['current_page']="/home";
-		 	$data['css']='<link rel="stylesheet" type="text/css" src="/javascript/jquery/uploadify/uploadify.css"/>';
-	     	$data['src']='<script type="text/javascript" language="javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script><script type="text/javascript" language="javascript" src="/javascript/jquery/alphanumeric/jquery.alphanumeric.pack.js"></script>
+		 	$data['css']='<link rel="stylesheet" type="text/css" src="/theme/all/css/editart.css"/>';
+	     	$data['src']='</script><script type="text/javascript" language="javascript" src="/javascript/jquery/alphanumeric/jquery.alphanumeric.pack.js"></script>
 	    				<script>
 	    					$("#item-name").alphanumeric({allow:"._-"});
 	    					$("#item-description").alphanumeric({allow:".,  -_"});

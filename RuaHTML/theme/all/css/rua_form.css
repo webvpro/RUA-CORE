@@ -1,0 +1,48 @@
+
+#form-wrapper {padding:10px; width:322px; background-color:#000; background:rgba(0,0,0,.5); -moz-border-radius:10px; -webkit-border-radius:10px; border-radius:10px; }
+#form-wrapper form {border:1px solid #666; width:auto; background-color:#eee; -moz-border-radius:10px; -webkit-border-radius:10px; border-radius:10px; }
+
+
+#form-wrapper form ul li {
+				background: #b9cf6a;
+				background: rgba(255,255,255,.8);
+				border-color: #e3ebc3;
+				border-color: rgba(255,255,255,.6);
+				border-style: solid;
+				border-width: 2px;
+				-moz-border-radius: 5px;
+				-webkit-border-radius: 5px;
+				-khtml-border-radius: 5px;
+				border-radius: 5px;
+				line-height: 30px;
+				list-style: none;
+				padding: 5px 10px;
+				margin-bottom: 2px;
+				}
+							
+			 #form-wrapper form ul ul li {
+					background: none;
+					border: none;
+					float: left;
+					}
+
+#form-wrapper form  fieldset { padding:0; margin:0; position:relative; border:none; background-color:#eee; }
+#form-wrapper form  legend { visibility:hidden; height:0; }
+#form-wrapper form span { display:block; width:auto; 5px 20px 5px 5px; margin:0 auto; text-indent:8px; background-color:#B6D59A; border-bottom:1px solid #04B404; font:12px Georgia, Serif; color:#fff; }
+.tagwrap { width:274px; padding:3px 3px 0; margin:0 auto; border:1px solid #aaa; background-color:#fff; cursor:text; }
+#form-wrapper form  .taginput { width:30px; margin:0 0 2px 0; padding:0 0 3px; position:relative; top:0; float:left; border:none; }
+#form-wrapper form  select{ display:block; width:274px; padding:3px; margin:0 auto; border:1px solid #aaa; }
+#form-wrapper form  input, .multitag textarea { display:block; width:274px; padding:3px; margin:0 auto 20px; border:1px solid #aaa; }
+#form-wrapper form  label { display:block; margin:6px 0 3px; text-indent:5px; font:bold 11px Verdana, Sans-serif; color:#666; }
+#form-wrapper form  .tagLabel { margin-top:0; }
+#form-wrapper form button { float:right; margin:0 0 20px 0; }
+#form-wrapper form .tagcancel { margin-right:20px; }
+.tagWrap span { display:block; width:auto; margin:0 3px 3px 0; padding:3px; padding-right:22px; position:relative; float:left; text-indent:0; background-color:#B6D59A; border:2px solid #04B404; -moz-border-radius:7px; -webkit-border-radius:7px; border-radius:7px; color:#04B404; font:normal 11px Verdana, Sans-serif; }
+.tagWrap span a { position:absolute; right:8px; top:2px; color:#04B404; font:bold 12px Verdana, Sans-serif; text-decoration:none; }
+
+.tagWrap span a:hover { color:#ff0000; }
+span.new-item{
+	background-color:#FFD400 !important; border-color:#F39814!important; border-style: solid; border-width:1px; border-bottom:2px; font:12px Georgia, Serif; color:#fff; 
+}
+.ui-menu .ui-menu-item { white-space:nowrap; padding:0 10px 0 0; }
+

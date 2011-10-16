@@ -10,7 +10,7 @@
 	
 	<link rel="stylesheet" type="text/css" href="/theme/all/css/styles.css" />
 	<link rel="stylesheet" type="text/css" href="/theme/all/css/menu.css" />
-	<link rel="stylesheet" type="text/css" href="/theme/all/css/forms.css" />
+	
 	<?php echo $css; ?>
 
 	<!-- Internet Explorer HTML5 enabling script: -->

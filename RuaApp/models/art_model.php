@@ -32,8 +32,11 @@
      		  	return $query->result();  
                  
            } 
-	  function get_art_categories() {  
-               $query = $this->db->get('rua_categories');  
+	  function get_art_categories() {
+	  			$this->db->select('*');
+				$this->db->from('rua_categories');
+				$this->db->order_by("category", "asc");    
+                $query = $this->db->get();
      		  	return $query->result();  
                  
            } 

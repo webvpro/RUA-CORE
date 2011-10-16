@@ -10,6 +10,7 @@ hgroup,nav,
 figure{
 	/* Giving a display value to the HTML5 rendered elements: */
 	display:block;
+	position: relative;
 }
 
 body{

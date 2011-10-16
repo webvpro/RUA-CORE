@@ -27,7 +27,9 @@ class Myart extends CI_Controller {
 		$data['art_items']= (object) $this->Art_model->get_member_art($data['member_id']);
 		
 		$data['is_logged_in']=TRUE;
-	    $data['current_page']="/home";
+		$this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, no-transform, max-age=0, post-check=0, pre-check=0"); 
+		$this->output->set_header("Pragma: no-cache");
+	    $data['current_page']="/myart";
 		$data['css']='<link rel="stylesheet" type="text/css" href="/theme/all/css/myart.css"/>';
 	    $data['src']='<script src="/javascript/jquery/jqueryform/jquery.form-2.86.js"></script>
 				<script type="text/javascript" language="javascript" src="/javascript/apps/myart.js"></script>';

@@ -86,8 +86,9 @@
 			
 			form#new-item-form label {
 				float: left;
+				display: block;
 				font-size: 13px;
-				width: 125px;
+				width: 130px;
 				}
 				
 			form#new-item-form fieldset fieldset label {

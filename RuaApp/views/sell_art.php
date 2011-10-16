@@ -5,8 +5,10 @@
                     
                     <div class="line"></div>
                     
-                    <div id="create-item-form" title="Sell My Art" style="">
-	<p class="validateTips">All form fields are required.</p>
+                    <div id="create-item-form" title="Sell My Art" class="" style= "width: 3.3em;">
+                    <div id="form-wrapper">
+                    
+	
 
 	
 		 <?php
@@ -18,7 +20,7 @@
 			<ul>
 				<li>
 					<label for="item-name">Item Name:</label>
-					<input id="item-name" name="item_name" type="text" placeholder="Name of the item you are selling" value="<?=set_value('item_name')?>" maxlength="50" required>
+					<input id="item-name" name="item_name" type="text" placeholder="Name of the item you are selling" value="<?=set_value('item_name')?>" maxlength="50" />
 				</li>
 				<li>
 					<label for="item-description">Description:</label>
@@ -26,8 +28,12 @@
 				</li>
 				<li>
 					<label for="item-resued-percent">ReUse %:</label>
-					<input type="text" id="item-resue-percent" name="item_reuse_percent" style="" placeholder="99.99" maxlength="5" value="<?=set_value('reused_percent')?>" required/>
-					<p><div id="slider-range-min" style=""></div></p>
+					<?php
+						$opts = 'id="item-resued-percent"';
+						$percentOps =array('5'=>'5%','10'=>'10%','15'=>'15%','20'=>'20%','25'=>'25%','30'=>'30%','35'=>'35%','40'=>'40%','45'=>'45%','50'=>'50%','55'=>'55%'
+											,'60'=>'60%','65'=>'65%','70'=>'70%','75'=>'75%','80'=>'85%','90'=>'90%','95'=>'95%','100'=>'100%');
+						echo form_dropdown('item_reuse_percent', $percentOps, '5',$opts);
+					?>
 				</li>
 				<li>
 					<label for="item-price">Price:</label>
@@ -38,23 +44,48 @@
 					<input id="item-quanity" name="quanity" type="text" placeholder="100" maxlength="4" value="<?=set_value('quanity')?>"  />
 				</li>
 				<li>
-					<label for="item-price">Category:</label>
+					<label for="item-dim-h">Size (Height-Width-Depth):</label>
+					<input id="item-dim-h" name="item_height" type="text" maxlength="4" size="3" value="<?=set_value('item_height')?>" style="width: 50px; margin:0.2em; display: inline-block;" />
+					<input id="item-dim-w" name="item_width" type="text" maxlength="4" size="3" value="<?=set_value('item_height')?>"  style="width: 50px; margin:0.2em; display: inline-block;" />
+					<input id="item-dim-d" name="item_depth" type="text" maxlength="4" size="3" value="<?=set_value('item_height')?>"  style="width: 50px; margin:0.2em; display: inline-block;" />
 					<?php
-						$opts = 'id="categories"';
-						echo form_dropdown('categories', $categories, '',$opts);
+					echo form_dropdown('dim_uom',array('inch'=>'inch','ft'=>'ft','cm'=>'cm','m'=>'m') , 'inch','id="dim-uom" style="width: 50px; margin:0.2em;display: inline-block;"');
 					?>
 				</li>
 				<li>
-					<label for="primary-material">Primary Materials:</label>
-					<input id="primary-material" name="primary_material" type="text" placeholder="Copper, Wire" maxlength="200" value="<?=set_value('primary_material')?>"  />
+					<label for="item-weight">Weight:</label>
+					<input id="item-weight" name="item_weight" type="text" placeholder="" maxlength="7" value="<?=set_value('reused_percent')?>" style="width: 100px; margin:0.2em; display: inline-block;"  />
+					<?php
+					echo form_dropdown('weight_uom',array('oz'=>'oz','lbs'=>'lbs','gram'=>'gram','kilo'=>'kilo') , 'oz','id="dim-uom" style="width: 50px; margin:0.2em;display: inline-block;"');
+					?>
 				</li>
 				<li>
-					<label for="secondary-material">Secondary Materials:</label>
-					<input id="secondary-material" name="secondary_material" type="text" placeholder="Paper" maxlength="200" value="<?=set_value('secondary_material')?>" />
+					<label for="item-price">Gallery:</label>
+					<?php
+						$opts = 'id="categories"';
+						echo form_dropdown('categories', $categories, '10',$opts);
+					?>
 				</li>
 				<li>
-					<label for="other-material">Other Materials:</label>
-					<input id="other-material" name="other_material" type="text" placeholder="Glue" maxlength="200" value="<?=set_value('other_material')?>" />
+					<label for="item-primary-material">Primary Materials:</label>
+					<div id="primary-material" class="tagWrap ui-helper-clearfix">
+					<input id="hidden-primary-material" name="primary_material_ids" type="hidden" value="" />
+					<input id="item-primary-material" class="taginput" name="item_primary_material" type="text" placeholder="" maxlength="200" value="<?=set_value('primary_material')?>"  />
+					</div>
+				</li>
+				<li>
+					<label for="item-secondary-material">Secondary Materials:</label>
+					<div id="secondary-material" class="tagWrap ui-helper-clearfix">
+					<input id="hidden-sencondary-material" name="secondary_material_ids" type="hidden" value="" />
+					<input id="item-secondary-material" class="taginput" name="item_secondary_material" type="text" placeholder="" maxlength="200" value="<?=set_value('secondary_material')?>" />
+					</div>
+				</li>
+				<li>
+					<label for="item-other-material">Other Materials:</label>
+					<div id="other-material" class="tagWrap ui-helper-clearfix">
+						<input id="hidden-other-material" name="other_material_ids" type="hidden" value="" />
+					<input id="item-other-material" class="taginput" name="item_other_material" type="text" placeholder="" maxlength="200" value="<?=set_value('other_material')?>" />
+					</div>
 				</li>
 				
 			</ul>
@@ -63,8 +94,10 @@
 	
 	
 	</form>
-	<input id="submit-art-button" type="submit" value="Sell Art" />
-</div>
+	
+ </div>
+<p style="margin: 1em;"><input id="submit-art-button" type="button" value="Submit" /></p>
+
 </article>
                
 		<footer> <!-- Marking the footer section -->
@@ -81,6 +114,6 @@
 
 
 	<script src="/javascript/script.js"></script>
-	
+	<script src="/javascript/apps/editart.js"></script>
 
 	

@@ -20,8 +20,6 @@ $(document).ready(function(){
         }
     );
                 
-  $('#submit-art-button').button().click(function(e){
-  	$('#new-item-form').submit();
-  })
+  
  
 });

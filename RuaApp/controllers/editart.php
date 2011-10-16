@@ -36,9 +36,11 @@ class Editart extends CI_Controller {
 		$_REQUEST['item_price']=$data['art'][0]->price;
 		
 		 $data['is_logged_in']=TRUE;
-	     $data['current_page']="/home";
+		 $this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, no-transform, max-age=0, post-check=0, pre-check=0"); 
+		 $this->output->set_header("Pragma: no-cache");
+	     $data['current_page']="/editart";
 		 $data['css']='<link rel="stylesheet" type="text/css" src="/javascript/jquery/uploadify/uploadify.css"/>';
-	     $data['src']='<script type="text/javascript" language="javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script><script type="text/javascript" language="javascript" src="/javascript/jquery/alphanumeric/jquery.alphanumeric.pack.js"></script>
+	     $data['src']='<script type="text/javascript" language="javascript" src="/javascript/jquery/alphanumeric/jquery.alphanumeric.pack.js"></script>
 	    				<script>
 	    					$("#item-name").alphanumeric({allow:"._-"});
 	    					$("#item-description").alphanumeric({allow:".,  -_"});

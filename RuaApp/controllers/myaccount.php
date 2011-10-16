@@ -27,14 +27,16 @@ class Myaccount extends CI_Controller {
 				$user_record=$this->user_model->get_user($this->tank_auth->get_user_id()); 
 				
 				$data['user']= (object) $user_record[0];
-				
+				//var_dump($data['user']);
 				$data['countries']= new ArrayObject;
 				foreach($this->country_model->get_countries() as $row)
 				{
 				  $data['countries'][$row->code] = $row->country;
 				}  
+				$this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, no-transform, max-age=0, post-check=0, pre-check=0"); 
+				$this->output->set_header("Pragma: no-cache");
 				$data['current_page']="/myaccount";
-				$data['css']='<link rel="stylesheet" type="text/css" href="/theme/all/css/myaccount.css"/><link rel="stylesheet" href="/javascript/jquery/blueimp-file-upload/jquery.fileupload-ui.css">';
+				$data['css']='<link rel="stylesheet" type="text/css" href="/theme/all/css/forms.css" /><link rel="stylesheet" type="text/css" href="/theme/all/css/myaccount.css"/>';
 				$data['src']='<script src="/javascript/jquery/jqueryform/jquery.form-2.86.js"></script>
 				<script type="text/javascript" language="javascript" src="/javascript/apps/myaccount.js"></script>';
 				$data['footer_src']="";
