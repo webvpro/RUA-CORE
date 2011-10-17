@@ -27,7 +27,7 @@ class Editart extends CI_Controller {
 		$data['member_id']=$this->tank_auth->get_user_id();
 		$art= $this->Art_model->get_my_item($this->art_id,$data['member_id']);
 		$data['art']=$art[0];
-		//var_dump($data['art']->name);	
+		var_dump($data['art']->name);	
 		$data['materials']=$this->material_model->get_materials();
 		$data['categories']= new ArrayObject;
 			foreach($this->Art_model->get_art_categories() as $row)
