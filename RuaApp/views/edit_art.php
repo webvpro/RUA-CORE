@@ -1,68 +1,107 @@
 
-<!-- Article 1 start -->
-
-
-
-<!-- Article 1 end -->
 <div class="line"></div>
                 <article id="article1">
-                    <h2>Edit Art for <?=$username?></h2>
+                    <h2>Editing Item </h2>
                     
                     <div class="line"></div>
                     
-                    <div id="create-item-form" title="Sell My Art" style="">
-	<p class="validateTips">All form fields are required.</p>
+                    <div id="create-item-form" title="Edit Art" class="" style= "width:55em; margin: 0 auto;">
+                    <div id="form-wrapper">
+                    
+	
 
 	
-		<?php 
-		// $attr=array('id' => 'new-item-form');
+		 <?php
 		 echo validation_errors();
-		 echo form_open_multipart('editart/update',array('id' => 'new-item-form')); 
-		 
+		 echo form_open('sellart/createitem',array('id' => 'edit-item-form','style'=>'width:auto;')); 
 		 ?>
 		<fieldset>
 			<legend>Item details</legend>
 			<ul>
 				<li>
-					<label for="item-name">Item Name:</label>
-					<input id="item-name" name="item_name" type="text" placeholder="Name of the item you are selling" value="<?=$_REQUEST['item_name']?>" maxlength="50" required>
+					<label for="item-name">Name:</label>
+					<input id="item-name" name="item_name" type="text" placeholder="" value="<?=set_value('item_name')?>" maxlength="50" />
 				</li>
 				<li>
 					<label for="item-description">Description:</label>
-					<textarea id="item-description" name="item_description" placeholder="Describe the item you are selling"><?=$_REQUEST['item_description']?></textarea>
+					<textarea id="item-description" name="item_description" placeholder="(Describe the item you are selling)" cols="50" rows="5"><?=set_value('item_description')?></textarea>
 				</li>
 				<li>
 					<label for="item-resued-percent">ReUse %:</label>
-					<input type="text" id="item-resue-percent" name="item_reuse_percent" style="" placeholder="99.99" maxlength="5" value="<?=$_REQUEST['item_reuse_percent']?>" required/>
-					<p><div id="slider-range-min" style=""></div></p>
+					<?php
+						$opts = 'id="item-resued-percent"';
+						$percentOps =array('5'=>'5%','10'=>'10%','15'=>'15%','20'=>'20%','25'=>'25%','30'=>'30%','35'=>'35%','40'=>'40%','45'=>'45%','50'=>'50%','55'=>'55%'
+											,'60'=>'60%','65'=>'65%','70'=>'70%','75'=>'75%','80'=>'85%','90'=>'90%','95'=>'95%','100'=>'100%');
+						echo form_dropdown('item_reuse_percent', $percentOps, '5',$opts);
+					?>
 				</li>
 				<li>
 					<label for="item-price">Price:</label>
-					<input id="item-name" name="item_price" type="text" placeholder="9999.99" maxlength="7" value="<?=$_REQUEST['item_price']?>"  required>
+					<input id="item-price" name="item_price" type="text" placeholder="" maxlength="7" value="<?=set_value('item_price')?>"  />
 				</li>
-			</ul>
-	</fieldset>
-	<fieldset>
-			<legend>Item Photos</legend>
-			<ul>
 				<li>
-			<?php
-				echo form_upload(array('name'=>'filedata','id'=>'uploadifyit'));
-			   ?>
-		
-			</li>
-			<li>
-				<input id="submit-art-button" type="button" onclick="javascript:$('#uploadifyit').uploadifyUpload()" value="Sell Art" />
-			</li>
+					<label for="item-quanity">Quanity:</label>
+					<input id="item-quanity" name="item_quanity" type="text" placeholder="" maxlength="4" value="<?=set_value('item_quanity')?>"  />
+				</li>
+				<li>
+					<label for="item-dim-h">Size (Height-Width-Depth):</label>
+					<input id="item-dim-h" class="dim-input" name="item_height" type="text" maxlength="4" size="3" value="<?=set_value('item_height')?>" style="width: 50px; margin:0.2em; display: inline-block;" />
+					<input id="item-dim-w" class="dim-input" name="item_width" type="text" maxlength="4" size="3" value="<?=set_value('item_height')?>"  style="width: 50px; margin:0.2em; display: inline-block;" />
+					<input id="item-dim-d" class="dim-input" name="item_depth" type="text" maxlength="4" size="3" value="<?=set_value('item_height')?>"  style="width: 50px; margin:0.2em; display: inline-block;" />
+					<?php
+						echo form_dropdown('dim_uom',array('inch'=>'inch','ft'=>'ft','cm'=>'cm','m'=>'m') , 'inch','id="dim-uom" style="width: 50px; margin:0.2em;display: inline-block;"');
+					?>
+				</li>
+				<li>
+					<label for="item-weight">Weight:</label>
+					<input id="item-weight" class="dim-input" name="item_weight" type="text" placeholder="" maxlength="7" value="<?=set_value('reused_percent')?>" style="width: 100px; margin:0.2em; display: inline-block;"  />
+					<?php
+						echo form_dropdown('weight_uom',array('oz'=>'oz','lbs'=>'lbs','gram'=>'gram','kilo'=>'kilo') , 'oz','id="dim-uom" style="width: 50px; margin:0.2em;display: inline-block;"');
+					?>
+				</li>
+				<li>
+					<label for="item-price">Gallery:</label>
+					<?php
+						$opts = 'id="categories"';
+						echo form_dropdown('categories', $categories, '10',$opts);
+					?>
+				</li>
+				<li>
+					<label for="item-primary-material">Primary Materials:</label>
+					<div id="primary-material" class="tagWrap ui-helper-clearfix">
+					<input id="hidden-primary-material" name="primary_material_ids" type="hidden" value="<?=set_value('primary_material_ids')?>" />
+					<input id="item-primary-material" class="taginput" name="item_primary_material" type="text" placeholder="" maxlength="200" value=""  />
+					</div>
+				</li>
+				<li>
+					<label for="item-secondary-material">Secondary Materials:</label>
+					<div id="secondary-material" class="tagWrap ui-helper-clearfix">
+					<input id="hidden-secondary-material" name="secondary_material_ids" type="hidden" value="<?=set_value('secondary_material_ids')?>" />
+					<input id="item-secondary-material" class="taginput" name="item_secondary_material" type="text" placeholder="" maxlength="200" value="" />
+					</div>
+				</li>
+				<li>
+					<label for="item-other-material">Other Materials:</label>
+					<div id="other-material" class="tagWrap ui-helper-clearfix">
+						<input id="hidden-other-material" name="other_material_ids" type="hidden" value="<?=set_value('other_material_ids')?>" />
+					<input id="item-other-material" class="taginput" name="item_other_material" type="text" placeholder="" maxlength="200" value="" />
+					</div>
+				</li>
+				
 			</ul>
 	</fieldset>
 	
-	<?php echo form_close(); ?>
+	
+	
 	</form>
-	<div id="fileinfotarget">
-	</div>
-</div>
-                </article>
+	 <div id="item-photo-wrapper" title="Edit Art" class="" style= "height:100%;width: 10.3em; display: inline-block; vertical-align: top; background-color:#246024; ">
+ 	<p>test</p>
+ </div>
+ </div>
+
+<p style="margin: 1em;"><input id="submit-art-button" type="button" value="Submit" /></p>
+
+</article>
                
 		<footer> <!-- Marking the footer section -->
 
@@ -78,44 +117,6 @@
 
 
 	<script src="/javascript/script.js"></script>
-	
-	<script type="text/javascript" language="javascript">
-			$(document).ready(function()
-			{
-				$("#uploadifyit").uploadify({
-							uploader: '/javascript/jquery/uploadify/uploadify.swf',
-							script: '/javascript/jquery/uploadify/uploadify.php',
-							cancelImg: '/javascript/jquery/uploadify/cancel.png',
-							folder: '/images/uploaded/art/tmp/',
-							fileExt: '*.jpg;*.gif;*.png',
-							scriptAccess: 'always',
-							method:'post',
-							queueSizeLimit : 5,
-							scriptData: {'member_id':'<?=$this->tank_auth->get_user_id()?>','art_id':'<?=$_REQUEST['item_id']?>'},
-							multi: true,
-							'onError' : function(a, b, c, d){
-								if(d.status=404)
-									alert('Could not find upload script');
-								else if(d.type === "HTTP")
-									alert('error'+d.type+": "+d.info);
-								else if(d.type === "File Size")
-									alert(c.name+' '+d.type+' Limit: '+Math.round(d.sizeLimit/1024)+'KB');
-								else
-									alert('error'+d.type+": "+d.text);
-							},
-							'onComplete' : function(event,queueID,fileObj,response,data){
-									//$.post('<?php echo site_url('sellart/createitem/'); ?>',{filearray: response},function(info){ $("#fileinfotarget").append(info);});
-							},
-							'onAllComplete' : function(event,data){
-								
-							}
-					
-					
-					
-				});
-			});
-	
-</script>
-
+	<script src="/javascript/apps/editart.js"></script>
 
 	

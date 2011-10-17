@@ -7,7 +7,7 @@
             	<ul id ="my-art-list">
          <?php
 		 	foreach ($art_items as $art) {
-				echo '<li class="my-list-item">'.$art->id.'</li>';
+				echo '<li class="my-list-item"><img class="item-art-thumb" src="/images/uploaded/art/'.$art->id.'_thumb.jpg" />'.$art->id.'</li>';
 			}
 		 ?>
 		 		</ul>

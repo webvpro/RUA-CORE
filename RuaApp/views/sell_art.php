@@ -5,7 +5,7 @@
                     
                     <div class="line"></div>
                     
-                    <div id="create-item-form" title="Sell My Art" class="" style= "width: 3.3em;">
+                    <div id="create-item-form" title="Sell My Art" class="" style= "width: 35.3em; margin: 0 auto;">
                     <div id="form-wrapper">
                     
 	
@@ -37,11 +37,11 @@
 				</li>
 				<li>
 					<label for="item-price">Price:</label>
-					<input id="item-name" name="item_price" type="text" placeholder="9999.99" maxlength="7" value="<?=set_value('reused_percent')?>"  />
+					<input id="item-price" name="item_price" type="text" placeholder="" maxlength="7" value="<?=set_value('item_price')?>"  />
 				</li>
 				<li>
-					<label for="item-price">Quanity:</label>
-					<input id="item-quanity" name="quanity" type="text" placeholder="100" maxlength="4" value="<?=set_value('quanity')?>"  />
+					<label for="item-quanity">Quanity:</label>
+					<input id="item-quanity" name="item_quanity" type="text" placeholder="" maxlength="4" value="<?=set_value('item_quanity')?>"  />
 				</li>
 				<li>
 					<label for="item-dim-h">Size (Height-Width-Depth):</label>
@@ -49,14 +49,14 @@
 					<input id="item-dim-w" class="dim-input" name="item_width" type="text" maxlength="4" size="3" value="<?=set_value('item_height')?>"  style="width: 50px; margin:0.2em; display: inline-block;" />
 					<input id="item-dim-d" class="dim-input" name="item_depth" type="text" maxlength="4" size="3" value="<?=set_value('item_height')?>"  style="width: 50px; margin:0.2em; display: inline-block;" />
 					<?php
-					echo form_dropdown('dim_uom',array('inch'=>'inch','ft'=>'ft','cm'=>'cm','m'=>'m') , 'inch','id="dim-uom" style="width: 50px; margin:0.2em;display: inline-block;"');
+						echo form_dropdown('dim_uom',array('inch'=>'inch','ft'=>'ft','cm'=>'cm','m'=>'m') , 'inch','id="dim-uom" style="width: 50px; margin:0.2em;display: inline-block;"');
 					?>
 				</li>
 				<li>
 					<label for="item-weight">Weight:</label>
 					<input id="item-weight" class="dim-input" name="item_weight" type="text" placeholder="" maxlength="7" value="<?=set_value('reused_percent')?>" style="width: 100px; margin:0.2em; display: inline-block;"  />
 					<?php
-					echo form_dropdown('weight_uom',array('oz'=>'oz','lbs'=>'lbs','gram'=>'gram','kilo'=>'kilo') , 'oz','id="dim-uom" style="width: 50px; margin:0.2em;display: inline-block;"');
+						echo form_dropdown('weight_uom',array('oz'=>'oz','lbs'=>'lbs','gram'=>'gram','kilo'=>'kilo') , 'oz','id="dim-uom" style="width: 50px; margin:0.2em;display: inline-block;"');
 					?>
 				</li>
 				<li>

@@ -4,8 +4,9 @@
 
 $(function(){
 	$("#item-name").alphanumeric({allow:"._-"});
-	$("#item-description").alphanumeric({allow:".,  -_"});
-	$("#item-price .dim-input").numeric({allow:"."});
+	$("#item-description").alphanumeric({allow:".,\"  -_"});
+	$("#item-price, .dim-input").numeric({allow:"."});
+	$("#item-quanity").numeric();
 	$(".taginput").alpha({nocaps:true});
 
 				
@@ -17,8 +18,8 @@ $(function(){
 			  //textStatus contains the status: success, error, etc
 			  //create array for response objects
 				var suggestions = [];
-				//add the typed val
-				suggestions.push({value:$this.val(),id:''})
+				//add the typed val for new tag creation
+				suggestions.push({value:req.term,id:''});
 				//process response
 				$.each(data, function(i, val){								
 					suggestions.push({value:val.material,id:val.id});
@@ -56,11 +57,14 @@ $(function(){
 		close: function (e, ui) { 
 			$(this).val('').focus(); 
 		},
-		change: function(e) {
+		change: function(e,ui) {
 			$this.val("").css("top", 2);
 		},
 		open: function(e,ui){
+			console.log($(".ui-autocomplete li").size());
+
 			$val1= $('ul.ui-autocomplete > li:eq(0)');
+			
 			$val2=$('ul.ui-autocomplete > li:eq(1)');
 			
 			if($val1.text() == $val2.text() && $val2.length >0){
@@ -116,14 +120,12 @@ $(function(){
 		set_tag_val($('#primary-material'),$('#hidden-primary-material'));
 		set_tag_val($('#secondary-material'),$('#hidden-secondary-material'));
 		set_tag_val($('#other-material'),$('#hidden-other-material'));
-		
-		
 	}
+	
 	$('#submit-art-button').button().click(function(e){
-  	prepareForm();
+  		prepareForm();
+  	 	$('#new-item-form').submit();
   	
-  	$('#new-item-form').submit();
-  	
-  	})
+  	});
 			
-});
+});//eof ready
