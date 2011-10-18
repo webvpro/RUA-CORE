@@ -25,30 +25,44 @@ class Editart extends CI_Controller {
 		$data['username']=$this->tank_auth->get_username();
 		if ($this->tank_auth->is_logged_in()) {
 		$data['member_id']=$this->tank_auth->get_user_id();
-		$art= $this->Art_model->get_my_item($this->art_id,$data['member_id']);
-		$data['art']=$art[0];
-		var_dump($data['art']->name);	
-		$data['materials']=$this->material_model->get_materials();
+		$data['art']= $this->Art_model->get_my_item($this->art_id,$data['member_id']);
+		$data['primary-materials']=$this->material_model->get_art_primary_materials($data['art']->id);
+		$data['secondary-materials']=$this->material_model->get_art_secondary_materials($data['art']->id);
+		$data['other-materials']=$this->material_model->get_art_other_materials($data['art']->id);
+		if (! isset($_POST['item_name'])){
+			var_dump($data['art']);
+		  $_POST['item_name'] = $data['art']->name;
+		  $_POST['item_description'] = $data['art']->description;
+		  $_POST['item_reuse_percent'] = $data['art']->reuse_percentage;
+		  setlocale(LC_MONETARY, 'en_US');
+		  $_POST['item_price'] = money_format('',$data['art']->price);
+		  $_POST['gallery'] ='';
+		  $_POST['item_quanity'] ='';
+		  $_POST['item_height'] ='';
+		  $_POST['item_width'] ='';
+		  $_POST['item_depth'] ='';
+		  $_POST['dim_uom'] ='';
+		  $_POST['item_weight'] ='';
+		  $_POST['weight_uom'] ='';
+		  $_POST['primary_material_ids'] ='';
+		  $_POST['secondary_material_ids'] ='';
+		  $_POST['other_material_ids'] ='';
+		}
+
 		$data['categories']= new ArrayObject;
 			foreach($this->Art_model->get_art_categories() as $row)
 				{
 				  $data['categories'][$row->id] = $row->category;
 				}  
-		
 		if(is_null($data['art'])){
 			redirect('/myaccount');
 			
 		}
-			$_REQUEST['item_id']=$data['art'][0]->id;
-			$_REQUEST['item_name']=$data['art'][0]->name;
-			$_REQUEST['item_description']=$data['art'][0]->description;
-			$_REQUEST['item_reuse_percent']=$data['art'][0]->reuse_percentage;
-			$_REQUEST['item_price']=$data['art'][0]->price;
-			
+			var_dump($data['art']->name);	
 			$data['is_logged_in']=TRUE;
 			$this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, no-transform, max-age=0, post-check=0, pre-check=0"); 
 			$this->output->set_header("Pragma: no-cache");
-			echo "<flushhack />";
+			echo "<flushhack></flushhack>";
 			
 		    $data['current_page']="/editart";
 			$data['css']='<link href="/theme/all/css/rua_form.css" type="text/css" rel="stylesheet"></link>';

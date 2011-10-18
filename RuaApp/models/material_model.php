@@ -23,6 +23,26 @@
      	return $query->result();  
                  
      }
+	 
+	 function get_art_primary_materials($id)
+	 {
+	 	$query = $this->db->get_where('art_materials',array('art_id'=>$id,'is_primary'=>1));  
+     	return $query->result();  
+                 
+     }
+	 function get_art_secondary_materials($id)
+	 {
+	 	$query = $this->db->get_where('art_materials',array('art_id'=>$id,'is_secondary'=>1));  
+     	return $query->result();  
+                 
+     }
+	 function get_art_other_materials($id)
+	 {
+	 	$query = $this->db->get_where('art_materials',array('art_id'=>$id,'is_primary'=>0,'is_secondary'=>0));  
+     	return $query->result();  
+                 
+     }
+	 
 	 function get_materials($parms=NULL,$limit=NULL,$offset=NULL)
 	 {
 	 	$this->db->select('*');

@@ -1,7 +1,7 @@
 		
 	ul#my-art-list{
 		list-style: none;
-		width:210px;
+
 		
 	}
 	li.my-list-item{
@@ -17,4 +17,22 @@
 				border-radius: 5px;
 		padding: 4px;
 		margin: 5px;
+	}
+   
+ li.item-highlight{
+ 	background-image: none; background-color: rgb(255, 255, 153);
+ 	cursor: pointer;
+ 	color:#000;
+ }
+img.item-art-thumb{
+	display: inline-block;
+}
+
+ul.art-item-summary{
+		list-style: none;
+		display: inline-block;
+		vertical-align: top;
+		margin: 0.5em;
+
+		
 	}

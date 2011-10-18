@@ -33,7 +33,7 @@ class Sellart extends CI_Controller {
 			$data['css']='<link href="/theme/all/css/rua_form.css" type="text/css" rel="stylesheet"></link><link href="/theme/all/css/editart.css" type="text/css" rel="stylesheet"></link>';
 			$data['src']='<script type="text/javascript" language="javascript" src="/javascript/jquery/alphanumeric/jquery.alphanumeric.pack.js"></script>';
 			$this->load->view('include/header_main',$data);
-			echo "<flushhack />";
+			echo "<flushhack></flushhack>";
 			$this->load->view('include/main_nav',$data);
 		    $this->load->view('sell_art', $data);
 			$this->load->view('include/footer_main',$data);
