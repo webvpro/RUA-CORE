@@ -4,13 +4,13 @@
                     <h2>Editing Item </h2>
                     
                     <div class="line"></div>
-                    
+                     <div id="action-bar" style="text-align: right;"><a id="sell-link" href="/sellart">Add Art</a></div>
                     <div id="create-item-form" title="Edit Art" class="" style= "width:55em; margin: 0 auto;">
                     <div id="form-wrapper">
                     
 	
 
-	
+		<h3>Editing <?=$art->name?></h3>
 		 <?php
 		 echo validation_errors();
 		 $hidden = array('art_id' =>$art->id);
@@ -71,6 +71,9 @@
 				<li>
 					<label for="item-primary-material">Primary Materials:</label>
 					<div id="primary-material" class="tagWrap ui-helper-clearfix">
+						<? foreach ($primary_material_labels as $key) {
+							echo '<span id="'.$key['id'].'">'.$key['label'].'<a class="remove" href="javascript:" title="Remove steel">x</a></span>';
+						} ?>
 					<input id="hidden-primary-material" name="primary_material_ids" type="hidden" value="<?=$_POST['primary_material_ids']?>" />
 					<input id="item-primary-material" class="taginput" name="item_primary_material" type="text" placeholder="" maxlength="200" value=""  />
 					</div>
@@ -78,6 +81,9 @@
 				<li>
 					<label for="item-secondary-material">Secondary Materials:</label>
 					<div id="secondary-material" class="tagWrap ui-helper-clearfix">
+						<? foreach ($secondary_material_labels as $key) {
+							echo '<span id="'.$key['id'].'">'.$key['label'].'<a class="remove" href="javascript:" title="Remove steel">x</a></span>';
+						} ?>
 					<input id="hidden-secondary-material" name="secondary_material_ids" type="hidden" value="<?=$_POST['secondary_material_ids']?>" />
 					<input id="item-secondary-material" class="taginput" name="item_secondary_material" type="text" placeholder="" maxlength="200" value="" />
 					</div>
@@ -85,6 +91,9 @@
 				<li>
 					<label for="item-other-material">Other Materials:</label>
 					<div id="other-material" class="tagWrap ui-helper-clearfix">
+						<? foreach ($other_material_labels as $key) {
+							echo '<span id="'.$key['id'].'">'.$key['label'].'<a class="remove" href="javascript:" title="Remove steel">x</a></span>';
+						} ?>
 						<input id="hidden-other-material" name="other_material_ids" type="hidden" value="<?=$_POST['other_material_ids']?>" />
 					<input id="item-other-material" class="taginput" name="item_other_material" type="text" placeholder="" maxlength="200" value="" />
 					</div>
@@ -96,12 +105,12 @@
 	
 	
 	</form>
-	 <div id="item-photo-wrapper" title="Edit Art" class="" style= "height:100%;width: 10.3em; display: inline-block; vertical-align: top; background-color:#246024; ">
- 	<p>test</p>
+	
  </div>
+ <p style="margin: 1em;"><input id="submit-art-button" type="button" value="Submit" /></p>
  </div>
 
-<p style="margin: 1em;"><input id="submit-art-button" type="button" value="Submit" /></p>
+
 
 </article>
                

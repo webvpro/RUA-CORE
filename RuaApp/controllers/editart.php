@@ -30,9 +30,9 @@ class Editart extends CI_Controller {
 		$data['secondary-materials']=$this->material_model->get_art_secondary_materials($data['art']->id);
 		$data['other-materials']=$this->material_model->get_art_other_materials($data['art']->id);
 		
-		$data['primary-materials-labels']= $this->make_tag_label_array($data['primary-materials']);
-		$data['secondary-materials-labels']= $this->make_tag_label_array($data['secondary-materials']);
-		$data['other-materials-labels']= $this->make_tag_label_array($data['other-materials']);
+		$data['primary_material_labels']= $this->make_tag_label_array($data['primary-materials']);
+		$data['secondary_material_labels']= $this->make_tag_label_array($data['secondary-materials']);
+		$data['other_material_labels']= $this->make_tag_label_array($data['other-materials']);
 		if (! isset($_POST['item_name'])){
 		  $_POST['item_name'] = $data['art']->name;
 		  $_POST['item_description'] = $data['art']->description;
@@ -87,6 +87,7 @@ class Editart extends CI_Controller {
 			{
 			    $rids[] = $tag->tag_id;
 			}
+		    
 		    return implode(',', $rids);
 
 			

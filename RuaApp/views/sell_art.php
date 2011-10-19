@@ -7,7 +7,7 @@
                     
                     <div id="create-item-form" title="Sell My Art" class="" style= "width: 35.3em; margin: 0 auto;">
                     <div id="form-wrapper">
-                    
+                    <h3>Step 1 : Fill Out Form</h3>
 	
 
 	
@@ -94,9 +94,9 @@
 	
 	
 	</form>
-	
+	<p style="margin: 1em;"><button id="submit-art-button" href="#" value="Submit Art" />Submit Art</button></p>
  </div>
-<p style="margin: 1em;"><a id="submit-art-button" href="#" value="Submit Art" />Submit Art</a></p>
+
 
 </article>
                

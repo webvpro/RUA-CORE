@@ -130,9 +130,9 @@ class Sellart extends CI_Controller {
 					{
 						$tag=array('art_id'=>$key['art_id'],'material_id'=>$valAry[$i],'is_'.$key['type']=>1);
 					}
-					
+					$this->material_model->tag_it($tag);
 				}
-				$this->material_model->tag_it($tag);
+				
 			}// eof if key['val']
 		}//eof foreach 
 		return true;

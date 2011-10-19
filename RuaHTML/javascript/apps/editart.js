@@ -8,7 +8,7 @@ $(function(){
 	$("#item-price, .dim-input").numeric({allow:"."});
 	$("#item-quanity").numeric();
 	$(".taginput").alpha({nocaps:true});
-
+	$('#sell-link').button();
 				
 	//attach autocomplete
 	$("#item-primary-material,#item-secondary-material,#item-other-material").autocomplete({
