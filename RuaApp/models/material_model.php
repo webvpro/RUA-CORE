@@ -26,20 +26,36 @@
 	 
 	 function get_art_primary_materials($id)
 	 {
-	 	$query = $this->db->get_where('art_materials',array('art_id'=>$id,'is_primary'=>1));  
-     	return $query->result();  
+	 	
+		$this->db->select('art_materials.id AS am_id, material_tags.id AS tag_id, material_tags.material AS material');
+    	$this->db->from('art_materials');
+    	$this->db->join('material_tags', 'art_materials.material_id = material_tags.id','left');
+		$this->db->where(array('art_materials.art_id'=>$id,'art_materials.is_primary'=>1));
+		$query = $this->db->get();
+		return $query->result();  
                  
      }
 	 function get_art_secondary_materials($id)
 	 {
-	 	$query = $this->db->get_where('art_materials',array('art_id'=>$id,'is_secondary'=>1));  
-     	return $query->result();  
+	 	$this->db->select('art_materials.id AS am_id, material_tags.id AS tag_id, material_tags.material AS material');
+    	$this->db->from('art_materials');
+    	$this->db->join('material_tags', 'art_materials.material_id = material_tags.id','left');
+		$this->db->where(array('art_materials.art_id'=>$id,'art_materials.is_secondary'=>1));
+		
+		$query = $this->db->get();
+	    
+	    return $query->result();  
                  
      }
 	 function get_art_other_materials($id)
 	 {
-	 	$query = $this->db->get_where('art_materials',array('art_id'=>$id,'is_primary'=>0,'is_secondary'=>0));  
-     	return $query->result();  
+	 		
+	 	$this->db->select('art_materials.id AS am_id, material_tags.id AS tag_id, material_tags.material AS material');
+    	$this->db->from('art_materials');
+    	$this->db->join('material_tags', 'art_materials.material_id = material_tags.id','left');
+		$this->db->where(array('art_materials.art_id'=>$id,'art_materials.is_primary'=>0,'art_materials.is_secondary'=>0));
+		$query = $this->db->get();
+	    return $query->result();  
                  
      }
 	 

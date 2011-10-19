@@ -48,8 +48,8 @@
 				<li>
 					<label for="item-dim-h">Size (Height-Width-Depth):</label>
 					<input id="item-dim-h" class="dim-input" name="item_height" type="text" maxlength="4" size="3" value="<?=$_POST['item_height']?>" style="width: 50px; margin:0.2em; display: inline-block;" />
-					<input id="item-dim-w" class="dim-input" name="item_width" type="text" maxlength="4" size="3" value="<?=$_POST['item_height']?>"  style="width: 50px; margin:0.2em; display: inline-block;" />
-					<input id="item-dim-d" class="dim-input" name="item_depth" type="text" maxlength="4" size="3" value="<?=$_POST['item_height']?>"  style="width: 50px; margin:0.2em; display: inline-block;" />
+					<input id="item-dim-w" class="dim-input" name="item_width" type="text" maxlength="4" size="3" value="<?=$_POST['item_width']?>"  style="width: 50px; margin:0.2em; display: inline-block;" />
+					<input id="item-dim-d" class="dim-input" name="item_depth" type="text" maxlength="4" size="3" value="<?=$_POST['item_depth']?>"  style="width: 50px; margin:0.2em; display: inline-block;" />
 					<?php
 						echo form_dropdown('dim_uom',array('inch'=>'inch','ft'=>'ft','cm'=>'cm','m'=>'m') , $_POST['dim_uom'],'id="dim-uom" style="width: 50px; margin:0.2em;display: inline-block;"');
 					?>

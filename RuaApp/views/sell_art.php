@@ -46,8 +46,8 @@
 				<li>
 					<label for="item-dim-h">Size (Height-Width-Depth):</label>
 					<input id="item-dim-h" class="dim-input" name="item_height" type="text" maxlength="4" size="3" value="<?=set_value('item_height')?>" style="width: 50px; margin:0.2em; display: inline-block;" />
-					<input id="item-dim-w" class="dim-input" name="item_width" type="text" maxlength="4" size="3" value="<?=set_value('item_height')?>"  style="width: 50px; margin:0.2em; display: inline-block;" />
-					<input id="item-dim-d" class="dim-input" name="item_depth" type="text" maxlength="4" size="3" value="<?=set_value('item_height')?>"  style="width: 50px; margin:0.2em; display: inline-block;" />
+					<input id="item-dim-w" class="dim-input" name="item_width" type="text" maxlength="4" size="3" value="<?=set_value('item_width')?>"  style="width: 50px; margin:0.2em; display: inline-block;" />
+					<input id="item-dim-d" class="dim-input" name="item_depth" type="text" maxlength="4" size="3" value="<?=set_value('item_depth')?>"  style="width: 50px; margin:0.2em; display: inline-block;" />
 					<?php
 						echo form_dropdown('dim_uom',array('inch'=>'inch','ft'=>'ft','cm'=>'cm','m'=>'m') , 'inch','id="dim-uom" style="width: 50px; margin:0.2em;display: inline-block;"');
 					?>
@@ -96,7 +96,7 @@
 	</form>
 	
  </div>
-<p style="margin: 1em;"><input id="submit-art-button" type="button" value="Submit" /></p>
+<p style="margin: 1em;"><a id="submit-art-button" href="#" value="Submit Art" />Submit Art</a></p>
 
 </article>
                

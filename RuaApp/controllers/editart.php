@@ -7,12 +7,12 @@ class Editart extends CI_Controller {
 			parent::__construct();
 			$this->load->helper(array('form', 'url'));
 			$this->load->library('form_validation');
-		$this->load->library('security');
-		$this->lang->load('tank_auth');
-		$this->load->model('Art_model');
- 		$this->art_id = $this->uri->segment(2, 0);
-		$this->load->model('user_model');
-	    $this->load->model('material_model');
+			$this->load->library('security');
+			$this->lang->load('tank_auth');
+			$this->load->model('Art_model');
+	 		$this->art_id = $this->uri->segment(2, 0);
+			$this->load->model('user_model');
+		    $this->load->model('material_model');
 		
 		
 	}
@@ -29,24 +29,28 @@ class Editart extends CI_Controller {
 		$data['primary-materials']=$this->material_model->get_art_primary_materials($data['art']->id);
 		$data['secondary-materials']=$this->material_model->get_art_secondary_materials($data['art']->id);
 		$data['other-materials']=$this->material_model->get_art_other_materials($data['art']->id);
+		
+		$data['primary-materials-labels']= $this->make_tag_label_array($data['primary-materials']);
+		$data['secondary-materials-labels']= $this->make_tag_label_array($data['secondary-materials']);
+		$data['other-materials-labels']= $this->make_tag_label_array($data['other-materials']);
 		if (! isset($_POST['item_name'])){
-			var_dump($data['art']);
 		  $_POST['item_name'] = $data['art']->name;
 		  $_POST['item_description'] = $data['art']->description;
 		  $_POST['item_reuse_percent'] = $data['art']->reuse_percentage;
 		  setlocale(LC_MONETARY, 'en_US');
-		  $_POST['item_price'] = money_format('',$data['art']->price);
+		  $_POST['item_price'] = sprintf("%01.2f",$data['art']->price);
 		  $_POST['gallery'] ='';
-		  $_POST['item_quanity'] ='';
-		  $_POST['item_height'] ='';
-		  $_POST['item_width'] ='';
-		  $_POST['item_depth'] ='';
-		  $_POST['dim_uom'] ='';
-		  $_POST['item_weight'] ='';
-		  $_POST['weight_uom'] ='';
-		  $_POST['primary_material_ids'] ='';
-		  $_POST['secondary_material_ids'] ='';
-		  $_POST['other_material_ids'] ='';
+		  $_POST['item_quanity'] =$data['art']->quanity;
+		  $_POST['item_height'] =$data['art']->height;
+		  $_POST['item_width'] =$data['art']->width;
+		  $_POST['item_depth'] =$data['art']->depth;
+		  $_POST['dim_uom'] =$data['art']->dim_uom;
+		  $_POST['item_weight'] =$data['art']->weight;
+		  $_POST['weight_uom'] =$data['art']->weight_uom;
+		  $_POST['primary_material_ids'] =$this->make_tag_id_list($data['primary-materials']);
+		  $_POST['secondary_material_ids'] =$this->make_tag_id_list($data['secondary-materials']);
+		  $_POST['other_material_ids']  =$this->make_tag_id_list($data['other-materials']);
+		 
 		}
 
 		$data['categories']= new ArrayObject;
@@ -58,13 +62,11 @@ class Editart extends CI_Controller {
 			redirect('/myaccount');
 			
 		}
-			var_dump($data['art']->name);	
 			$data['is_logged_in']=TRUE;
 			$this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, no-transform, max-age=0, post-check=0, pre-check=0"); 
 			$this->output->set_header("Pragma: no-cache");
 			echo "<flushhack></flushhack>";
-			
-		    $data['current_page']="/editart";
+			$data['current_page']="/editart";
 			$data['css']='<link href="/theme/all/css/rua_form.css" type="text/css" rel="stylesheet"></link>';
 			$data['src']='<script type="text/javascript" language="javascript" src="/javascript/jquery/alphanumeric/jquery.alphanumeric.pack.js"></script>';
 			$this->load->view('include/header_main',$data);
@@ -76,7 +78,35 @@ class Editart extends CI_Controller {
 		}
 	}
 	
-	
+	public function make_tag_id_list($tags=null){
+		$rids = '';
+		
+		if(! is_null($tags)){
+			$rids = array();
+			foreach ($tags as $tag)
+			{
+			    $rids[] = $tag->tag_id;
+			}
+		    return implode(',', $rids);
+
+			
+		}
+		return $rids ;
+		
+	}
+	public function make_tag_label_array($tags=null){
+		$rids = '';
+		
+		if(! is_null($tags)){
+			$rids = array();
+			foreach ($tags as $tag)
+			{
+			    $rids[] = array('id'=>$tag->tag_id,'label'=>$tag->material);
+			}
+		}
+		return $rids ;
+		
+	}
 	
 } 
 

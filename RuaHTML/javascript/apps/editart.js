@@ -11,7 +11,7 @@ $(function(){
 
 				
 	//attach autocomplete
-	$(".tagInput").autocomplete({
+	$("#item-primary-material,#item-secondary-material,#item-other-material").autocomplete({
 		//define callback to format results
 		source: function(req, add){
 			$.post('/getmaterialtags', req, function(data, textStatus) {
@@ -113,7 +113,9 @@ $(function(){
 			}
 			
 		});
+		//alert($rvals.toString(','))
 		$input.val($rvals.toString(','));
+		
 	}
 	
 	function prepareForm(){
@@ -123,9 +125,10 @@ $(function(){
 	}
 	
 	$('#submit-art-button').button().click(function(e){
-  		prepareForm();
-  	 	$('#new-item-form').submit();
-  	
+		$('#new-item-form').submit();
+	})
+  	$('#new-item-form').submit(function(e) {
+  			prepareForm();
   	});
 			
 });//eof ready
