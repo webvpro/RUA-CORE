@@ -102,7 +102,7 @@ $(function(){
 	function set_tag_val($val,$input){
 		$vals= $val.find('span');
 		$rvals=[];
-		$vals.each(function(idx){
+		$vals.each(function(idx){ 
 			if($(this).attr('id')=== undefined){
 				$copy =$(this).clone();
 				$a= $copy.find('a');
@@ -123,12 +123,13 @@ $(function(){
 		set_tag_val($('#secondary-material'),$('#hidden-secondary-material'));
 		set_tag_val($('#other-material'),$('#hidden-other-material'));
 	}
+	$('.change-image').button();
 	
 	$('#submit-art-button').button().click(function(e){
-		$('#new-item-form').submit();
-	})
-  	$('#new-item-form').submit(function(e) {
-  			prepareForm();
-  	});
+		e.preventDefault();
+		prepareForm();
+		$('#enter-item-form').submit();
+	});
+  	
 			
 });//eof ready

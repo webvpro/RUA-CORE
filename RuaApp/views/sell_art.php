@@ -1,19 +1,22 @@
 
 <div class="line"></div>
-                <article id="article1">
-                    <h2>Sell Art for <?=$username?></h2>
-                    
-                    <div class="line"></div>
-                    
-                    <div id="create-item-form" title="Sell My Art" class="" style= "width: 35.3em; margin: 0 auto;">
-                    <div id="form-wrapper">
-                    <h3>Step 1 : Fill Out Form</h3>
-	
-
-	
-		 <?php
-		 echo validation_errors();
-		 echo form_open('sellart/createitem',array('id' => 'new-item-form')); 
+    <article id="article1">
+        <h2>Sell Art for <?=$username?></h2>
+        
+        <div class="line"></div>
+        
+        <div id="create-item-form" title="Sell My Art" class="" style= "width: 35.3em; margin: 0 auto;">
+        <div id="form-wrapper">
+        <h4>Step 1 : Fill Out Form</h4>
+		<?php
+		 if(validation_errors()) { 
+		 		echo '<div class="error-wrapper ui-state-error ui-corner-all" style="padding: 0 .7em;" ><p>
+						<span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+						<strong>Please Fix the Following:</strong></p>';
+		 		echo validation_errors();
+		 		echo '</div>';
+		 }
+		 echo form_open('sellart/createitem',array('id' => 'enter-item-form')); 
 		 ?>
 		<fieldset>
 			<legend>Item details</legend>
@@ -114,6 +117,6 @@
 
 
 	<script src="/javascript/script.js"></script>
-	<script src="/javascript/apps/editart.js"></script>
+	
 
 	

@@ -8,7 +8,6 @@ class Sellart extends CI_Controller {
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
 		$this->load->library('security');
-		$this->lang->load('tank_auth');
 		$this->load->model('Art_model');
 		$this->load->model('material_model');
 			
@@ -19,6 +18,7 @@ class Sellart extends CI_Controller {
 	  // config
 	    $data['is_logged_in']=FALSE;
 		$data['username']=$this->tank_auth->get_username();
+		
 		$data['categories']= new ArrayObject;
 			foreach($this->Art_model->get_art_categories() as $row)
 				{
@@ -31,9 +31,8 @@ class Sellart extends CI_Controller {
 			$this->output->set_header("Pragma: no-cache");
 		    $data['current_page']="/home";
 			$data['css']='<link href="/theme/all/css/rua_form.css" type="text/css" rel="stylesheet"></link><link href="/theme/all/css/editart.css" type="text/css" rel="stylesheet"></link>';
-			$data['src']='<script type="text/javascript" language="javascript" src="/javascript/jquery/alphanumeric/jquery.alphanumeric.pack.js"></script>';
+			$data['src']='<script type="text/javascript" language="javascript" src="/javascript/jquery/alphanumeric/jquery.alphanumeric.pack.js"></script><script src="/javascript/apps/editart.js?v=1"></script>';
 			$this->load->view('include/header_main',$data);
-			echo "<flushhack></flushhack>";
 			$this->load->view('include/main_nav',$data);
 		    $this->load->view('sell_art', $data);
 			$this->load->view('include/footer_main',$data);
@@ -69,9 +68,8 @@ class Sellart extends CI_Controller {
 			$this->output->set_header("Pragma: no-cache");
 		    $data['current_page']="/home";
 			$data['css']='<link href="/theme/all/css/rua_form.css" type="text/css" rel="stylesheet"></link><link href="/theme/all/css/editart.css" type="text/css" rel="stylesheet"></link>';
-			$data['src']='<script type="text/javascript" language="javascript" src="/javascript/jquery/alphanumeric/jquery.alphanumeric.pack.js"></script>';
+			$data['src']='<script type="text/javascript" language="javascript" src="/javascript/jquery/alphanumeric/jquery.alphanumeric.pack.js"></script><script src="/javascript/apps/editart.js"></script>';
 			$this->load->view('include/header_main',$data);
-			echo "<flushhack></flushhack>";
 			$this->load->view('include/main_nav',$data);
 		    $this->load->view('sell_art', $data);
 			$this->load->view('include/footer_main',$data);

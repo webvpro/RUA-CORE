@@ -24,7 +24,7 @@
 #form-wrapper form  fieldset { padding:0; margin:0; position:; border:none; background-color:#eee; }
 #form-wrapper form  legend { visibility:hidden; height:0; }
 #form-wrapper form span { display:block; width:auto; 5px 20px 5px 5px; margin:0 auto; text-indent:8px; background-color:#B6D59A; border-bottom:1px solid #04B404; font:12px Georgia, Serif; color:#fff; }
-.tagwrap { width:274px; padding:3px 3px 0; margin:0.2em; border:1px solid #aaa; background-color:#fff; cursor:text; }
+#form-wrapper div.tagWrap {display:block; width:274px; padding:3px 3px 0 !important; margin:0.2em !important; border:1px solid #aaa !important; background-color:#fff !important; cursor:text!important; }
 #form-wrapper form  .taginput { width:30px; margin:0 0 2px 0; padding:0 0 3px; position:relative; top:0; float:left; border:none; }
 #form-wrapper form  select{ display:block; width:274px; padding:3px; margin:0.2em; border:1px solid #aaa; }
 #form-wrapper form  input, .multitag textarea { display:block; width:274px; padding:3px; margin:0.2em; border:1px solid #aaa; }

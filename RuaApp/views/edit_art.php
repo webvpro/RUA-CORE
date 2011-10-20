@@ -10,12 +10,12 @@
                     
 	
 
-		<h3>Editing <?=$art->name?></h3>
-		 <?php
-		 echo validation_errors();
+		<h4 style="margin: 0.5em">Editing <?=$art->name?></h4>
+		  <?php if(validation_errors() != false) { 
+		 		echo '<div class="error-wrapper">'+validation_errors()+'</div>';
+		 }
 		 $hidden = array('art_id' =>$art->id);
 		 echo form_open('sellart/createitem',array('id' => 'edit-item-form','style'=>'width:auto;'),$hidden); 
-		 
 		 ?>
 		<fieldset>
 			<legend>Item details</legend>
@@ -101,11 +101,31 @@
 				
 			</ul>
 	</fieldset>
-	
-	
-	
 	</form>
-	
+	<div id="art-img-wrapper">
+		<ul id="art-img-list">
+			<li>
+				<img class="item-pic" src="/images/no_image_found.jpg" />
+				<p><button class="change-image" img_id="">Change Image</button></p>
+			</li>
+			<li>
+				<img class="item-pic" src="/images/no_image_found.jpg" />
+				<p><button class="change-image" img_id="">Change Image</button></p>
+			</li>
+			<li>
+				<img class="item-pic" src="/images/no_image_found.jpg" />
+				<p><button class="change-image" img_id="">Change Image</button></p>
+			</li>
+			<li>
+				<img class="item-pic" src="/images/no_image_found.jpg" />
+				<p><button class="change-image" img_id="">Change Image</button></p>
+			</li>
+			<li>
+				<img class="item-pic" src="/images/no_image_found.jpg" />
+				<p><button class="change-image" img_id="">Change Image</button></p>
+			</li>
+		</ul>
+	</div>
  </div>
  <p style="margin: 1em;"><input id="submit-art-button" type="button" value="Submit" /></p>
  </div>
@@ -125,9 +145,28 @@
 		</footer>
 
 	</section> <!-- Closing the #page section -->
-
+<div id="upload-dialog">
+	<div id="fileupload">
+		<?php
+		//echo form_open_multipart('uploadimg',array('id' => 'account-pic-form','class' => '','style' => '')); 
+		 ?>
+		
+					<form id="uploadForm" enctype="multipart/form-data" method="POST" action="uploadimg">
+						<input type="hidden" value="100000" name="MAX_FILE_SIZE" />
+						<input type="hidden" name="img_type" value="profile" />
+						File:
+						<input type="file" name="userfile" />
+						
+						<input type="submit" value="Submit" />
+						</form>
+						<p>
+						<label>Output:</label>
+						</p>
+						<div id="uploadOutput"></div>
+		</div> 
+</div>
 
 	<script src="/javascript/script.js"></script>
-	<script src="/javascript/apps/editart.js"></script>
+	
 
 	

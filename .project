@@ -3,6 +3,7 @@
 	<name>ListHost</name>
 	<comment></comment>
 	<projects>
+		<project>CI_Base</project>
 		<project>JavaScript</project>
 	</projects>
 	<buildSpec>

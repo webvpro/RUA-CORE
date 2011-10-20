@@ -8,7 +8,6 @@ class Myaccount extends CI_Controller {
 			$this->load->helper(array('form', 'url'));
 			$this->load->library('form_validation');
 			$this->load->library('security');
-			$this->lang->load('tank_auth');
 			$this->load->model('user_model');
 			$this->load->model('country_model');
 			//vars configs 

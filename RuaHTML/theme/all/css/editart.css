@@ -1,15 +1,42 @@
-/*
-#primary-material{ background: #ffffff;
-				border: none;
-				-moz-border-radius: 3px;
-				-webkit-border-radius: 3px;
-				-khtml-border-radius: 3px;
-				border-radius: 3px;
-				font: italic 13px Georgia, "Times New Roman", Times, serif;
-				outline: none;
-				padding:3px 3px 0; 
-				margin:0;
-				
-				width: 206px; cursor:text; }
-#item-primary-material{width:30px !important; margin:0 0 2px 0; padding:0 0 3px; position:relative; top:0; border:none; float: left;}
-*/
+
+#art-img-wrapper{
+	display: inline-block;
+	width: 18em;
+	margin: 0 auto;
+	vertical-align: top;
+	border:1px none #666; 
+	-moz-border-radius:10px; 
+	-webkit-border-radius:10px; 
+	border-radius:10px;
+}
+
+#art-img-wrapper ul li {
+	border-color: #e3ebc3;
+	border-color: rgba(255,255,255,.6);
+	border-style: solid;
+	border-width: 2px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+	line-height: 8px;
+	list-style: none;
+	padding: 3px;
+	padding-bottom :1px;
+	text-align:center;
+	display: block;
+	background-color:#D1E0B2;
+	margin-bottom: 2px;
+}
+#art-img-wrapper >li {
+	list-style: none;
+}
+.item-pic{
+	height: 7.5em;
+	width: 7.5em;
+}
+.change-image{
+	font-size: .8em !important;
+	margin: 2px;
+	
+}
