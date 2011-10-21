@@ -22,6 +22,13 @@
 			return  $id;
 		}
 	 
+	 function update_art($data,$id){
+	 		$this->db->where('id', $id);
+			$this->db->update('rua_art_items', $data);
+			
+			return  $id;
+		}
+	 
 	  function get_art($id) {  
                $query = $this->db->get_where('rua_art_items',array('id' => $id));  
      		  	return $query->result();  

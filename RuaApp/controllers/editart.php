@@ -82,7 +82,7 @@ class Editart extends CI_Controller {
 	function updateitem()
 	{
 	  // config
-	  
+	   $this->art_id= $this->input->post('art_id',TRUE);
 	    $data['is_logged_in']=FALSE;
 		$data['username']=$this->tank_auth->get_username();
 		if ($this->tank_auth->is_logged_in()) {
@@ -109,48 +109,31 @@ class Editart extends CI_Controller {
 				$this->load->view('include/header_main',$data);
 				$this->load->view('include/main_nav',$data);
 				$this->load->view('edit_art', $data);
-				$this->load->view('include/footer_main',$data);	 $tagParam= array(array('art_id'=>$art_id,'type'=>'primary','val'=>$this->input->post('primary_material_ids',TRUE))
+				$this->load->view('include/footer_main',$data);	 
+				
+			} else{
+						
+		          $update=array('name'=>$this->input->post('item_name',TRUE)
+						   ,'description'=>$this->input->post('item_description',TRUE)
+						   ,'reuse_percentage'=>$this->input->post('item_reuse_percent',TRUE)
+						   ,'price'=>$this->input->post('item_price',TRUE)
+						   ,'quanity'=>$this->input->post('item_quanity',TRUE)
+						   ,'height'=>$this->input->post('item_height',TRUE)
+						   ,'width'=>$this->input->post('item_width',TRUE)
+						   ,'depth'=>$this->input->post('item_depth',TRUE)
+						   ,'dim_uom'=>$this->input->post('dim_uom',TRUE)
+						   ,'weight'=>$this->input->post('item_weight',TRUE)
+						   ,'weight_uom'=>$this->input->post('weight_uom',TRUE)
+				 );
+				 $art_id= $this->Art_model->update_art($update,$this->art_id);
+				 $this->material_model->wipe_art_materials($art_id);
+				$tagParam= array(array('art_id'=>$art_id,'type'=>'primary','val'=>$this->input->post('primary_material_ids',TRUE))
 							 	 ,array('art_id'=>$art_id,'type'=>'secondary','val'=>$this->input->post('secondary_material_ids',TRUE))
 								 ,array('art_id'=>$art_id,'val'=>$this->input->post('other_material_ids',TRUE)));
 				$this->_perpareTags($tagParam);	
-			} else{
-				
+				redirect('/editart/'.$art_id.'/updated', 'refresh'); 
+			}// eof validation if
 		
-			}
-		
-		
-		$data['primary_material_labels']= $this->make_tag_label_array($data['primary-materials']);
-		$data['secondary_material_labels']= $this->make_tag_label_array($data['secondary-materials']);
-		$data['other_material_labels']= $this->make_tag_label_array($data['other-materials']);
-		
-		  $_POST['item_name'] = $data['art']->name;
-		  $_POST['item_description'] = $data['art']->description;
-		  $_POST['item_reuse_percent'] = $data['art']->reuse_percentage;
-		  setlocale(LC_MONETARY, 'en_US');
-		  $_POST['item_price'] = sprintf("%01.2f",$data['art']->price);
-		  $_POST['gallery'] ='';
-		  $_POST['item_quanity'] =$data['art']->quanity;
-		  $_POST['item_height'] =$data['art']->height;
-		  $_POST['item_width'] =$data['art']->width;
-		  $_POST['item_depth'] =$data['art']->depth;
-		  $_POST['dim_uom'] =$data['art']->dim_uom;
-		  $_POST['item_weight'] =$data['art']->weight;
-		  $_POST['weight_uom'] =$data['art']->weight_uom;
-		  
-		    
-		 
-		
-
-		$data['categories']= new ArrayObject;
-			foreach($this->Art_model->get_art_categories() as $row)
-				{
-				  $data['categories'][$row->id] = $row->category;
-				}  
-		if(is_null($data['art'])){
-			redirect('/myaccount');
-			
-		}
-			
 		} else {
 			redirect('/auth/login');
 		}

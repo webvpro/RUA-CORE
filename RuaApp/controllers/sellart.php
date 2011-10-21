@@ -70,7 +70,7 @@ class Sellart extends CI_Controller {
 			$data['primary_material_labels']= $this->make_raw_label_array($this->input->post('primary_material_ids',TRUE));
 			$data['secondary_material_labels']= $this->make_raw_label_array($this->input->post('secondary_material_ids',TRUE));
 			$data['other_material_labels']= $this->make_raw_label_array($this->input->post('other_material_ids',TRUE));
-			var_dump($data['other_material_labels']);
+			
 			$data['is_logged_in']=TRUE;
 			$this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, no-transform, max-age=0, post-check=0, pre-check=0"); 
 			$this->output->set_header("Pragma: no-cache");
