@@ -7,10 +7,9 @@ class Myart extends CI_Controller {
 			parent::__construct();
 			$this->load->helper(array('form', 'url'));
 			$this->load->library('form_validation');
-		$this->load->library('security');
-		$this->lang->load('tank_auth');
-		$this->load->model('Art_model');
- 		$this->load->model('user_model');
+			$this->load->library('security');
+			$this->load->model('Art_model');
+ 			$this->load->model('user_model');
 		
 		
 	}
@@ -20,11 +19,11 @@ class Myart extends CI_Controller {
 	  // config
 	  
 	    $data['is_logged_in']=FALSE;
-		
+		//var_dump($this->Art_model->get_full_art());
 		if ($this->tank_auth->is_logged_in()) {
 		$data['member_id']=$this->tank_auth->get_user_id();
 		$data['username']=$this->tank_auth->get_username();	
-		$data['art_items']= (object) $this->Art_model->get_member_art($data['member_id']);
+		$data['art_items']= (object) $this->Art_model->get_full_art(array('ai.artist_id'=>$data['member_id']));
 		
 		$data['is_logged_in']=TRUE;
 		$this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, no-transform, max-age=0, post-check=0, pre-check=0"); 

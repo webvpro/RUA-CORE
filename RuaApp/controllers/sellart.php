@@ -24,8 +24,10 @@ class Sellart extends CI_Controller {
 				{
 				  $data['categories'][$row->id] = $row->category;
 				}  
-		if ($this->tank_auth->is_logged_in()) {	
-			$data['materials']=$this->material_model->get_materials();
+		if ($this->tank_auth->is_logged_in()) {
+			$data['primary_material_labels']= '';
+			$data['secondary_material_labels']= '';
+			$data['other_material_labels']= '';		
 			$data['is_logged_in']=TRUE;
 			$this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, no-transform, max-age=0, post-check=0, pre-check=0"); 
 			$this->output->set_header("Pragma: no-cache");
@@ -55,20 +57,26 @@ class Sellart extends CI_Controller {
 			$this->form_validation->set_rules('item_reuse_percent', 'ReUse %', 'required');
 			$this->form_validation->set_rules('item_price', 'Item Price', 'required');
 			$this->form_validation->set_rules('item_quanity', 'Item Quanity', 'required');
+			
 			if ($this->form_validation->run() == FALSE)
 			{
 			$data['categories']= new ArrayObject;
 			foreach($this->Art_model->get_art_categories() as $row)
 				{
 				  $data['categories'][$row->id] = $row->category;
-				}  
-			$data['materials']=$this->material_model->get_materials();
+				}
+			 
+			
+			$data['primary_material_labels']= $this->make_raw_label_array($this->input->post('primary_material_ids',TRUE));
+			$data['secondary_material_labels']= $this->make_raw_label_array($this->input->post('secondary_material_ids',TRUE));
+			$data['other_material_labels']= $this->make_raw_label_array($this->input->post('other_material_ids',TRUE));
+			var_dump($data['other_material_labels']);
 			$data['is_logged_in']=TRUE;
 			$this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, no-transform, max-age=0, post-check=0, pre-check=0"); 
 			$this->output->set_header("Pragma: no-cache");
 		    $data['current_page']="/home";
 			$data['css']='<link href="/theme/all/css/rua_form.css" type="text/css" rel="stylesheet"></link><link href="/theme/all/css/editart.css" type="text/css" rel="stylesheet"></link>';
-			$data['src']='<script type="text/javascript" language="javascript" src="/javascript/jquery/alphanumeric/jquery.alphanumeric.pack.js"></script><script src="/javascript/apps/editart.js"></script>';
+			$data['src']='<script type="text/javascript" language="javascript" src="/javascript/jquery/alphanumeric/jquery.alphanumeric.pack.js"></script><script src="/javascript/apps/editart.js?v=2"></script>';
 			$this->load->view('include/header_main',$data);
 			$this->load->view('include/main_nav',$data);
 		    $this->load->view('sell_art', $data);
@@ -95,14 +103,14 @@ class Sellart extends CI_Controller {
 							 	 ,array('art_id'=>$art_id,'type'=>'secondary','val'=>$this->input->post('secondary_material_ids',TRUE))
 								 ,array('art_id'=>$art_id,'val'=>$this->input->post('other_material_ids',TRUE)));
 				$this->_perpareTags($tagParam);	
-				redirect('/editart/'.$art_id, 'refresh'); 
+				redirect('/editart/'.$art_id.'/added', 'refresh'); 
 				
 			}// eof no error
 		}else{
 			redirect('/auth/login');
 		}// eof if login
 	}// eof add
-	private function _perpareTags($param)
+	private function _perpareTags($param, $save=TRUE)
 	{
 		$valAry[]= null;
 		foreach ($param as $key) {
@@ -112,13 +120,21 @@ class Sellart extends CI_Controller {
 				for($i = 0; $i < count($valAry); $i++){
 					if(! is_numeric($valAry[$i]) && ! isset($key['type']))
 					{
+						if($save){
 						$id=$this->material_model->make_tag(array('material'=>$valAry[$i]));
 						$tag=array('art_id'=>$key['art_id'],'material_id'=>$id);
+						}else{
+							$tag=array('art_id'=>'','material_id'=>$id);
+						}
 					}
 					elseif(! is_numeric($valAry[$i]))
 					{
-						$id=$this->material_model->make_tag(array('material'=>$valAry[$i]));
-						$tag=array('art_id'=>$key['art_id'],'material_id'=>$id,'is_'.$key['type']=>1);
+						if($save){
+							$id=$this->material_model->make_tag(array('material'=>$valAry[$i]));
+							$tag=array('art_id'=>$key['art_id'],'material_id'=>$id,'is_'.$key['type']=>1);
+						}else{
+							$tag=array('art_id'=>'','material_id'=>$id);
+						}
 					}
 					elseif(is_numeric($valAry[$i]) && ! isset($key['type']))
 					{
@@ -135,5 +151,27 @@ class Sellart extends CI_Controller {
 		}//eof foreach 
 		return true;
 	}//eof _prepareTags
+	
+	public function make_raw_label_array($list=null){
+		$rids = array();
+		$items = explode(',', $list);
+		if(! $list == ''){
+			
+			foreach ($items as $tag)
+			{
+			    if(is_numeric($tag)){
+			    	$mtag = $this->material_model->get_materials(array('id'=>$tag));
+					
+			    	$rids[] = array('id'=>$mtag[0]->id,'label'=>$mtag[0]->material);
+			    }else{
+			    	$rids[] = array('id'=>'','label'=>$tag);
+			    }
+			}
+			
+		}
+		
+		return $rids ;
+		
+	}
 } 
 

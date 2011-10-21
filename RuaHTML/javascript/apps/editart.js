@@ -113,7 +113,6 @@ $(function(){
 			}
 			
 		});
-		//alert($rvals.toString(','))
 		$input.val($rvals.toString(','));
 		
 	}

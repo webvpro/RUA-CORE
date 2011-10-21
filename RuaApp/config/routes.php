@@ -38,6 +38,8 @@
 |
 */
 $route['editart/:num'] = "editart";
+$route['editart/updateitem'] = "editart/updateitem";
+$route['editart/:any'] = "editart";
 $route['default_controller'] = "home";
 $route['404_override'] = '';
 //$route['ajax'] = "ajax";

@@ -72,6 +72,21 @@
 				<li>
 					<label for="item-primary-material">Primary Materials:</label>
 					<div id="primary-material" class="tagWrap ui-helper-clearfix">
+					<? 
+					   if(! $primary_material_labels == '')
+					   {
+							foreach ($primary_material_labels as $key) {
+								//echo $key['label'];
+								$new ='';
+								$eid='';
+								if(! is_numeric($key['id'])){
+									$new=' class="new-item" ';
+								} else {
+									$eid=' id="'.$key['id'].'" ';
+								}
+								echo '<span'.$eid.$new.'>'. $key['label'] .'<a class="remove" href="javascript:" title="Remove steel">x</a></span>';
+							} 
+						}?>
 					<input id="hidden-primary-material" name="primary_material_ids" type="hidden" value="<?=set_value('primary_material_ids')?>" />
 					<input id="item-primary-material" class="taginput" name="item_primary_material" type="text" placeholder="" maxlength="200" value=""  />
 					</div>
@@ -79,6 +94,21 @@
 				<li>
 					<label for="item-secondary-material">Secondary Materials:</label>
 					<div id="secondary-material" class="tagWrap ui-helper-clearfix">
+					<? 
+					   if(! $secondary_material_labels == '')
+					   {
+							foreach ($secondary_material_labels as $key) {
+								//echo $key['label'];
+								$new ='';
+								$eid='';
+								if(! is_numeric($key['id'])){
+									$new=' class="new-item" ';
+								} else {
+									$eid=' id="'.$key['id'].'" ';
+								}
+								echo '<span'.$eid.$new.'>'. $key['label'] .'<a class="remove" href="javascript:" title="Remove steel">x</a></span>';
+							} 
+						}?>	
 					<input id="hidden-secondary-material" name="secondary_material_ids" type="hidden" value="<?=set_value('secondary_material_ids')?>" />
 					<input id="item-secondary-material" class="taginput" name="item_secondary_material" type="text" placeholder="" maxlength="200" value="" />
 					</div>
@@ -86,6 +116,21 @@
 				<li>
 					<label for="item-other-material">Other Materials:</label>
 					<div id="other-material" class="tagWrap ui-helper-clearfix">
+						<? 
+					   if(! $other_material_labels == '')
+					   {
+							foreach ($other_material_labels as $key) {
+								//echo $key['label'];
+								$new ='';
+								$eid='';
+								if(! is_numeric($key['id'])){
+									$new=' class="new-item" ';
+								} else {
+									$eid=' id="'.$key['id'].'" ';
+								}
+								echo '<span'.$eid.$new.'>'. $key['label'] .'<a class="remove" href="javascript:" title="Remove steel">x</a></span>';
+							} 
+						}?>	
 						<input id="hidden-other-material" name="other_material_ids" type="hidden" value="<?=set_value('other_material_ids')?>" />
 					<input id="item-other-material" class="taginput" name="item_other_material" type="text" placeholder="" maxlength="200" value="" />
 					</div>
