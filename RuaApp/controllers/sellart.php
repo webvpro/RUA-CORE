@@ -19,11 +19,6 @@ class Sellart extends CI_Controller {
 	    $data['is_logged_in']=FALSE;
 		$data['username']=$this->tank_auth->get_username();
 		
-		$data['categories']= new ArrayObject;
-			foreach($this->Art_model->get_art_categories() as $row)
-				{
-				  $data['categories'][$row->id] = $row->category;
-				}  
 		if ($this->tank_auth->is_logged_in()) {
 			$data['primary_material_labels']= '';
 			$data['secondary_material_labels']= '';
@@ -60,12 +55,7 @@ class Sellart extends CI_Controller {
 			
 			if ($this->form_validation->run() == FALSE)
 			{
-			$data['categories']= new ArrayObject;
-			foreach($this->Art_model->get_art_categories() as $row)
-				{
-				  $data['categories'][$row->id] = $row->category;
-				}
-			 
+			
 			
 			$data['primary_material_labels']= $this->make_raw_label_array($this->input->post('primary_material_ids',TRUE));
 			$data['secondary_material_labels']= $this->make_raw_label_array($this->input->post('secondary_material_ids',TRUE));

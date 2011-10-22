@@ -57,14 +57,9 @@ class Editart extends CI_Controller {
 				$_POST['dim_uom'] =$data['art']->dim_uom;
 				$_POST['item_weight'] =$data['art']->weight;
 				$_POST['weight_uom'] =$data['art']->weight_uom;
-			}
 				
-				$data['categories']= new ArrayObject;
-			foreach($this->Art_model->get_art_categories() as $row)
-			{
-				$data['categories'][$row->id] = $row->category;
-			}  
-		
+			}
+			
 			$data['is_logged_in']=TRUE;
 			$this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, no-transform, max-age=0, post-check=0, pre-check=0"); 
 			$this->output->set_header("Pragma: no-cache");
@@ -82,12 +77,14 @@ class Editart extends CI_Controller {
 	function updateitem()
 	{
 	  // config
+	  $data['status_msg']=FALSE;
 	   $this->art_id= $this->input->post('art_id',TRUE);
 	    $data['is_logged_in']=FALSE;
 		$data['username']=$this->tank_auth->get_username();
 		if ($this->tank_auth->is_logged_in()) {
 		$data['member_id']=$this->tank_auth->get_user_id();
 		$data['art']= $this->Art_model->get_my_item($this->art_id,$data['member_id']);
+		
 		if(is_null($data['art'])){
 			redirect('/myart');
 		}
@@ -100,6 +97,7 @@ class Editart extends CI_Controller {
 				$data['primary_material_labels']= $this->make_raw_label_array($this->input->post('primary_material_ids',TRUE));
 				$data['secondary_material_labels']= $this->make_raw_label_array($this->input->post('secondary_material_ids',TRUE));
 				$data['other_material_labels']= $this->make_raw_label_array($this->input->post('other_material_ids',TRUE));
+				
 				$data['is_logged_in']=TRUE;
 				$this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, no-transform, max-age=0, post-check=0, pre-check=0"); 
 				$this->output->set_header("Pragma: no-cache");
@@ -124,6 +122,7 @@ class Editart extends CI_Controller {
 						   ,'dim_uom'=>$this->input->post('dim_uom',TRUE)
 						   ,'weight'=>$this->input->post('item_weight',TRUE)
 						   ,'weight_uom'=>$this->input->post('weight_uom',TRUE)
+						   
 				 );
 				 $art_id= $this->Art_model->update_art($update,$this->art_id);
 				 $this->material_model->wipe_art_materials($art_id);

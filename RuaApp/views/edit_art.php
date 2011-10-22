@@ -13,7 +13,7 @@
 									echo '<div class="ui-state-highlight ui-corner-all" style="padding:0.5em;width:20em;margin:0 auto; margin-bottom:2px;font-size:1em;">'.$status_msg.'</div>';
 								}
 								if(validation_errors()) { 
-									echo '<div class="error-wrapper ui-corner-all">'+validation_errors()+'</div>';
+									echo '<div class="error-wrapper ui-corner-all">'.validation_errors().'</div>';
 								}
 								$hidden = array('art_id' =>$art->id);
 								echo form_open('editart/updateitem',array('id' => 'enter-item-form','style'=>'width:auto;'),$hidden); 
@@ -63,13 +63,6 @@
 									<input id="item-weight" class="dim-input" name="item_weight" type="text" placeholder="" maxlength="7" value="<?=$_POST['item_weight']?>" style="width: 100px; margin:0.2em; display: inline-block;"  />
 									<?php
 										echo form_dropdown('weight_uom',array('oz'=>'oz','lbs'=>'lbs','gram'=>'gram','kilo'=>'kilo') , $_POST['weight_uom'],'id="dim-uom" style="width: 50px; margin:0.2em;display: inline-block;"');
-									?>
-								</li>
-								<li>
-									<label for="item-price">Gallery:</label>
-									<?php
-										$opts = 'id="categories"';
-										echo form_dropdown('categories',$categories , $_POST['gallery'],$opts);
 									?>
 								</li>
 								<li>

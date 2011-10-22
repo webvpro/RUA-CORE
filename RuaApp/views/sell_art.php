@@ -63,13 +63,6 @@
 					?>
 				</li>
 				<li>
-					<label for="item-price">Gallery:</label>
-					<?php
-						$opts = 'id="categories"';
-						echo form_dropdown('categories', $categories, '10',$opts);
-					?>
-				</li>
-				<li>
 					<label for="item-primary-material">Primary Materials:</label>
 					<div id="primary-material" class="tagWrap ui-helper-clearfix">
 					<? 
