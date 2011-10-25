@@ -36,3 +36,13 @@ ul.art-item-summary{
 
 		
 	}
+	
+#preview{
+	position:absolute;
+	border:1px solid #ccc;
+	background:#333;
+	padding:5px;
+	display:none;
+	color:#fff;
+	z-index: 600;
+	}

@@ -102,24 +102,24 @@
 					<div id="art-img-wrapper">
 						<ul id="art-img-list">
 							<li>
-								<img class="item-pic" src="/images/no_image_found.jpg" />
-								<p><button class="change-image" img_id="">Change Image</button></p>
+								<img id="art_<?=$art->artist_id?>_<?=$art->id?>_1" class="item-pic" src="/images/uploaded/art/art_<?= $art->artist_id ?>_<?= $art->id ?>_1.jpg" />
+								<p><button class="change-image" img_id="art_<?=$art->artist_id?>_<?=$art->id?>_1">Change Image</button></p>
 							</li>
 							<li>
-								<img class="item-pic" src="/images/no_image_found.jpg" />
-								<p><button class="change-image" img_id="">Change Image</button></p>
+								<img id="art_<?=$art->artist_id?>_<?=$art->id?>_2" class="item-pic" src="/images/uploaded/art/art_<?=$art->artist_id?>_<?=$art->id?>_2.jpg" />
+								<p><button class="change-image" img_id="art_<?=$art->artist_id?>_<?=$art->id?>_2">Change Image</button></p>
 							</li>
 							<li>
-								<img class="item-pic" src="/images/no_image_found.jpg" />
-								<p><button class="change-image" img_id="">Change Image</button></p>
+								<img id="art_<?=$art->artist_id?>_<?=$art->id?>_3" class="item-pic" src="/images/uploaded/art/art_<?=$art->artist_id?>_<?=$art->id?>_3.jpg" />
+								<p><button class="change-image" img_id="art_<?=$art->artist_id?>_<?=$art->id?>_3">Change Image</button></p>
 							</li>
 							<li>
-								<img class="item-pic" src="/images/no_image_found.jpg" />
-								<p><button class="change-image" img_id="">Change Image</button></p>
+								<img id="art_<?=$art->artist_id?>_<?=$art->id?>_4" class="item-pic" src="/images/uploaded/art/art_<?=$art->artist_id?>_<?=$art->id?>_4.jpg" />
+								<p><button class="change-image" img_id="art_<?=$art->artist_id?>_<?=$art->id?>_4">Change Image</button></p>
 							</li>
 							<li>
-								<img class="item-pic" src="/images/no_image_found.jpg" />
-								<p><button class="change-image" img_id="">Change Image</button></p>
+								<img id="art_<?=$art->artist_id?>_<?=$art->id?>_5" class="item-pic" src="/images/uploaded/art/art_<?=$art->artist_id?>_<?=$art->id?>_5.jpg" />
+								<p><button class="change-image" img_id="art_<?=$art->artist_id?>_<?=$art->id?>_5">Change Image</button></p>
 							</li>
 						</ul>
 					</div>
@@ -145,17 +145,17 @@
 		//echo form_open_multipart('uploadimg',array('id' => 'account-pic-form','class' => '','style' => '')); 
 		 ?>
 		
-					<form id="uploadForm" enctype="multipart/form-data" method="POST" action="uploadimg">
-						<input type="hidden" value="100000" name="MAX_FILE_SIZE" />
-						<input type="hidden" name="img_type" value="profile" />
-						File:
-						<input type="file" name="userfile" />
+					<form id="uploadForm" enctype="multipart/form-data" method="POST" action="/uploadimg">
+						<input type="hidden" value="262144" name="MAX_FILE_SIZE" />
+						<input id="upload-img-type" type="hidden" name="img_type" value="art" />
+						<input id="upload-img-id" type="hidden" name="img_id" value="" />
+						
+						Choose File:
+						<span id="file-span"><input id="file" type="file" name="userfile" /></span>
 						
 						<input type="submit" value="Submit" />
 						</form>
-						<p>
-						<label>Output:</label>
-						</p>
+						
 						<div id="uploadOutput"></div>
 		</div> 
 </div>

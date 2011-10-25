@@ -1,10 +1,14 @@
 $(function() {  
 'use strict';
  $('#sell-link').button();
- $('img.item-art-thumb').error(function() {
-		 $('.item-art-thumb').attr('src','/images/no_image_found.jpg')
-	});
 	
+	$("img.item-art-thumb").each(function(idx) {
+        $(this).error(function() {
+            $(this).attr('src','/images/no_image_found.jpg');     
+        });
+        $(this).attr("src", $(this).attr("src"));
+  });    
+	imagePreview();
 	$('li.my-list-item').hover(function(e){
 		$(this).addClass('item-highlight');
 	},function(e){

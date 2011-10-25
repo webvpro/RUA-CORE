@@ -8,10 +8,11 @@
          <?php
 		 	foreach ($art_items as $art) {
 				echo '<li class="my-list-item" art_id="'.$art->id.'">
-					    <img class="item-art-thumb" src="/images/uploaded/art/'.$art->id.'_thumb.jpg" /><ul class="art-item-summary"><li>'.$art->name.
+					    <a href="/images/uploaded/art/full/art_'.$art->artist_id.'_'.$art->id.'_1.jpg" class="preview"><img class="item-art-thumb" src="/images/uploaded/art/thumbs/art_'.$art->artist_id.'_'.$art->id.'_1.jpg" /></a><ul class="art-item-summary"><li>'.$art->name.
 					   '</li></ul></li>';
 			}
 		 ?>
 		 		</ul>
 		</article>
+		<script type='text/javascript' src='/javascript/apps/img.preview.js'></script>
 		<script type='text/javascript' src='/javascript/apps/myart.js'></script>

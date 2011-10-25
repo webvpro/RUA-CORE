@@ -2,6 +2,7 @@
  * @author Michael Stanley
  */
 
+
 $(function(){
 	$("#item-name").alphanumeric({allow:"._-"});
 	$("#item-description").alphanumeric({allow:".,\"  -_"});
@@ -9,8 +10,52 @@ $(function(){
 	$("#item-quanity").numeric();
 	$(".taginput").alpha({nocaps:true});
 	$('#sell-link').button();
+	$('.change-image').button().click(function(e){
+		e.preventDefault();
+		$('#upload-img-id').val($(this).attr('img_id'))
+		$("div#upload-dialog").dialog('open');
+	});
+	/*$("img.item-pic").each(function(idx) {
+        $(this).error(function() {
+            $(this).attr('src','/images/no_image_found.jpg');     
+        });
+        $(this).attr("src", $(this).attr("src"));
+  	});   
+	*/
+	//upload
+	
+	$("div#upload-dialog").dialog({ autoOpen: false, width:'600',modal:true,close: function(event, ui) {
+	
+		
+	 var currentTime = new Date();
+	 imgId=$(this).find('#upload-img-id').val();
+	 
+	 $('#'+imgId).attr('src','/images/uploaded/art/'+imgId+'.jpg?='+currentTime.getHours()+currentTime.getMinutes()+currentTime.getSeconds());
+	 var fieldSpan = $('#file-span');
+  		fieldSpan.html(fieldSpan.html());
+  		$('#uploadOutput').html('');	
+	 
+	}});
+     // image upload
+     $('#uploadForm').ajaxForm({iframe:true,
+        beforeSubmit: function(a,f,o) {
+            o.dataType = 'json';
+            $('#uploadOutput').html('Submitting...');
+        },
+        success: function(data) {
+            var $out = $('#uploadOutput');
+            $out.html('Image uploaded');
+           
+        },
+        error: function(data){
+        	alert('error');
+        }
+    });
+	
 				
 	//attach autocomplete
+	
+	
 	$("#item-primary-material,#item-secondary-material,#item-other-material").autocomplete({
 		//define callback to format results
 		source: function(req, add){

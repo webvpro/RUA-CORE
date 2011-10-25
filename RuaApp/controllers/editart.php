@@ -65,7 +65,9 @@ class Editart extends CI_Controller {
 			$this->output->set_header("Pragma: no-cache");
 			$data['current_page']="/editart";
 			$data['css']='<link href="/theme/all/css/rua_form.css" type="text/css" rel="stylesheet"></link><link href="/theme/all/css/editart.css" type="text/css" rel="stylesheet"></link>';
-			$data['src']='<script type="text/javascript" language="javascript" src="/javascript/jquery/alphanumeric/jquery.alphanumeric.pack.js"></script><script src="/javascript/apps/editart.js"></script>';
+			$data['src']='<script src="/javascript/jquery/jqueryform/jquery.form-2.86.js"></script>
+			<script type="text/javascript" language="javascript" src="/javascript/jquery/alphanumeric/jquery.alphanumeric.pack.js"></script>
+			<script src="/javascript/apps/editart.js"></script>';
 			$this->load->view('include/header_main',$data);
 			$this->load->view('include/main_nav',$data);
 		    $this->load->view('edit_art', $data);
@@ -103,7 +105,8 @@ class Editart extends CI_Controller {
 				$this->output->set_header("Pragma: no-cache");
 				$data['current_page']="/editart";
 				$data['css']='<link href="/theme/all/css/rua_form.css" type="text/css" rel="stylesheet"></link><link href="/theme/all/css/editart.css" type="text/css" rel="stylesheet"></link>';
-				$data['src']='<script type="text/javascript" language="javascript" src="/javascript/jquery/alphanumeric/jquery.alphanumeric.pack.js"></script><script src="/javascript/apps/editart.js"></script>';
+				$data['src']='<script src="/javascript/jquery/jqueryform/jquery.form-2.86.js"></script>
+					<script type="text/javascript" language="javascript" src="/javascript/jquery/alphanumeric/jquery.alphanumeric.pack.js"></script><script src="/javascript/apps/editart.js"></script>';
 				$this->load->view('include/header_main',$data);
 				$this->load->view('include/main_nav',$data);
 				$this->load->view('edit_art', $data);

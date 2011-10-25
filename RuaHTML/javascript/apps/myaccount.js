@@ -5,11 +5,11 @@
 
 $(function() {  
 	'use strict';
-var picURL = $('#my-profile-pic').attr('src');
-$("div#upload-dialog").dialog({ autoOpen: false, width:'600',close: function(event, ui) {
-	 var currentTime = new Date();
-     $('#my-profile-pic').attr('src',picURL+currentTime.getHours()+currentTime.getMinutes()+currentTime.getSeconds());	
-}});
+	var picURL = $('#my-profile-pic').attr('src');
+	$("div#upload-dialog").dialog({ autoOpen: false, width:'auto',modal:true,close: function(event, ui) {
+		 var currentTime = new Date();
+	     $('#my-profile-pic').attr('src',picURL+currentTime.getHours()+currentTime.getMinutes()+currentTime.getSeconds());	
+	}});
 
 
      $('#my-profile-pic').error(function() {
@@ -27,19 +27,12 @@ $("div#upload-dialog").dialog({ autoOpen: false, width:'600',close: function(eve
             if (typeof data == 'object' && data.nodeType)
                 data = elementToString(data.documentElement, true);
             else if (typeof data == 'object')
-            
-                data = objToString(data);
+            	data = objToString(data);
             $out.append('<div><pre>'+ data +'</pre></div>');
         }
     });
     
-    //hepler
-    function objToString(o) {
-        var s = '{\n';
-        for (var p in o)
-            s += '    "' + p + '": "' + o[p] + '"\n';
-        return s + '}';
-    }
+    
     
     //form ajax
      $('#change-account-form').ajaxForm({ 
