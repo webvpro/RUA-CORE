@@ -32,5 +32,10 @@ this.imagePreview = function(){
 			.css("top",(e.pageY - xOffset) + "px")
 			.css("left",(e.pageX + yOffset) + "px");
 			
-	});			
+	});
+	$("a.preview").click(function(e){
+		e.preventDefault();
+		$(this).parent().click();
+			
+	})			
 };

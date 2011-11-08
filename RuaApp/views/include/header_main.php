@@ -27,6 +27,13 @@
 		</style>
 
 	<![endif]-->
+	<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
 	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
 	<script type='text/javascript' src='/javascript/webforms2-0.5.4/webforms2-p.js'></script>

@@ -9,18 +9,31 @@ $(document).ready(function(){
 		e.preventDefault();
 	});
 	
-	$('#left-nav-slide-in li').stop().animate({'marginLeft':'-100px'},1000);
+	$('#static-left-menu ul li').stop().animate({'marginLeft':'-100px'},1000);
 
-    $('ul#left-nav-slide-in > a').hover(
-        function () {
-            $('a',$(this)).stop().animate({'marginLeft':'-2px'},200);
+    $('#static-left-menu ul li').hover(
+       function (e) {
+           $(this).stop().animate({'marginLeft':'0px'},160);
+           
         },
-        function () {
-            $('a',$(this)).stop().animate({'marginLeft':'-100px'},200);
+        function (e) {
+        	$(this).stop().animate({'marginLeft':'-100px'},160);
         }
     );
                 
-  //hepler
-    
- 
+  $(".search-trigger").click(function(){
+		$("#search-form-panel").toggle("fast");
+		$(this).toggleClass("active");
+		return false;
+	});
+   $( "#slider-percent-range" ).slider({
+			range: true,
+			min: 0,
+			max: 100,
+			values: [ 0, 100 ],
+			slide: function( event, ui ) {
+				$( "#find-resuse-percent-range" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+			}
+		});
+		$( "#find-resuse-percent-range" ).val( $( "#slider-percent-range" ).slider( "values", 0 ) +	" - " + $( "#slider-percent-range" ).slider( "values", 1 ) );
 });

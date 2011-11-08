@@ -1,0 +1,62 @@
+
+
+#search-form-panel{
+	position: fixed;
+	top: 50px;
+	left: 0;
+	display: none;
+	background: #000000;
+	border:1px solid #111111;
+	-moz-border-radius-topright: 20px;
+	-webkit-border-top-right-radius: 20px;
+	-moz-border-radius-bottomright: 20px;
+	-webkit-border-bottom-right-radius: 20px;
+	width: 20em;
+	height: auto;
+	padding: 30px 30px 30px 130px;
+	filter: alpha(opacity=85);
+	opacity: .85;
+}
+
+#search-form-panel h2{
+	color: #fff;
+	margin-left:-3em;
+}
+
+#art-search label{
+	display: block;
+}
+#art-search input{
+	display: block;
+	margin-bottom: 1em;
+}
+li.search-trigger:hover{
+/*
+position: fixed;
+text-decoration: none;
+top: 80px; left: 0;
+font-size: 16px;
+letter-spacing:-1px;
+font-family: verdana, helvetica, arial, sans-serif;
+color:#fff;
+padding: 20px 40px 20px 20px;
+font-weight: 700;
+background:#222222 url(images/plus.png) 85% 55% no-repeat;
+border:1px solid #444444;
+-moz-border-radius-topright: 20px;
+-webkit-border-top-right-radius: 20px;
+-moz-border-radius-bottomright: 20px;
+-webkit-border-bottom-right-radius: 20px;
+-moz-border-radius-bottomleft: 0px;
+-webkit-border-bottom-left-radius: 0px;
+display: block;*/
+}
+
+li.active.search-trigger {
+background:#222222 url(images/minus.png) 85% 55% no-repeat;
+}
+
+
+.ui-picker{
+	margin-bottom:1em;
+}
