@@ -94,3 +94,12 @@
 						<div id="uploadOutput"></div>
 		</div> 
 </div>
+<script src="/javascript/script.js"></script>
+		<script>
+			$(function() {
+				$("a#sell-my-art").click(function(e){
+					location.href=$('#'+e.target.id).attr('href');
+					//alert('xx')
+				});
+			});
+		</script>

@@ -16,10 +16,20 @@
 		<input id="find-keywords" name="search_keywords" value=""/>
 		<label for="find-artist">Artist:</label>
 		<input id="find-artist" name="search_artist" value=""/>
+		<fieldset>
+			<legend>Location</legend>
+			<label for="find-country">Country:</label>
+			<input id="find-country" name="search_country" value=""/>
+			<label for="find-state">State/Province:</label>
+			<input id="find-state" name="search_state" value=""/>
+			<label for="find-poatal-code">Zip/Postal Code:</label>
+			<input id="find-postal-code" name="search_postal_code" value=""/>
+		</fieldset>
 		<input type="submit" value="Search" />
 	</form>
 </div>
-<script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'02dffc56-bc66-4747-b83b-00eb047b76b9'});</script>
+<script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'02dffc56-bc66-4747-b83b-00eb047b76b9',onhover: false
+});</script>
 </body>
 
 </html>

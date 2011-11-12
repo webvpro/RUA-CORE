@@ -16,3 +16,12 @@
 		</article>
 		<script type='text/javascript' src='/javascript/apps/img.preview.js'></script>
 		<script type='text/javascript' src='/javascript/apps/myart.js'></script>
+		<script src="/javascript/script.js"></script>
+		<script>
+			$(function() {
+				$("a#sell-my-art").click(function(e){
+					location.href=$('#'+e.target.id).attr('href');
+					//alert('xx')
+				});
+			});
+		</script>

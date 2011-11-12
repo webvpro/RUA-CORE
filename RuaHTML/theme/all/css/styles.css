@@ -139,43 +139,14 @@ footer .line{
 	visibility: hidden;
 }
 
-/* The navigation styling: */
-/*
-nav ul li{
-	display:inline;
-	position:relative;
-}
 
-nav ul li a,
-nav ul li a:visited{
-	color:#565656;
-	display:block;
-	float:left;
-	font-size:1.25em;
-	font-weight:bold;
-	margin:5px 2px;
-	padding:7px 10px 4px;
-	text-shadow:0 1px 1px white;
-	text-transform:uppercase;
-	display:block;
-	
-}
-
-nav ul li a:hover{
-	text-decoration:underline;
-	background-color:#f0f0f0;
-}
-nav ul li a.drop:hover{
-	text-decoration:none;
-	background-color:#f0f0f0;
-	display:block;
-}*/
 nav, article, nav ul li a,figure{
 	/* Applying CSS3 rounded corners: */
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;
 	border-radius:10px;
 	display:block;
+	 
 }
 
 

@@ -17,13 +17,17 @@ $(document).ready(function(){
            
         },
         function (e) {
-        	$(this).stop().animate({'marginLeft':'-100px'},160);
+        	if(!$(this).hasClass('open')){
+        		$(this).stop().animate({'marginLeft':'-100px'},160);
+        	}
+        	return;
         }
     );
                 
   $(".search-trigger").click(function(){
 		$("#search-form-panel").toggle("fast");
-		$(this).toggleClass("active");
+		$(this).toggleClass("open");
+		$(this).siblings().toggle("fast")
 		return false;
 	});
    $( "#slider-percent-range" ).slider({
