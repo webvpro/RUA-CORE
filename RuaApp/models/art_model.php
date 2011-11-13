@@ -52,7 +52,35 @@
  			  (SELECT mem.username FROM users mem WHERE mem.id = ai.artist_id) as artist", FALSE);
     		$this->db->from('rua_art_items ai',FALSE);
 			if (!is_null($params)){
-            	$this->db->where($params,FALSE);
+				if(isset($params['search_type'])){
+					
+					switch ($params['search_type']) {
+						case 'quick':
+							
+							if(isset($params['search_material_ids'])){
+								$this->db->where_in('am.material_id',$this->input->post('search_material_ids',TRUE));
+							}
+							if(isset($params['search_keyword_ids'])){
+								$this->db->where_in('ak.keyword_id',$this->input->post('search_keyword_ids',TRUE));
+							}
+							if(isset($params['price_range_low'])){
+								$priceRange = "ai.price BETWEEN ".$params['price_range_low']." AND ".$params['price_range_high'];
+								$this->db->where($priceRange, NULL, FALSE);  
+							}
+							
+							if(isset($params['resued_percent_range_low'])){
+								$percentRange = "ai.reuse_percentage BETWEEN ".$params['resued_percent_range_low']." AND ".$params['resued_percent_range_high'];
+								$this->db->where($percentRange, NULL, FALSE);
+							}
+							break;
+						
+						default:
+							$this->db->where($params,FALSE);
+							break;
+					}
+				} else {
+            		$this->db->where($params,FALSE);
+				}
 			}
 				if(!is_null($limit))
 			 	{
@@ -63,7 +91,9 @@
 				{
 					$this->db->offset($offset);
 				}
-	  			 $query = $this->db->get(); 
+	  			
+				 $query = $this->db->get(); 
+				//var_dump($this->db->last_query());
      		  	return $query->result();  
                  
            }  
@@ -83,6 +113,15 @@
            } 
 	  function get_member_art($id) {  
                $query = $this->db->get_where('rua_art_items',array('artist_id' => $id));  
+     		  	return $query->result();  
+                 
+           } 
+	  function get_material_art($id_list=NULL) {  
+               $this->db->select('*');
+				$this->db->from('art_materials');
+				$this->db->where_in('material_id',$id_list); 
+				$this->db->where('is_primary',1);
+                $query = $this->db->get();
      		  	return $query->result();  
                  
            } 

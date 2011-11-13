@@ -12,10 +12,12 @@
 	-moz-border-radius-bottomright: 20px;
 	-webkit-border-bottom-right-radius: 20px;
 	width: 20em;
-	height: auto;
+	height: 80%;
 	padding: 30px 30px 30px 130px;
-	
+	opacity: 0.95;
 	z-index: 100;
+	overflow-x: none;
+	overflow-y: auto;
 }
 
 #search-form-panel h2{
@@ -31,10 +33,27 @@
 	margin-bottom: 1em;
 }
 
+#search-form-panel fieldset{
+	
+		border: 2px;
+		border-style:solid;
+	    padding: 4px;
+	
+}
 
-
-
+#search-form-panel legend{
+ padding:3px;
+}
 
 .ui-picker{
 	margin-bottom:1em;
+	width: 65%;
 }
+#search-form-panel form span { display:block; width:auto; 5px 20px 5px 5px; margin:0 auto; text-indent:8px; background-color:#B6D59A; border-bottom:1px solid #04B404; font:12px Georgia, Serif; color:#fff; }
+#search-form-panel div.tagWrap {display:block; width:200px; padding:3px 3px 0 !important; margin:0.2em !important; border:1px solid #fff !important; background-color:#fff !important; cursor:text!important; }
+#search-form-panel form  .taginput { width:30px; margin:0 0 2px 0; padding:0 0 3px; position:relative; top:0; float:left; border:none; }
+.tagWrap span { display:block; width:auto; margin:0 3px 3px 0; padding:3px; padding-right:22px; position:relative; float:left; text-indent:0; background-color:#B6D59A; border:2px solid #04B404; -moz-border-radius:7px; -webkit-border-radius:7px; border-radius:7px; color:#04B404; font:normal 11px Verdana, Sans-serif; }
+.tagWrap span a { position:absolute; right:8px; top:2px; color:#04B404; font:bold 12px Verdana, Sans-serif; text-decoration:none; }
+
+.tagWrap span a:hover { color:#ff0000; }
+

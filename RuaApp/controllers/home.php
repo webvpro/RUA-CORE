@@ -11,7 +11,7 @@ class Home extends CI_Controller {
 	{
 	  // config
 	$this->config->load('JavaScriptPaths');
-   	$this->load->helper('url');
+   	$this->load->helper(array('form', 'url'));
 	$this->load->model('user_model');
 	
 	//vars configs 

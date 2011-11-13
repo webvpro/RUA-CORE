@@ -24,20 +24,4 @@ $(document).ready(function(){
         }
     );
                 
-  $(".search-trigger").click(function(){
-		$("#search-form-panel").toggle("fast");
-		$(this).toggleClass("open");
-		$(this).siblings().toggle("fast")
-		return false;
-	});
-   $( "#slider-percent-range" ).slider({
-			range: true,
-			min: 0,
-			max: 100,
-			values: [ 0, 100 ],
-			slide: function( event, ui ) {
-				$( "#find-resuse-percent-range" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
-			}
-		});
-		$( "#find-resuse-percent-range" ).val( $( "#slider-percent-range" ).slider( "values", 0 ) +	" - " + $( "#slider-percent-range" ).slider( "values", 1 ) );
-});
+ });
