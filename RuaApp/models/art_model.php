@@ -63,12 +63,7 @@
 					switch ($params['search_type']) {
 						case 'quick':
 							
-							if(isset($params['primary_materials']) && $params['primary_materials'] !=''){
-								$this->db->where('ai.id IN (SELECT art_id FROM art_materials WHERE material_id IN('.$params['primary_materials'].'))', NULL, FALSE);
-							}
-							if(isset($params['search_keyword_ids'])){
-								$this->db->where_in('ak.keyword_id',$this->input->post('search_keyword_ids',TRUE));
-							}
+							
 							if(isset($params['price_range_low'])){
 								$priceRange = "ai.price BETWEEN ".$params['price_range_low']." AND ".$params['price_range_high'];
 								$this->db->where($priceRange, NULL, FALSE);  
@@ -77,6 +72,12 @@
 							if(isset($params['resued_percent_range_low'])){
 								$percentRange = "ai.reuse_percentage BETWEEN ".$params['resued_percent_range_low']." AND ".$params['resued_percent_range_high'];
 								$this->db->where($percentRange, NULL, FALSE);
+							}
+							if(isset($params['primary_materials']) && $params['primary_materials'] !=''){
+								$this->db->where('ai.id IN (SELECT art_id FROM art_materials WHERE material_id IN('.$params['primary_materials'].'))', NULL, FALSE);
+							}
+							if(isset($params['search_keyword_ids'])){
+								$this->db->where_in('ak.keyword_id',$this->input->post('search_keyword_ids',TRUE));
 							}
 							break;
 						
