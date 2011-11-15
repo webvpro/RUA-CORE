@@ -37,7 +37,7 @@
 				<input type="text" id="find-state" name="search_state" value="<?=set_value('search_state')?>"/>
 			</div>
 		</fieldset>
-		<input type="submit" value="Search" />
+		<input id="submit-search" type="submit" value="Search" />
 	</form>
 </div>
 <script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'02dffc56-bc66-4747-b83b-00eb047b76b9',onhover: false

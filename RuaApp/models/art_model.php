@@ -9,6 +9,10 @@
       public $date    = '';
 	  public $auth_type ='';
 	  public $member_name='';
+	  public $subPrimary='';
+	  public $subSecondary='';
+	  public $subOther='';
+	  public $subKeyword='';
 	  
      function __construct()
     {
@@ -37,6 +41,8 @@
 	  function get_full_art($params=NULL,$offset=NULL,$limit=NULL) {
 	  	
 		// params must be in ai.id like format
+		//check for subs
+		
 	  	  $this->db->select("ai.*, (SELECT GROUP_CONCAT(am.material_id,':',mt.material) 
 			  FROM art_materials am RIGHT JOIN material_tags mt
 			  ON am.material_id = mt.id
@@ -57,8 +63,8 @@
 					switch ($params['search_type']) {
 						case 'quick':
 							
-							if(isset($params['search_material_ids'])){
-								$this->db->where_in('am.material_id',$this->input->post('search_material_ids',TRUE));
+							if(isset($params['primary_materials']) && $params['primary_materials'] !=''){
+								$this->db->where('ai.id IN (SELECT art_id FROM art_materials WHERE material_id IN('.$params['primary_materials'].'))', NULL, FALSE);
 							}
 							if(isset($params['search_keyword_ids'])){
 								$this->db->where_in('ak.keyword_id',$this->input->post('search_keyword_ids',TRUE));
@@ -93,7 +99,7 @@
 				}
 	  			
 				 $query = $this->db->get(); 
-				//var_dump($this->db->last_query());
+				var_dump($this->db->last_query());
      		  	return $query->result();  
                  
            }  
@@ -116,15 +122,7 @@
      		  	return $query->result();  
                  
            } 
-	  function get_material_art($id_list=NULL) {  
-               $this->db->select('*');
-				$this->db->from('art_materials');
-				$this->db->where_in('material_id',$id_list); 
-				$this->db->where('is_primary',1);
-                $query = $this->db->get();
-     		  	return $query->result();  
-                 
-           } 
+	  
          
    }  
 

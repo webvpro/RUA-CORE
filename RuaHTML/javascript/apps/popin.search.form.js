@@ -22,6 +22,13 @@ $(window).load(function(){
 		}
 		
 	});
+	
+	$('#submit-search').click(function(e){
+		e.preventDefault();
+		set_tag_val($('#find-primary-material'),$('#find-hidden-primary-material'));
+		$('#art-search').submit();
+		
+	});
 	$(".tagWrap").click(function(e){
 		$this = $(e.target)
 		//focus 'to' field
