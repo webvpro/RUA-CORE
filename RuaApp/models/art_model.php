@@ -100,7 +100,7 @@
 				}
 	  			
 				 $query = $this->db->get(); 
-				var_dump($this->db->last_query());
+				//var_dump($this->db->last_query());
      		  	return $query->result();  
                  
            }  

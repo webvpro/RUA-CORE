@@ -11,16 +11,14 @@
 		 		$mstr='';
 				foreach ($m_items as $mat) {
 					$ma=explode(":", $mat);
-					//$mstr.='<span mid="'.$ma[1].'" class="matTag">'.$ma[1].'</span>';
+					$mstr=$mstr.'<span mid="'.$ma[1].'" class="matTag">'.$ma[1].'</span>';
 				}
 				echo '<li class="list-item" art_id="'.$art->id.'">
 					    <a href="/images/uploaded/art/full/art_'.$art->artist_id.'_'.$art->id.'_1.jpg" class="preview"><img class="item-art-thumb" src="/images/uploaded/art/thumbs/art_'.$art->artist_id.'_'.$art->id.'_1.jpg" /></a>
 					    <ul class="art-item-summary"><li>'.$art->name.'</li>
 					    <li>Price: '.$art->price.'</li>
 					    <li>Reuse %: '.$art->reuse_percentage.'</li>
-					     <li>Primary Materials:'.$art->primary_materials.'</li>
-					     
-					    </ul></li>';
+					     <li>Primary Materials:'.$mstr.'</li></ul></li>';
 			}
 		 ?>
 		 		</ul>
